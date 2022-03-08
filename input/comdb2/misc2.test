@@ -1,0 +1,13 @@
+    CREATE TABLE FOO(bar integer);
+    INSERT INTO foo(bar) VALUES (1);
+    INSERT INTO foo(bar) VALUES (111);
+    CREATE VIEW v1 AS SELECT * FROM t1, t2;
+    CREATE VIEW y AS       SELECT x1.b AS p, x2.b AS q FROM x AS x1, x AS x2 WHERE x1.a=x2.a;
+    CREATE VIEW z AS      SELECT y1.p, y2.p FROM y AS y1, y AS y2 WHERE y1.q=y2.q;
+      BEGIN;
+      CREATE TABLE counts(n INTEGER PRIMARY KEY);
+      INSERT INTO counts VALUES(0);
+      INSERT INTO counts VALUES(1);
+      INSERT INTO counts SELECT n+2 FROM counts;
+      INSERT INTO counts SELECT n+4 FROM counts;
+      INSERT INTO counts SELECT n+8 FROM counts;

@@ -1,0 +1,5 @@
+# Tests for sys schema # Verify the sys.session view  # Ensure structure changes don't slip in DESC sys.session;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.session;
+   # Ensure structure changes don't slip in DESC sys.x$session;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$session;
+  

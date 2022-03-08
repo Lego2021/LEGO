@@ -1,0 +1,14 @@
+    SELECT name FROM sqlite_master;
+    SELECT name FROM sqlite_master;
+    BEGIN;
+    CREATE TABLE t1(a,b);
+    INSERT INTO t1 SELECT a+1, randstr(300,400) FROM t1;
+    INSERT INTO t1 SELECT a+2, a || '-' || b FROM t1;
+    INSERT INTO t1 SELECT a+4, a || '-' || b FROM t1;
+    INSERT INTO t1 SELECT a+8, a || '-' || b FROM t1;
+    INSERT INTO t1 SELECT a+16, a || '-' || b FROM t1;
+    INSERT INTO t1 SELECT a+32, a || '-' || b FROM t1;
+        BEGIN;
+        SELECT name FROM sqlite_temp_master;
+        INSERT INTO t2 SELECT * FROM t1;
+SELECT name FROM sqlite_temp_master;

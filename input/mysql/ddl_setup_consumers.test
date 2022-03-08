@@ -1,0 +1,5 @@
+# Tests for PERFORMANCE_SCHEMA   alter table performance_schema.setup_consumers add column foo integer;
+  truncate table performance_schema.setup_consumers;
+  ALTER TABLE performance_schema.setup_consumers ADD INDEX test_index(NAME);
+  CREATE UNIQUE INDEX test_index ON performance_schema.setup_consumers(NAME);
+  

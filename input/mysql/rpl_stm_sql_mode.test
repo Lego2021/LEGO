@@ -1,0 +1,5 @@
+ # # Bug #51055    Replication failure on duplicate key + traditional SQL mode #  CREATE TABLE t1 (pk integer auto_increment , primary key (pk));
+  SET SESSION SQL_MODE='traditional';
+  INSERT INTO t1 (`pk`) VALUES (1), (1);
+  DROP TABLE t1;
+  

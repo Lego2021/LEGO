@@ -1,0 +1,2 @@
+ # # MDEV-3837 Assertion `table->read_set == &table->def_read_set' failed on updating a performance_schema table # UPDATE performance_schema.setup_instruments SET timed = 'YES' ORDER BY name;
+  

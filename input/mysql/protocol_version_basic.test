@@ -1,0 +1,9 @@
+# # only global # select @@global.protocol_version;
+ select @@session.protocol_version;
+ show global variables like 'protocol_version';
+ show session variables like 'protocol_version';
+ select * from information_schema.global_variables where variable_name='protocol_version';
+ select * from information_schema.session_variables where variable_name='protocol_version';
+  # # show that it's read-only # set global protocol_version=1;
+ set session protocol_version=1;
+ 

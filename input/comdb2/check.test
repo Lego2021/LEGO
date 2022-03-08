@@ -1,0 +1,10 @@
+    DROP TABLE IF EXISTS t2b;
+    DROP TABLE IF EXISTS t2c;
+    DROP TABLE IF EXISTS t2n;
+    SELECT name FROM sqlite_master ORDER BY name;
+    SELECT name FROM sqlite_master ORDER BY name;
+    SELECT name FROM sqlite_master ORDER BY name;
+    BEGIN;
+    INSERT INTO t1 VALUES(1,30.0);
+    INSERT OR ROLLBACK INTO t1 VALUES(8,40.0);
+  CREATE VIEW v1(y) AS SELECT x FROM t1;

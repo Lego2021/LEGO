@@ -1,0 +1,10 @@
+# # show the global and session values;
+ # select @@global.character_sets_dir;
+ select @@session.character_sets_dir;
+ show global variables like 'character_sets_dir';
+ show session variables like 'character_sets_dir';
+ select * from information_schema.global_variables where variable_name='character_sets_dir';
+ select * from information_schema.session_variables where variable_name='character_sets_dir';
+  # # show that it's read-only # set global character_sets_dir="foo";
+ set session character_sets_dir="foo";
+  

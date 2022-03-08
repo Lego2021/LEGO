@@ -1,0 +1,11 @@
+# Tests for PERFORMANCE_SCHEMA   alter table performance_schema.setup_actors add column foo integer;
+  drop table if exists test.setup_actors;
+  create table test.setup_actors as select * from performance_schema.setup_actors;
+  truncate table performance_schema.setup_actors;
+  select count(*) from performance_schema.setup_actors;
+  insert into performance_schema.setup_actors select * from test.setup_actors;
+ drop table test.setup_actors;
+  ALTER TABLE performance_schema.setup_actors ADD INDEX test_index(HOST);
+  CREATE UNIQUE INDEX test_index ON performance_schema.setup_actors(HOST);
+  ALTER TABLE performance_schema.setup_actors ADD KEY ENA(ENABLED);
+ 

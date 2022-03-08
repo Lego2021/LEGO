@@ -1,0 +1,3 @@
+  SELECT abs(-17.4);
+   SELECT round(42.4);
+   SELECT round(42.4382,2);

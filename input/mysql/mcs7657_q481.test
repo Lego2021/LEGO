@@ -1,0 +1,3 @@
+# # Test case migrated from regression test suite: # ./mysql/queries/nightly/alltest/test102/q4.8.1.sql # # Author: Susil, susil.behera@mariadb.com #   USE tpch1;
+  Select count(*) from lineitem where l_orderkey < 1000000;
+ 

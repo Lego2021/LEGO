@@ -1,0 +1,2 @@
+  BEGIN;
+  CREATE VIRTUAL TABLE t3 USING fts3(c);

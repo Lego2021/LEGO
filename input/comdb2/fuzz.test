@@ -1,0 +1,15 @@
+    SELECT 'abc' LIKE X'ABCD';
+    SELECT 'abc' LIKE zeroblob(10);
+    SELECT zeroblob(10) LIKE 'abc';
+    SELECT (- -21) % NOT (456 LIKE zeroblob(10));
+    SELECT (SELECT (        SELECT (SELECT -2147483648) FROM (SELECT 1) ORDER BY 1    ));
+    SELECT 'abc', zeroblob(1) FROM (SELECT 1) ORDER BY 1;
+SELECT 'abc', zeroblob(1);
+    SELECT ( SELECT zeroblob(1000) FROM (       SELECT * FROM (SELECT 'first') ORDER BY NOT 'in')     );
+SELECT zeroblob(1000);
+    SELECT CAST(zeroblob(1000) AS text);
+    SELECT 1 FROM (SELECT * FROM sqlite_master WHERE random());
+    SELECT coalesce(1, substr( 1, 2, length('in' IN (SELECT 1))));
+    SELECT 'A' FROM (SELECT 'B') ORDER BY EXISTS (      SELECT 'C' FROM (SELECT 'D' LIMIT 0)    );
+    SELECT 'abcd' UNION SELECT 'efgh' ORDER BY 1 ASC, 1 ASC;
+    SELECT hex(CAST(zeroblob(1000) AS integer));

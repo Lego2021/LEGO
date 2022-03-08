@@ -1,0 +1,8 @@
+# # Simple test for the operation on the wsrep-mysql-replication-bundle #    CREATE TABLE t1 (f1 INT PRIMARY KEY) Engine=InnoDB;
+  SET GLOBAL wsrep_mysql_replication_bundle = 2;
+  # This statement will not be replicated immediately INSERT INTO t1 VALUES (1);
+  SELECT COUNT(*) = 0 FROM t1;
+  INSERT INTO t1 VALUES (2);
+  SELECT COUNT(*) = 2 FROM t1;
+   DROP TABLE t1;
+ 

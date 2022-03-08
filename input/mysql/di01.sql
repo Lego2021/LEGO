@@ -1,0 +1,2 @@
+drop index foo.bar;
+ 

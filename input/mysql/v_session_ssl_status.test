@@ -1,0 +1,3 @@
+# Tests for sys schema # Verify the sys.session_ssl_status view  # Ensure structure changes don't slip in DESC sys.session_ssl_status;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.session_ssl_status;
+ 

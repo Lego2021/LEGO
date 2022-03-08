@@ -1,0 +1,10 @@
+# enum readonly  # # show the global and session values;
+ # select @@global.plugin_maturity;
+ select @@session.plugin_maturity;
+ show global variables like 'plugin_maturity';
+ show session variables like 'plugin_maturity';
+ select * from information_schema.global_variables where variable_name='plugin_maturity';
+ select * from information_schema.session_variables where variable_name='plugin_maturity';
+  # # show that it's read-only # set global plugin_maturity=1;
+ set session plugin_maturity=1;
+  

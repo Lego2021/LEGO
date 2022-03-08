@@ -1,0 +1,2 @@
+ SELECT max(tid) != min(tid) FROM information_schema.processlist;
+ 

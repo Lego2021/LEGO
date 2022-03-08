@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS t;
+ CREATE TABLE t(id int primary key) engine=rocksdb;
+ INSERT INTO t values (1), (2), (3);
+ CREATE TABLE t(id int primary key) engine=rocksdb;
+ FLUSH TABLES;
+ move_file $MYSQLTEST_VARDIR/mysqld.1/data/test/t.frm $MYSQLTEST_VARDIR/mysqld.1/data/test/t.frm.tmp;
+ CREATE TABLE t(id int primary key) engine=rocksdb;
+ move_file $MYSQLTEST_VARDIR/mysqld.1/data/test/t.frm.tmp $MYSQLTEST_VARDIR/mysqld.1/data/test/t.frm;
+ FLUSH TABLES;
+ SELECT * FROM t;
+ DROP TABLE t;
+ 

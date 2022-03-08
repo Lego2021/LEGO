@@ -1,0 +1,3 @@
+  ANALYZE;
+    REINDEX;
+    REINDEX nocase;

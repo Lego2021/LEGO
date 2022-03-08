@@ -1,0 +1,12 @@
+# Test empty transactions. # # Check that the empty transaction gets terminated by starting and new # transaction after it. If the empty transaction is not terminated # appropriately, the following START TRANSACTION will fail. # # Also check that empty transactions don't generate any write sets. #    START TRANSACTION;
+ COMMIT;
+  START TRANSACTION;
+ COMMIT;
+  START TRANSACTION READ ONLY;
+ COMMIT;
+  START TRANSACTION;
+ COMMIT;
+  START TRANSACTION;
+ START TRANSACTION;
+ COMMIT;
+   

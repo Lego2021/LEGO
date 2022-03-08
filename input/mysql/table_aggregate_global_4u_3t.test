@@ -1,0 +1,2 @@
+# Tests for the performance schema   # table io and table lock by default  # global update performance_schema.setup_consumers set enabled='NO' where name='thread_instrumentation';
+  # 4users by default  # 3tables by default   

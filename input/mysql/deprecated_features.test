@@ -1,0 +1,13 @@
+set global log_bin_trust_routine_creators=1;
+ set table_type='MyISAM';
+ select @@table_type='MyISAM';
+ backup table t1 to 'data.txt';
+ restore table t1 from 'data.txt';
+ show plugin;
+ load table t1 from master;
+ load data from master;
+ SHOW INNODB STATUS;
+ create table t1 (t6 timestamp) type=myisam;
+ show table types;
+ show mutex status;
+  

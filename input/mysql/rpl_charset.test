@@ -1,0 +1,3 @@
+let $engine_type=myisam;
+ source include/rpl_charset.test;
+ 

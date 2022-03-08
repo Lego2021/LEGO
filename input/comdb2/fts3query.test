@@ -1,0 +1,3 @@
+    BEGIN;
+      INSERT INTO t1 VALUES('The source code for SQLite is in the public');
+    DROP TABLE IF EXISTS t1;

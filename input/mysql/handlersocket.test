@@ -1,0 +1,4 @@
+ if (`select length('$HANDLERSOCKET_SO') = 0`) { skip handlersocket plugin is not built;
+ }  install plugin handlersocket soname 'handlersocket.so';
+ uninstall plugin handlersocket;
+  

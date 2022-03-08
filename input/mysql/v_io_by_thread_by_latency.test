@@ -1,0 +1,5 @@
+# Tests for sys schema # Verify the sys.io_by_thread_by_latency view  # Ensure structure changes don't slip in DESC sys.io_by_thread_by_latency;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.io_by_thread_by_latency;
+   # Ensure structure changes don't slip in DESC sys.x$io_by_thread_by_latency;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$io_by_thread_by_latency;
+  

@@ -1,0 +1,9 @@
+# # only global # select @@global.myisam_recover_options;
+ select @@session.myisam_recover_options;
+ show global variables like 'myisam_recover_options';
+ show session variables like 'myisam_recover_options';
+ select * from information_schema.global_variables where variable_name='myisam_recover_options';
+ select * from information_schema.session_variables where variable_name='myisam_recover_options';
+  # # show that it's read-only # set global myisam_recover_options=1;
+ set session myisam_recover_options=1;
+ 

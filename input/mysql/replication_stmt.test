@@ -1,0 +1,7 @@
+ set binlog_format=statement;
+ RESET MASTER;
+ connection slave;
+ set binlog_format=statement;
+ RESET MASTER;
+ connection master;
+  

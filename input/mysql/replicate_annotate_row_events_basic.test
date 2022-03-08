@@ -1,0 +1,10 @@
+# bool readonly   # # show values;
+ # select @@global.replicate_annotate_row_events;
+ select @@session.replicate_annotate_row_events;
+ show global variables like 'replicate_annotate_row_events';
+ show session variables like 'replicate_annotate_row_events';
+ select * from information_schema.global_variables where variable_name='replicate_annotate_row_events';
+ select * from information_schema.session_variables where variable_name='replicate_annotate_row_events';
+  # # show that it's read-only # set global replicate_annotate_row_events=1;
+ set session replicate_annotate_row_events=1;
+  

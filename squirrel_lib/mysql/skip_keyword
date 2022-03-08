@@ -1,0 +1,1 @@
+REPEAT SLEEP sleep repeat password PASSWORD require_secure_transport REQUIRE_SECURE_TRANSPORT grant GRANT mysql.global_priv MYSQL.GLOBAL_PRIV DATABASE database USE use TEMP

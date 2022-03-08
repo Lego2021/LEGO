@@ -1,0 +1,6 @@
+ CREATE TABLE t1 (id INT PRIMARY KEY AUTO_INCREMENT) ENGINE=InnoDB;
+ INSERT INTO t1 VALUES (DEFAULT);
+  SET GLOBAL query_cache_size=1355776;
+   while ($count) { INSERT INTO t1 VALUES (DEFAULT);
+ if ($val3) { } }  DROP TABLE t1;
+ 

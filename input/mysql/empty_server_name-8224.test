@@ -1,0 +1,3 @@
+# # MDEV-8224 Server crashes in get_server_from_table_to_cache on empty name # create server '' foreign data wrapper w2 options (host '127.0.0.1');
+  drop server '';
+ 

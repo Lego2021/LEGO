@@ -1,0 +1,2 @@
+# # This test checks that key and cert encryption options can be passed to # mariabackup via the my.cnf file # Initial SST happens via mariabackup, so there is not much to do in the body # of the test #   SELECT 1;
+   # Confirm that transfer was SSL-encrypted 

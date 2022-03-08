@@ -1,0 +1,16 @@
+    CREATE TABLE t1x(x INTEGER PRIMARY KEY);
+    INSERT INTO t1x VALUES(1),(3),(5),(7),(9);
+    CREATE TABLE t1y(y INTEGER UNIQUE);
+    INSERT INTO t1y VALUES(2),(4),(6),(8);
+    CREATE TABLE t2(a INTEGER, b INTEGER, c TEXT, d TEXT);
+    INSERT INTO t2 VALUES(1,2,'a','12a'),(1,2,'b','12b'),                         (2,3,'g','23g'),(3,5,'c','35c'),                         (4,6,'h','46h'),(5,6,'e','56e');
+    CREATE INDEX t2ab ON t2(a,b);
+  CREATE TABLE n1(a INTEGER PRIMARY KEY, b VARCHAR(500));
+  CREATE UNIQUE INDEX n1a ON n1(a);
+  SELECT count(*) FROM n1 WHERE a IN (1, 2, 3);
+  INSERT INTO n1 VALUES(1, NULL), (2, NULL), (3, NULL);
+  SELECT count(*) FROM n1 WHERE a IN (1, 2, 3);
+  CREATE TABLE t9(a INTEGER PRIMARY KEY);
+  INSERT INTO t9 VALUES (44), (45);
+  SELECT * FROM t9 WHERE a IN (44, 45, 44, 45);
+  CREATE VIEW v0(c0) AS SELECT LOWER(CAST('1e500' AS TEXT)) FROM t0;

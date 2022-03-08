@@ -1,0 +1,9 @@
+# # only global # select @@global.socket;
+ select @@session.socket;
+ show global variables like 'socket';
+ show session variables like 'socket';
+ select * from information_schema.global_variables where variable_name='socket';
+ select * from information_schema.session_variables where variable_name='socket';
+  # # show that it's read-only # set global socket=1;
+ set session socket=1;
+ 

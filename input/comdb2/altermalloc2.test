@@ -1,0 +1,4 @@
+  CREATE VIEW v1 AS SELECT * FROM t1 WHERE abcd>efgh;
+  CREATE VIEW vv AS SELECT * FROM rr;
+ SELECT * FROM sqlite_master;
+ SELECT * FROM sqlite_master;

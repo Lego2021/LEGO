@@ -1,0 +1,14 @@
+ CREATE TABLE t(i INT) ENGINE INNODB;
+ INSERT INTO t VALUES(1);
+ echo # xtrabackup backup;
+ let $targetdir=$MYSQLTEST_VARDIR/tmp/backup;
+ let $backuplog=$MYSQLTEST_VARDIR/tmp/backup.log;
+  exec  $XTRABACKUP --defaults-file=$MYSQLTEST_VARDIR/my.cnf --backup --target-dir=$targetdir --dbug=+d,log_intermittent_checksum_mismatch --core-file > $backuplog;
+  remove_file $backuplog;
+   INSERT INTO t VALUES(2);
+   echo # xtrabackup prepare;
+ exec $XTRABACKUP  --prepare --target-dir=$targetdir;
+  SELECT * FROM t;
+ DROP TABLE t;
+ rmdir $targetdir;
+  

@@ -1,0 +1,3 @@
+ SET STATEMENT debug_dbug='+d,pcre_exec_error_123' for SELECT 'a' RLIKE 'a';
+ SELECT 'a' RLIKE 'a';
+ 

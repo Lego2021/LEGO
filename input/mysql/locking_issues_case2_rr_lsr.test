@@ -1,0 +1,3 @@
+ let $lock_scanned_rows=1;
+ let $isolation_level = REPEATABLE READ;
+ 

@@ -1,0 +1,1 @@
+alter table fooby drop constraint dooby cascade 

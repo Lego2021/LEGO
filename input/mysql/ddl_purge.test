@@ -1,0 +1,20 @@
+ CREATE TABLE t0 (pk INT PRIMARY KEY) ENGINE=InnoDB;
+ CREATE TABLE t1 (pk INT PRIMARY KEY, b INT) ENGINE=InnoDB;
+ # MDEV-515 takes X-lock on the table for the first insert. # So concurrent insert won't happen on the table INSERT INTO t0 VALUES(100);
+ BEGIN;
+ INSERT INTO t0 SET pk=1;
+  BEGIN;
+ INSERT INTO t0 SET pk=2;
+  SET DEBUG_SYNC='alter_table_inplace_after_lock_downgrade SIGNAL prepared WAIT_FOR logged';
+ send ALTER TABLE t1 FORCE;
+  SET DEBUG_SYNC='now WAIT_FOR prepared';
+ INSERT INTO t1 SET pk=1;
+ COMMIT;
+  UPDATE t1 SET b=1;
+ DELETE FROM t1;
+ ROLLBACK;
+ SET DEBUG_SYNC='now SIGNAL logged';
+  reap;
+ SET DEBUG_SYNC='RESET';
+ DROP TABLE t0,t1;
+ 

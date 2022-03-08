@@ -1,0 +1,18 @@
+SET sql_mode=oracle;
+   max_sort_length:=1030;
+ SELECT @@max_sort_length;
+ max_sort_length:=DEFAULT;
+   DELIMITER $$;
+ CREATE PROCEDURE p1 AS BEGIN max_sort_length:=1030;
+ DECLARE max_sort_length INT DEFAULT 1031;
+ BEGIN SELECT @@max_sort_length, max_sort_length;
+ max_sort_length:=1032;
+ SELECT @@max_sort_length, max_sort_length;
+ END;
+ SELECT @@max_sort_length;
+ max_sort_length:= DEFAULT;
+ END;
+ $$ DELIMITER ;
+$$ CALL p1();
+ DROP PROCEDURE p1;
+  

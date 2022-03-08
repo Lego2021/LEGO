@@ -1,0 +1,9 @@
+  BEGIN;
+    UPDATE counter SET c = 2;
+    CREATE TABLE t1(a PRIMARY KEY, b, c);
+    CREATE TABLE t2(a PRIMARY KEY, b, c);
+  BEGIN;
+    UPDATE counter SET c = 3;
+    INSERT INTO t1 VALUES('abcdefghij', 'four', 'score');
+    INSERT INTO t2 VALUES('klmnopqrst', 'and', 'seven');
+            SELECT name FROM sqlite_master;

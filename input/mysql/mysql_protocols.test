@@ -1,0 +1,1 @@
+# Embedded server doesn't support external clients # Windows does not have SOCKET, but will try to create a PIPE as well as MEMORY  # test for Bug #4998 "--protocol doesn't reject bad values"   # End of 4.1 tests 

@@ -1,0 +1,3 @@
+USE test;
+  set @mode='ORACLE,EMPTY_STRING_IS_NULL';
+  

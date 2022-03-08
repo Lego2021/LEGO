@@ -1,0 +1,6 @@
+# Tests for PERFORMANCE_SCHEMA    # Expect no classes show global variables like "performance_schema_max_cond_classes";
+  select count(*) from performance_schema.setup_instruments where name like "wait/synch/cond/%";
+  # We lost all the classes select variable_value > 0 from information_schema.global_status where variable_name like 'PERFORMANCE_SCHEMA_COND_CLASSES_LOST';
+  # Expect no instances select count(*) from performance_schema.cond_instances;
+  # Expect no instances lost show global status like "performance_schema_cond_instances_lost";
+  

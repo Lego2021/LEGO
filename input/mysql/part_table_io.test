@@ -1,0 +1,10 @@
+# Tests for PERFORMANCE_SCHEMA table io   let $engine_type= MyISAM;
+ let $table_item= test.no_index_tab;
+ eval drop table if exists $table_item;
+  # Start recording events update performance_schema.setup_consumers set enabled='YES';
+ insert into marker set a = 1;
+ eval create table $table_item ( a varchar(255) not null, b int not null) engine = $engine_type PARTITION BY KEY (b) PARTITIONS 2;
+ insert into marker set a = 1;
+ eval show create table $table_item;
+ eval drop table $table_item;
+  # Stop recording events + pull result  # Cleanup  

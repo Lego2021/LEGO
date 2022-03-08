@@ -1,0 +1,2 @@
+  CREATE TABLE vocab2(w TEXT);
+  INSERT INTO vocab2 VALUES('abc'), ('ABD'), ('aBe'), ('AbF');

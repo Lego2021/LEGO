@@ -1,0 +1,6 @@
+  BEGIN;
+    INSERT INTO t1 VALUES('one');
+    INSERT INTO t1 VALUES('one');
+    INSERT INTO t1 VALUES('one');
+  BEGIN;
+  COMMIT;

@@ -1,0 +1,8 @@
+let $PAM_PLUGIN_VERSION= $AUTH_PAM_SO;
+  show variables like 'pam_use_%';
+  not very secret challenge 9225 select user(), current_user(), database();
+ EOF      drop user test_pam;
+ drop user pam_test;
+ let $count_sessions= 1;
+ uninstall plugin pam;
+ 

@@ -1,0 +1,5 @@
+#### suite/funcs_1/t/innodb_cursors.test  # Innodb tables should be used # # 1. Check if InnoDB is available # 2. Set $engine_type let $engine_type= innodb;
+  let $message= NOT YET IMPLEMENTED: cursor tests;
+ exit;
+  # Create some objects needed in many testcases USE test;
+   

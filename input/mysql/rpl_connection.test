@@ -1,0 +1,6 @@
+ # # BUG#13427949: CHANGE MASTER TO USER='' (EMPTY USER) CAUSES ERRORS ON VALGRING #  call mtr.add_suppression(".*Invalid .* username when attempting to connect to the master server.*");
+   # Assert that we disallow empty users and that no problem CHANGE MASTER TO MASTER_USER= '', MASTER_PASSWORD= '';
+ START SLAVE;
+  CHANGE MASTER TO MASTER_USER= 'root', MASTER_PASSWORD= '';
+ START SLAVE;
+  

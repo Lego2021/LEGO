@@ -1,0 +1,6 @@
+ # Save the initial number of concurrent sessions  connect (ssl_con,localhost,root,,,,,SSL read_timeout=5);
+  SELECT (VARIABLE_VALUE <> '') AS have_ssl FROM INFORMATION_SCHEMA.SESSION_STATUS WHERE VARIABLE_NAME='Ssl_cipher';
+  # --error CR_SERVER_LOST SELECT SLEEP(600);
+  connection default;
+ disconnect ssl_con;
+  # Wait till all disconnects are completed 

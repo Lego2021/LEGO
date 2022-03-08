@@ -1,0 +1,9 @@
+ # # Only global #  select @@global.performance_schema_events_waits_history_size;
+  select @@session.performance_schema_events_waits_history_size;
+  show global variables like 'performance_schema_events_waits_history_size';
+  show session variables like 'performance_schema_events_waits_history_size';
+  select * from information_schema.global_variables where variable_name='performance_schema_events_waits_history_size';
+  select * from information_schema.session_variables where variable_name='performance_schema_events_waits_history_size';
+  # # Read-only #  set global performance_schema_events_waits_history_size=1;
+  set session performance_schema_events_waits_history_size=1;
+  

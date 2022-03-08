@@ -1,0 +1,2 @@
+################################# # Wrapper for rpl_insert_id.test# ################################# let $engine_type=innodb;
+ 

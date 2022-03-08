@@ -1,0 +1,4 @@
+  BEGIN;
+    INSERT INTO t1(b) VALUES(1);
+    INSERT INTO t1(b) VALUES(2);
+  SELECT * FROM sqlite_master;

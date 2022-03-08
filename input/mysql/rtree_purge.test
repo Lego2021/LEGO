@@ -1,0 +1,13 @@
+# This test case will test R-tree purge.   SET @saved_frequency = @@GLOBAL.innodb_purge_rseg_truncate_frequency;
+ SET GLOBAL innodb_purge_rseg_truncate_frequency = 1;
+  create table t ( b point not null,d point not null, spatial key (d),spatial key (b) ) engine=innodb;
+  set @p=point(1,1);
+ let $n=200;
+ while ($n) { begin;
+ insert into t select @p,@p from seq_1_to_130;
+ delete from t;
+ commit;
+ dec $n;
+ }   # Clean up. drop table t;
+ SET GLOBAL innodb_purge_rseg_truncate_frequency = @saved_frequency;
+ 

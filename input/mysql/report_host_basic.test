@@ -1,0 +1,9 @@
+# # only global # select @@global.report_host;
+ select @@session.report_host;
+ show global variables like 'report_host';
+ show session variables like 'report_host';
+ select * from information_schema.global_variables where variable_name='report_host';
+ select * from information_schema.session_variables where variable_name='report_host';
+  # # show that it's read-only # set global report_host=1;
+ set session report_host=1;
+ 

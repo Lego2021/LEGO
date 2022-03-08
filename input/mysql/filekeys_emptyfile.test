@@ -1,0 +1,3 @@
+let SEARCH_PATTERN=System key id 1 is missing at;
+ source filekeys_badtest.inc;
+  

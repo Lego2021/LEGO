@@ -1,0 +1,5 @@
+  SHOW STATUS LIKE 'wsrep_ready';
+ eval SET @@global.wsrep_provider='$WSREP_PROVIDER';
+ SHOW STATUS LIKE 'wsrep_ready';
+ SET @@global.wsrep_cluster_address='gcomm://';
+ 

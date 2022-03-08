@@ -1,0 +1,8 @@
+let $targetdir=$MYSQLTEST_VARDIR/tmp/backup;
+ let $extra_lsndir=$MYSQLTEST_VARDIR/tmp/extra_lsndir;
+ mkdir $extra_lsndir;
+ exec $XTRABACKUP --defaults-file=$MYSQLTEST_VARDIR/my.cnf --backup --target-dir=$targetdir --extra-lsndir=$extra_lsndir;
+ list_files $extra_lsndir;
+ rmdir $extra_lsndir;
+ rmdir $targetdir;
+ 

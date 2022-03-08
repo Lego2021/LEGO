@@ -1,0 +1,18 @@
+SELECT substr(name,1,3) FROM sqlite_master;
+SELECT max(oid) FROM sqlite_master;
+    CREATE TABLE t2(a INTEGER);
+    INSERT INTO t2 VALUES(1);
+    INSERT INTO t2 VALUES(1);
+    INSERT INTO t2 VALUES(2);
+    ALTER TABLE t2 ADD COLUMN b INTEGER DEFAULT 9;
+    SELECT sum(b) FROM t2;
+    SELECT a, sum(b) FROM t2 GROUP BY a;
+SELECT name FROM sqlite_master WHERE name GLOB 'xyz*';
+SELECT name FROM sqlite_master WHERE name GLOB 'sqlite_autoindex*';
+SELECT name FROM sqlite_master WHERE name GLOB 'xyz*';
+SELECT name FROM sqlite_master WHERE name GLOB 'sqlite_autoindex*';
+    CREATE VIEW v1 AS SELECT * FROM t12;
+    SELECT name FROM sqlite_master WHERE name GLOB 't3102*' ORDER BY 1;
+    SELECT name FROM sqlite_master WHERE name GLOB 't3102*' ORDER BY 1;
+    SELECT name FROM sqlite_master WHERE name GLOB 't3102*' ORDER BY 1;
+    SELECT * FROM t2 ORDER BY 1;

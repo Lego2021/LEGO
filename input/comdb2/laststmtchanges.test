@@ -1,0 +1,15 @@
+ select 1;
+        create table t1 (k integer primary key);
+        insert into t1 values (77);
+        update t1 set k=k;
+        delete from t1;
+ drop table t1;
+    BEGIN;
+    DELETE FROM t3;
+    ROLLBACK;
+    BEGIN;
+    DELETE FROM t3 WHERE a IS NOT NULL;
+    ROLLBACK;
+    BEGIN;
+    DELETE FROM t3;
+ ROLLBACK;

@@ -1,0 +1,9 @@
+let $targetdir=$MYSQLTEST_VARDIR/tmp/backup;
+ mkdir $targetdir;
+  CREATE TABLE t1 ENGINE=InnoDB SELECT 1;
+   exec $XTRABACKUP --defaults-file=$MYSQLTEST_VARDIR/my.cnf  --backup  --target-dir=$targetdir  --dbug=+d,mariabackup_events;
+   DROP TABLE t1;
+ SET GLOBAL innodb_log_checkpoint_now=1;
+ SET GLOBAL innodb_log_checkpoint_now=DEFAULT;
+ rmdir $targetdir;
+ 

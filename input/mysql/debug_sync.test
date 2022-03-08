@@ -1,0 +1,3 @@
+ # # MDEV-13029 # Assertion `ds_control' failed in debug_sync upon closing connection after # creating temporary sequence  CREATE TEMPORARY SEQUENCE f ENGINE=InnoDB;
+  SELECT 'Still alive' AS `Heartbeat`;
+ 

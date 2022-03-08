@@ -1,0 +1,6 @@
+      BEGIN;
+      INSERT INTO t1 SELECT * FROM t1;
+      INSERT INTO t3 SELECT a FROM t1;
+      INSERT INTO t3 VALUES('hello world');
+      SELECT distinct tbl_name FROM sqlite_master;
+      SELECT distinct tbl_name FROM sqlite_master;

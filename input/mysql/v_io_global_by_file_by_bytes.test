@@ -1,0 +1,5 @@
+# Tests for sys schema # Verify the sys.io_global_by_file_by_bytes view  # Ensure structure changes don't slip in DESC sys.io_global_by_file_by_bytes;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.io_global_by_file_by_bytes;
+   # Ensure structure changes don't slip in DESC sys.x$io_global_by_file_by_bytes;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$io_global_by_file_by_bytes;
+  

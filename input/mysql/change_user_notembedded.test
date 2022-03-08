@@ -1,0 +1,12 @@
+source include/not_embedded.inc;
+  # # MDEV-3915 COM_CHANGE_USER allows fast password brute-forcing # # only three failed change_user per connection. # successful change_user do NOT reset the counter # connect (test,localhost,root,,);
+ connection test;
+ change_user foo,bar;
+ change_user foo;
+ change_user;
+ change_user foo,bar;
+ change_user foo,bar;
+ change_user;
+ disconnect test;
+ connection default;
+   

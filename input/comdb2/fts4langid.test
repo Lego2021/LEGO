@@ -1,0 +1,4 @@
+  SELECT sql FROM sqlite_master WHERE name = 't1_content';
+  BEGIN;
+    UPDATE vt0 SET lid = 1 WHERE lid=0;
+  INSERT INTO vt0(vt0) VALUES('integrity-check');

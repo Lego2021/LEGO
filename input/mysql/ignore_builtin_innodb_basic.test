@@ -1,0 +1,9 @@
+# # only global # select @@global.ignore_builtin_innodb;
+ select @@session.ignore_builtin_innodb;
+ show global variables like 'ignore_builtin_innodb';
+ show session variables like 'ignore_builtin_innodb';
+ select * from information_schema.global_variables where variable_name='ignore_builtin_innodb';
+ select * from information_schema.session_variables where variable_name='ignore_builtin_innodb';
+  # # show that it's read-only # set global ignore_builtin_innodb=1;
+ set session ignore_builtin_innodb=1;
+  

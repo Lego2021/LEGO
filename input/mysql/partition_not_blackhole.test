@@ -1,0 +1,6 @@
+ DROP TABLE IF EXISTS t1;
+  let $MYSQLD_DATADIR= `SELECT @@datadir`;
+  SHOW TABLES;
+ SHOW CREATE TABLE t1;
+  # The replace is needed for Solaris DROP TABLE t1;
+ 

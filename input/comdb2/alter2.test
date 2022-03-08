@@ -1,0 +1,8 @@
+SELECT substr('abcdefg',1,3);
+      CREATE VIEW abc2_v AS SELECT * FROM abc2;
+      DROP VIEW abc2_v;
+ SELECT * FROM sqlite_master;
+ SELECT * FROM sqlite_master;
+    SELECT * FROM sqlite_master;
+SELECT 1 FROM sqlite_master LIMIT 1;
+      SELECT * FROM sqlite_master;

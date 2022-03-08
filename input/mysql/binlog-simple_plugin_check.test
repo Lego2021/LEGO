@@ -1,0 +1,10 @@
+ if (!$SIMPLE_PASSWORD_CHECK_SO) { skip No SIMPLE_PASSWORD_CHECK plugin;
+ }  INSTALL SONAME "simple_password_check";
+ SELECT PLUGIN_NAME FROM INFORMATION_SCHEMA.PLUGINS WHERE PLUGIN_NAME='simple_password_check';
+    RESET MASTER;
+ # get rid of previous tests binlog  CREATE USER user1@localhost IDENTIFIED BY 'BsG9#9.cem#!85';
+  CREATE USER user2@localhost IDENTIFIED BY 'bsg9#d.cem#!85';
+  DROP USER user1@localhost;
+  source include/show_binlog_events.inc;
+  UNINSTALL PLUGIN simple_password_check;
+ 

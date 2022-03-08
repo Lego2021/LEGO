@@ -1,0 +1,9 @@
+  BEGIN;
+    DELETE FROM t1 WHERE (i%2)==1;
+  ROLLBACK TO one;
+  BEGIN;
+    DELETE FROM t1 WHERE (i%2)==1;
+  ROLLBACK TO one;
+  BEGIN;
+    DELETE FROM t1 WHERE (i%2)==1;
+  ROLLBACK TO one;

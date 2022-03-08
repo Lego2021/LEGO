@@ -1,0 +1,2 @@
+    BEGIN;
+    DROP TABLE echo_test1;

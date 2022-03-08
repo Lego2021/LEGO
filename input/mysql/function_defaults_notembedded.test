@@ -1,0 +1,3 @@
+  let $timestamp=TIMESTAMP;
+  let $timestamp=TIMESTAMP(6);
+ 

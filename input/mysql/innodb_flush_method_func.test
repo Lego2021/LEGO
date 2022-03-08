@@ -1,0 +1,14 @@
+# Embedded server tests do not support restarting.  call mtr.add_suppression("InnoDB: Failed to set .*DIRECT");
+ select @@innodb_flush_method;
+  create table t(a serial) engine=innodb;
+  # kill and restart FLUSH TABLES;
+ let $shutdown_timeout= 0;
+ let $restart_parameters=--innodb-flush-method=5;
+ select @@innodb_flush_method;
+  insert into t values(0);
+ # kill and restart FLUSH TABLES;
+ let $shutdown_timeout= 0;
+ let $restart_parameters=--innodb-flush-method=0;
+ select @@innodb_flush_method;
+  drop table t;
+ 

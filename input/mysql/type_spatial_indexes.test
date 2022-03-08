@@ -1,0 +1,2 @@
+# # Indexes on spatial objects # (spatial and non-spatial indexes) #    let $index = SPATIAL;
+   

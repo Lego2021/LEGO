@@ -1,0 +1,7 @@
+# # Test many ongoing SR transactions #   CREATE TABLE t1 (f1 INTEGER) Engine=InnoDB;
+   while ($count) { SET SESSION wsrep_trx_fragment_size = 1;
+ SET SESSION wsrep_sync_wait = 0;
+ }   while ($count) { START TRANSACTION;
+ }  while ($count) { COMMIT;
+ }  DROP TABLE t1;
+ 

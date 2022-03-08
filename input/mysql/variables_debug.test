@@ -1,0 +1,10 @@
+ source include/check_galera_version.inc;
+  source include/galera_variables_ok.inc;
+  SHOW GLOBAL STATUS LIKE 'wsrep%';
+  SHOW STATUS LIKE 'x';
+  SELECT @@global.wsrep_cluster_address;
+ SELECT @@global.wsrep_on;
+  SHOW STATUS LIKE 'threads_connected';
+ SHOW STATUS LIKE 'wsrep_thread_count';
+   SELECT VARIABLE_NAME FROM INFORMATION_SCHEMA.SESSION_VARIABLES WHERE VARIABLE_NAME LIKE "wsrep%" ORDER BY VARIABLE_NAME;
+  

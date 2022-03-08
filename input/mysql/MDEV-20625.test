@@ -1,0 +1,4 @@
+# # Check SHOW GLOBAL STATUS after dynamic setting WSREP=ON #  SET GLOBAL wsrep_on=ON;
+ SHOW GLOBAL STATUS LIKE 'wsrep_cluster_size';
+ SET GLOBAL wsrep_on=OFF;
+ 

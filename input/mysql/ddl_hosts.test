@@ -1,0 +1,5 @@
+# Tests for PERFORMANCE_SCHEMA   alter table performance_schema.hosts add column foo integer;
+  truncate table performance_schema.hosts;
+  ALTER TABLE performance_schema.hosts ADD INDEX test_index(CURRENT_CONNECTIONS);
+  CREATE UNIQUE INDEX test_index ON performance_schema.hosts(CURRENT_CONNECTIONS);
+  

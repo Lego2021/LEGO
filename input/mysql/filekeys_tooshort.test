@@ -1,0 +1,3 @@
+let SEARCH_PATTERN=Cannot decrypt .*tooshort.enc. Not encrypted;
+ source filekeys_badtest.inc;
+  

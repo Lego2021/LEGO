@@ -1,0 +1,9 @@
+# # Parallel distributed bulk Load # Author: Susil, susil.behera@mariadb.com #  DROP DATABASE IF EXISTS mcs49_db;
+  CREATE DATABASE mcs49_db;
+ USE mcs49_db;
+  CREATE TABLE t1(col1 INT, col2 INT, col3 CHAR(8)) ENGINE=Columnstore;
+  # Parallel distributed bulk Load, cpimport -m3 # This test needs to be extended to cover multi-node setup   #Validate data SELECT COUNT(*) FROM t1;
+  let $rowcount = query_get_value(SELECT COUNT(*) cnt FROM t1, cnt, 1);
+  let $match_counts= SELECT $rowcount = 100001;
+  # Clean UP DROP DATABASE mcs49_db;
+ 

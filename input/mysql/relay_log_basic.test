@@ -1,0 +1,10 @@
+ let $MYSQLD_RELAY_LOG=`select @@global.relay_log`;
+  # # only global # select @@global.relay_log;
+ select @@session.relay_log;
+ show global variables like 'relay_log';
+ show session variables like 'relay_log';
+ select * from information_schema.global_variables where variable_name='relay_log';
+ select * from information_schema.session_variables where variable_name='relay_log';
+  # # show that it's read-only # set global relay_log=1;
+ set session relay_log=1;
+ 

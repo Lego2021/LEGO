@@ -1,0 +1,11 @@
+# Tests for PERFORMANCE_SCHEMA   select * from performance_schema.rwlock_instances limit 1;
+  select * from performance_schema.rwlock_instances where name='FOO';
+  insert into performance_schema.rwlock_instances set name='FOO', object_instance_begin=12;
+  update performance_schema.rwlock_instances set name='FOO';
+  delete from performance_schema.rwlock_instances where name like "wait/%";
+  delete from performance_schema.rwlock_instances;
+  LOCK TABLES performance_schema.rwlock_instances READ;
+ UNLOCK TABLES;
+  LOCK TABLES performance_schema.rwlock_instances WRITE;
+ UNLOCK TABLES;
+  

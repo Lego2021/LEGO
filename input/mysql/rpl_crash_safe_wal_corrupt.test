@@ -1,0 +1,4 @@
+ connection slave;
+  # Verify the log file contains the Last binlog line, but only if the slave server's pid is found  connection slave;
+ call mtr.add_suppression("Recovery from master pos");
+ 

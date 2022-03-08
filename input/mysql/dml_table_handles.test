@@ -1,0 +1,11 @@
+# Tests for PERFORMANCE_SCHEMA   select * from performance_schema.table_handles;
+  select * from performance_schema.table_handles where object_name='foo';
+  insert into performance_schema.table_handles set object_name='FOO', owner_event_id=1;
+  update performance_schema.table_handles set owner_event_id=12 where object_name='foo';
+  delete from performance_schema.table_handles;
+  delete from performance_schema.table_handles where timer_name='CYCLE';
+  LOCK TABLES performance_schema.table_handles READ;
+ UNLOCK TABLES;
+  LOCK TABLES performance_schema.table_handles WRITE;
+ UNLOCK TABLES;
+  

@@ -1,0 +1,5 @@
+ SELECT * FROM sqlite_master;
+ SELECT * FROM sqlite_master;
+ CREATE VIEW v1 AS SELECT * FROM t1;
+          DROP TABLE IF EXISTS t7;
+          DROP TRIGGER IF EXISTS tr3;

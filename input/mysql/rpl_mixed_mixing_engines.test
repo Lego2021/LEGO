@@ -1,0 +1,3 @@
+################################################################################### # This test cases evaluates the mixture of non-transactional and transcational # tables. For further details, please, read WL#2687 and WL#5072. ###################################################################################  let $engine_type=Innodb;
+ let $database_name=test;
+ 

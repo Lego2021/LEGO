@@ -1,0 +1,4 @@
+# Check "internal" error branches of #  FLUSH BINARY LOGS DELETE_DOMAIN_ID = (...) # handler.  SET @@SESSION.debug_dbug='+d,inject_binlog_delete_domain_init_error';
+ FLUSH BINARY LOGS DELETE_DOMAIN_ID = (99);
+  SHOW WARNINGS;
+ 

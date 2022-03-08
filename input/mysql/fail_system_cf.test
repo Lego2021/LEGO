@@ -1,0 +1,4 @@
+ # # Any create table using the system column family should fail  DROP TABLE IF EXISTS t1;
+  CREATE TABLE t1 (i INT, PRIMARY KEY (i) COMMENT '__system__') ENGINE = ROCKSDB;
+  #cleanup DROP TABLE IF EXISTS t1;
+  

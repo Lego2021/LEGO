@@ -1,0 +1,3 @@
+  SELECT @@wsrep_on;
+ SET @@GLOBAL.wsrep_cluster_address='gcomm://';
+  

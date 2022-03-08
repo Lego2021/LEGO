@@ -1,0 +1,3 @@
+SELECT x'3031323334' AS x;
+SELECT 6, 6.0, 'test-six y''all', x'3031323334', NULL;
+SELECT 6, 6, 6;

@@ -1,0 +1,7 @@
+SELECT * FROM sqlite_master;
+SELECT name FROM sqlite_master;
+SELECT name FROM sqlite_master;
+SELECT * FROM sqlite_master;
+    SELECT name FROM sqlite_master WHERE type='index';
+    SELECT name FROM main.sqlite_master WHERE type='table';
+    SELECT name FROM sqlite_master WHERE type='table';

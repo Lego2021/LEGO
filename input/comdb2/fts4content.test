@@ -1,0 +1,11 @@
+  SELECT name FROM sqlite_master WHERE name LIKE '%t5%';
+  SELECT name FROM sqlite_master WHERE name LIKE '%t5%';
+  SELECT name FROM sqlite_master WHERE name LIKE '%t6%';
+  SELECT name FROM sqlite_master WHERE name LIKE '%t6%';
+  SELECT name FROM sqlite_master WHERE name LIKE '%t5%';
+  SELECT name FROM sqlite_master WHERE name LIKE '%t7%';
+  SELECT name FROM sqlite_master WHERE name LIKE 'ft9_%';
+  CREATE TABLE idx(id INTEGER PRIMARY KEY, path TEXT);
+  INSERT INTO idx VALUES (1, 't1.txt');
+  INSERT INTO idx VALUES (2, 't2.txt');
+  INSERT INTO idx VALUES (3, 't3.txt');

@@ -1,0 +1,5 @@
+  CREATE TABLE t1 (i INT);
+ ALTER TABLE t1 ADD PARTITION (PARTITION p VALUES LESS THAN (1));
+ SELECT * FROM performance_schema.events_stages_summary_by_user_by_event_name;
+ DROP TABLE t1;
+ 

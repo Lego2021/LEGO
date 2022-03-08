@@ -1,0 +1,7 @@
+ # # Test that dynmaic loaded storage engines also works with partition and logging # This is will access code in dd_frm_type() that is not acccessed by other tests #  connect (con1,localhost,root,,);
+ BACKUP STAGE START;
+ connection default;
+  CREATE TABLE t220 (a INT) ENGINE ROCKSDB PARTITION BY KEY(a) PARTITIONS 2;
+ DROP TABLE t220;
+    disconnect con1;
+ 

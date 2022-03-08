@@ -1,0 +1,10 @@
+# ulong readonly  # # show the global and session values;
+ # select @@global.aria_force_start_after_recovery_failures;
+ select @@session.aria_force_start_after_recovery_failures;
+ show global variables like 'aria_force_start_after_recovery_failures';
+ show session variables like 'aria_force_start_after_recovery_failures';
+ select * from information_schema.global_variables where variable_name='aria_force_start_after_recovery_failures';
+ select * from information_schema.session_variables where variable_name='aria_force_start_after_recovery_failures';
+  # # show that it's read-only # set global aria_force_start_after_recovery_failures=1;
+ set session aria_force_start_after_recovery_failures=1;
+  

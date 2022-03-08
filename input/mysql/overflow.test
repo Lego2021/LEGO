@@ -1,0 +1,6 @@
+# Save the initial number of concurrent sessions  connect (con1,localhost,root,,);
+ connection con1;
+ drop database AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA;
+ connection default;
+ disconnect con1;
+  # End of 4.1 tests  # Wait till we reached the initial number of concurrent sessions 

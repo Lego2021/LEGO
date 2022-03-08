@@ -1,0 +1,2 @@
+# Tests for PERFORMANCE_SCHEMA    # This has a stable output, printing the result: show variables where `Variable_name` != "performance_schema_max_statement_classes" and `Variable_name` like "performance_schema%";
+ 

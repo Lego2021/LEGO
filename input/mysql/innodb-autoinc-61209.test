@@ -1,0 +1,14 @@
+# This is the test case for bug #61209 - duplicate key errors # when using auto_increment_increment > 1 and auto_increment_offset > 1 #  # # Precautionary clean up. # DROP TABLE IF EXISTS bug_61209;
+  # # Create test data. # CREATE TABLE bug_61209 (a INT auto_increment, PRIMARY KEY(a)) ENGINE=InnoDB;
+  INSERT INTO bug_61209 VALUES (), (), (), ();
+   SET SESSION auto_increment_increment=3;
+ SET SESSION auto_increment_offset=2;
+ SELECT GET_LOCK('a', 9);
+  SET SESSION auto_increment_increment=3;
+ SET SESSION auto_increment_offset=2;
+ send INSERT INTO bug_61209 (a) VALUES (NULL), (NULL), (NULL + GET_LOCK('a', 10));
+  INSERT INTO bug_61209 (a) VALUES (NULL), (NULL), (NULL);
+ SELECT RELEASE_LOCK('a');
+  reap;
+  # # Clean up # DROP TABLE bug_61209;
+ 

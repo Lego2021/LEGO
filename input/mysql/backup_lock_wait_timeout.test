@@ -1,0 +1,11 @@
+ CREATE TABLE t(i INT) ENGINE INNODB;
+  connect (con1,localhost,root,,);
+ BEGIN;
+ LOCK TABLES t WRITE;
+   echo # xtrabackup backup;
+ let $targetdir=$MYSQLTEST_VARDIR/tmp/backup;
+  exec $XTRABACKUP --defaults-file=$MYSQLTEST_VARDIR/my.cnf --backup --ftwrl-wait-timeout=1 --target-dir=$targetdir;
+  COMMIT;
+   DROP TABLE t;
+ rmdir $targetdir;
+ 

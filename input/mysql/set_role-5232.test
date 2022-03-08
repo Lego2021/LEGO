@@ -1,0 +1,15 @@
+# # MDEV-5232 SET ROLE checks privileges differently from check_access() # create user ''@localhost;
+ create user c;
+ grant select on mysql.* to c;
+ create role r1;
+ grant r1 to c;
+ connect (c,localhost,c,,,,,);
+ select user(), current_user();
+ select user from mysql.user group by user;
+ set role r1;
+ disconnect c;
+ connection default;
+ drop role r1;
+ drop user c;
+ drop user ''@localhost;
+ 

@@ -1,0 +1,6 @@
+  BEGIN;
+ BEGIN;
+ COMMIT;
+     BEGIN;
+  BEGIN;
+    INSERT INTO t1 VALUES(19, 20, 21);

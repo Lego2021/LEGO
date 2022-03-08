@@ -1,0 +1,4 @@
+# -------------------------------------------------------------- # # Test case migrated from regression test suite: bug2992.sql # # Author: Daniel Lee, daniel.lee@mariadb.com # -------------------------------------------------------------- # # # USE tpch1;
+ # select cidx, cbigint, avg(cbigint) from datatypetestm group by cidx, cbigint order by 1;
+ select avg(cbigint) from datatypetestm where cidx=1;
+ #  

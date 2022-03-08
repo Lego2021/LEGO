@@ -1,0 +1,3 @@
+        # We have to manually restore global_log and slow_query_log due to mysql-wsrep#108 # Otherwise MTR's check_testcases complains  SET GLOBAL general_log = ON;
+ SET GLOBAL slow_query_log = ON;
+ 

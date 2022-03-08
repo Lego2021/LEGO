@@ -1,0 +1,18 @@
+    BEGIN;
+    CREATE TABLE abc(a PRIMARY KEY, b, c);
+    INSERT INTO abc         SELECT randomblob(1000), randomblob(200), randomblob(100)        FROM abc;
+    INSERT INTO abc         SELECT randomblob(100), randomblob(200), randomblob(1000)        FROM abc;
+    INSERT INTO abc         SELECT randomblob(100), randomblob(200), randomblob(1000)        FROM abc;
+    INSERT INTO abc         SELECT randomblob(100), randomblob(200), randomblob(1000)        FROM abc;
+    INSERT INTO abc         SELECT randomblob(100), randomblob(200), randomblob(1000)        FROM abc;
+    INSERT INTO abc         SELECT randomblob(25), randomblob(45), randomblob(9456)        FROM abc;
+    INSERT INTO abc         SELECT randomblob(100), randomblob(200), randomblob(1000)        FROM abc;
+    INSERT INTO abc         SELECT randomblob(25), randomblob(45), randomblob(9456)        FROM abc;
+  BEGIN;
+   CREATE TABLE t1(a, b, c);
+  CREATE TABLE t2 AS SELECT * FROM t1;
+  CREATE TABLE t3 AS SELECT * FROM t1;
+    BEGIN;
+     CREATE TABLE t1(a, b, c);
+    CREATE TABLE t2 AS SELECT * FROM t1;
+    CREATE TABLE t3 AS SELECT * FROM t1;

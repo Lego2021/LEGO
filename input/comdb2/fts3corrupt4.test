@@ -1,0 +1,13 @@
+  BEGIN;
+    CREATE VIRTUAL TABLE ft USING fts3;
+    INSERT INTO ft VALUES('aback');
+    INSERT INTO ft VALUES('abaft');
+    INSERT INTO ft VALUES('abandon');
+      BEGIN;
+      COMMIT;
+  BEGIN;
+    INSERT INTO t1(t1) SELECT x FROM t2;
+    UPDATE t1 SET b=quote(zeroblob(200)) WHERE a MATCH 'thread*';
+  DROP TABLE IF EXISTS t1;
+  INSERT INTO t1(t1) VALUES('optimize');
+  DROP TABLE IF EXISTS t1;

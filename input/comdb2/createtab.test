@@ -1,0 +1,2 @@
+      SELECT name FROM sqlite_master WHERE type='table' ORDER BY 1;
+DROP TABLE IF EXISTS t1;

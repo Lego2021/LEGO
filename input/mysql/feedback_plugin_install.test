@@ -1,0 +1,6 @@
+ if (`select length('$FEEDBACK_SO') = 0`) { skip No feedback plugin;
+ }  eval install plugin feedback soname '$FEEDBACK_SO';
+ select plugin_status from information_schema.plugins where plugin_name='feedback';
+ select * from information_schema.feedback where variable_name like 'feed%' and variable_name not like  '%_uid' and variable_name not like '%debug%';
+  uninstall plugin feedback;
+  

@@ -1,0 +1,14 @@
+  CREATE TABLE t1(x int, y int);
+  BEGIN;
+  COMMIT;
+SELECT DISTINCT y FROM t1 ORDER BY y;
+SELECT y, count(*) FROM t1 GROUP BY y ORDER BY y;
+SELECT y, count(*) FROM t1 GROUP BY y ORDER BY count(*), y;
+SELECT count(*), y FROM t1 GROUP BY y ORDER BY count(*), y;
+    SELECT y, count(*) FROM t1 GROUP BY y HAVING count(*)<3 ORDER BY y;
+    SELECT x, count(*), avg(y) FROM t1 GROUP BY x HAVING x<4 ORDER BY x;
+    SELECT avg(x) FROM t1 WHERE x>100;
+    SELECT count(x) FROM t1 WHERE x>100;
+    SELECT min(x) FROM t1 WHERE x>100;
+    SELECT max(x) FROM t1 WHERE x>100;
+    SELECT sum(x) FROM t1 WHERE x>100;

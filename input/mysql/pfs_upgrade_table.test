@@ -1,0 +1,8 @@
+# Tests for PERFORMANCE_SCHEMA # Make sure mysql_upgrade does not destroy data in a 'performance_schema' # database. #   let $MYSQLD_DATADIR= `SELECT @@datadir`;
+   create table test.user_table(a int);
+   # Make sure the table is visible use performance_schema;
+ show tables like "user_table";
+   # Make sure the table is still visible show tables like "user_table";
+  use test;
+  drop table test.user_table;
+ 

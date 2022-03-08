@@ -1,0 +1,5 @@
+# Tests for sys schema # Verify the sys.host_summary view  # Ensure structure changes don't slip in DESC sys.host_summary;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.host_summary;
+   # Ensure structure changes don't slip in DESC sys.x$host_summary;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$host_summary;
+  

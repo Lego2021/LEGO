@@ -1,0 +1,6 @@
+#### suite/funcs_1/t/myisam_bitdata.test  # MyISAM tables should be used # # Set $engine_type SET @@session.sql_mode = 'NO_ENGINE_SUBSTITUTION';
+ let $engine_type= myisam;
+  let $message= NOT YET IMPLEMENTED: bitdata tests;
+ exit;
+  # Create some objects needed in many testcases USE test;
+  

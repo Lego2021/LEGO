@@ -1,0 +1,4 @@
+# Tests for PERFORMANCE_SCHEMA    # Expect no records show global variables like "performance_schema_accounts_size";
+  select count(*) from performance_schema.accounts;
+  # We lost all the data select variable_value > 0 from information_schema.global_status where variable_name like 'PERFORMANCE_SCHEMA_ACCOUNTS_LOST';
+  

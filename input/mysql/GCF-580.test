@@ -1,0 +1,10 @@
+# # GCF-580 wsrep_last_committed_counter increases twice for every SR fragment #   CREATE TABLE t1 (f1 INTEGER) ENGINE=InnoDB;
+  SET SESSION wsrep_trx_fragment_size = 1;
+  START TRANSACTION;
+ INSERT INTO t1 VALUES (1);
+ INSERT INTO t1 VALUES (2);
+ INSERT INTO t1 VALUES (3);
+ INSERT INTO t1 VALUES (4);
+   COMMIT;
+  DROP TABLE t1;
+ 

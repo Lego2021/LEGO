@@ -1,0 +1,4 @@
+  CREATE VIEW v1a AS SELECT f3(a+b) FROM t1;
+  DROP VIEW v1a;
+  CREATE VIEW v1b AS SELECT f2(b+c) FROM t1;
+  DROP VIEW v1b;

@@ -1,0 +1,7 @@
+ CREATE DATABASE auto_test_local;
+ USE auto_test_local;
+   echo CREATE TABLE tbl_a ( pkey int NOT NULL, PRIMARY KEY (pkey) ) MASTER_1_ENGINE MASTER_1_CHARSET MASTER_1_COMMENT_2_1;
+ eval CREATE TABLE tbl_a ( pkey int NOT NULL, PRIMARY KEY (pkey) ) $MASTER_1_ENGINE $MASTER_1_CHARSET $MASTER_1_COMMENT_2_1;
+   SELECT pkey FROM tbl_a;
+   DROP DATABASE IF EXISTS auto_test_local;
+  

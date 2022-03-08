@@ -1,0 +1,17 @@
+ create user u1;
+ create role r1;
+ show grants for u1;
+ show grants for r1;
+ select user, host, is_role from mysql.user where user in ('u1', 'r1');
+ select * from information_schema.applicable_roles;
+ show grants for u1;
+ show grants for r1;
+ flush privileges;
+ show grants for r1;
+ set role r1;
+ show grants;
+ show grants for r1;
+  connection master;
+ drop role r1;
+ drop user u1;
+ 

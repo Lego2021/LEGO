@@ -1,0 +1,9 @@
+# # BIT_AND() Window Function currently not supported in Columnstore. # Author: Bharath, bharath.bokka@mariadb.com #  DROP DATABASE IF EXISTS mcs149_db;
+  CREATE DATABASE mcs149_db;
+ USE mcs149_db;
+  CREATE TABLE t1 (a CHAR(1), b INT)ENGINE=Columnstore;
+ INSERT INTO t1 VALUES ('', NULL),('a', 12),('a', 13),('b', 14),('b', 15),('b', 16),('b', 17),('b', 18),('a', 19);
+  SELECT a, b, BIT_AND(b) OVER(PARTITION BY a) FROM t1;
+ SELECT a, b, BIT_AND(b) OVER(ORDER BY a) FROM t1;
+  # Clean UP DROP DATABASE mcs149_db;
+ 

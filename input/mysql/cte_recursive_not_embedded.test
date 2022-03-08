@@ -1,0 +1,6 @@
+   CREATE TABLE t1 (id int  KEY);
+ INSERT INTO t1 VALUES (0), (1),(2);
+  CREATE OR REPLACE FUNCTION func() RETURNS int RETURN ( WITH recursive cte AS (SELECT 1 a UNION SELECT cte.* FROM cte natural join t1) SELECT * FROM cte  limit 1 );
+       DROP FUNCTION func;
+ DROP TABLE t1;
+ 

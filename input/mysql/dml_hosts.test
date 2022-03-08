@@ -1,0 +1,12 @@
+# Tests for PERFORMANCE_SCHEMA   select * from performance_schema.hosts limit 1;
+  select * from performance_schema.hosts where host='FOO';
+  insert into performance_schema.hosts set host='FOO', current_connections=1, total_connections=2;
+  update performance_schema.hosts set current_connections=12;
+  update performance_schema.hosts set current_connections=12 where host like "FOO";
+  delete from performance_schema.hosts where total_connections=1;
+  delete from performance_schema.hosts;
+  LOCK TABLES performance_schema.hosts READ;
+ UNLOCK TABLES;
+  LOCK TABLES performance_schema.hosts WRITE;
+ UNLOCK TABLES;
+  

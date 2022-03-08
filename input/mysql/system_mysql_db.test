@@ -1,0 +1,4 @@
+# # This test must examine integrity of system database "mysql" #  # check that CSV engine was compiled in, as the result of the test # depends on the presence of the log tables (which are CSV-based).  use mysql;
+ use test;
+ # keep results same with system_mysql_db_fix show tables;
+  # End of 4.1 tests 

@@ -1,0 +1,8 @@
+# Embedded server tests do not support restarting   let $MYSQLD_DATADIR=`SELECT @@datadir`;
+ SET GLOBAL innodb_read_only_compressed=OFF;
+ CREATE TABLE t1 (a INT PRIMARY KEY) ENGINE=INNODB ROW_FORMAT=COMPRESSED;
+   EOF  SET @saved = @@GLOBAL.innodb_random_read_ahead;
+ SET GLOBAL innodb_random_read_ahead = 1;
+  DROP TABLE t1;
+ SET GLOBAL innodb_random_read_ahead = @saved;
+ 

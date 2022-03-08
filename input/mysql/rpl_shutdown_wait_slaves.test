@@ -1,0 +1,1 @@
+# # MDEV-18450 "Slow" shutdown to wait for slaves that are to be fed # with everything in the master binlog before shutdown completes. #  

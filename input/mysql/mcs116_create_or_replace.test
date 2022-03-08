@@ -1,0 +1,7 @@
+# # Columnstore Engine doesn't support CREATE OR REPLACE table # Author: Bharath, bharath.bokka@mariadb.com #  DROP DATABASE IF EXISTS mcs116_db;
+  CREATE DATABASE mcs116_db;
+ USE mcs116_db;
+  CREATE OR REPLACE TABLE IF NOT EXISTS t1 (a INT);
+  CREATE OR REPLACE TABLE t1 (a INT)ENGINE=Columnstore;
+  # Clean UP DROP DATABASE mcs116_db;
+ 

@@ -1,0 +1,16 @@
+    SELECT name FROM sqlite_master ORDER BY 1;
+    SELECT name FROM sqlite_master ORDER BY 1;
+    SELECT name FROM sqlite_master ORDER BY 1;
+    SELECT name FROM sqlite_master ORDER BY 1;
+    SELECT sql FROM sqlite_master;
+    SELECT sql FROM sqlite_master;
+    SELECT sql FROM sqlite_master;
+ SELECT sql FROM sqlite_master;
+    SELECT name FROM sqlite_master WHERE type = 'table';
+    SELECT name FROM sqlite_master;
+    SELECT name FROM sqlite_master;
+BEGIN;
+ INSERT INTO echo_c SELECT * FROM b;
+    BEGIN;
+      INSERT INTO e5 VALUES(1, 2);
+      DROP TABLE e5;

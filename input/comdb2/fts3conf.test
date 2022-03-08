@@ -1,0 +1,17 @@
+     BEGIN;
+    ROLLBACK TO a;
+  BEGIN;
+    INSERT INTO t1(docid, x) VALUES(0, 'a b c');
+    INSERT INTO t1(docid, x) VALUES(1, 'a b c');
+    REPLACE INTO t1(docid, x) VALUES('zero', 'd e f');
+  BEGIN;
+  COMMIT;
+  BEGIN;
+      INSERT INTO t01 VALUES('a b c');
+  BEGIN;
+      INSERT INTO t01 VALUES('a b c');
+      INSERT INTO t02 VALUES('a b c');
+  CREATE TABLE A(ID INTEGER PRIMARY KEY, AnotherID INTEGER, Notes TEXT);
+  CREATE TABLE B(ID INTEGER PRIMARY KEY,Notes TEXT);
+    DELETE FROM A WHERE AnotherID=1;
+    DELETE FROM B WHERE ID=1;

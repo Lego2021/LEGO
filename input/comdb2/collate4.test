@@ -1,0 +1,6 @@
+    CREATE TABLE collate4t1(a INTEGER PRIMARY KEY);
+    INSERT INTO collate4t1 VALUES(101);
+    INSERT INTO collate4t1 VALUES(10);
+    INSERT INTO collate4t1 VALUES(15);
+    SELECT * FROM collate4t1 ORDER BY 1;
+    SELECT * FROM collate4t1 ORDER BY oid;

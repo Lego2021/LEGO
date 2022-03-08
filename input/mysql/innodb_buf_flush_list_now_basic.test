@@ -1,0 +1,10 @@
+  # The config variable is a debug variable for now  SELECT @@global.innodb_buf_flush_list_now;
+  set global innodb_buf_flush_list_now = 1;
+  SELECT @@global.innodb_buf_flush_list_now;
+  set global innodb_buf_flush_list_now = 0;
+  set global innodb_buf_flush_list_now = dummy;
+  set innodb_buf_flush_list_now = ON;
+  set global innodb_buf_flush_list_now = ON;
+  set global innodb_buf_flush_list_now = OFF;
+  SELECT @@global.innodb_buf_flush_list_now;
+  

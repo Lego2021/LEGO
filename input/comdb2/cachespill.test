@@ -1,0 +1,4 @@
+    BEGIN;
+    PRAGMA cache_spill = 0;
+    BEGIN;
+ ROLLBACK;

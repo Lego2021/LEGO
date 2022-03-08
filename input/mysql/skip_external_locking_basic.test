@@ -1,0 +1,9 @@
+# # only global # select @@global.skip_external_locking;
+ select @@session.skip_external_locking;
+ show global variables like 'skip_external_locking';
+ show session variables like 'skip_external_locking';
+ select * from information_schema.global_variables where variable_name='skip_external_locking';
+ select * from information_schema.session_variables where variable_name='skip_external_locking';
+  # # show that it's read-only # set global skip_external_locking=1;
+ set session skip_external_locking=1;
+ 

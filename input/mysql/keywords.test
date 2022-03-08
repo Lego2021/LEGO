@@ -1,0 +1,13 @@
+SET sql_mode=ORACLE;
+   DELIMITER $$;
+ BEGIN IF TRUE THEN GOTO compressed;
+ END IF;
+ SELECT 'This should not be reached' AS warn;
+ <<compressed>> BEGIN SELECT 1 AS a;
+ END;
+ END $$ DELIMITER ;
+$$  DELIMITER $$;
+ DECLARE compressed INT DEFAULT 1;
+ BEGIN SELECT compressed;
+ END $$ DELIMITER ;
+$$ 

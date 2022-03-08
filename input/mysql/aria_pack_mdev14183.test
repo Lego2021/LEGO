@@ -1,0 +1,5 @@
+ CREATE TABLE `t` ( `col_1` varchar(255) NOT NULL DEFAULT '', `col_2` varchar(255) NOT NULL, `col_3` int(11) NOT NULL DEFAULT '0', `col_4` int(11) NOT NULL DEFAULT '0' ) ENGINE=Aria TRANSACTIONAL=0 PAGE_CHECKSUM=0;
+  insert into t values ('foobar','qux',0,0),('abcdef','qux',0,0);
+  # maria_pack crashes by assert() if the bug is not fixed  SELECT * FROM t;
+  DROP TABLE t;
+ 

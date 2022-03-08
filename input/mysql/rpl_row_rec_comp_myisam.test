@@ -1,0 +1,5 @@
+ # # BUG#52868 Wrong handling of NULL value during update, replication out of sync #      INSERT INTO t1(c1,c2) VALUES (10, b'1');
+ INSERT INTO t1(c1,c2) VALUES (NULL, b'1');
+ UPDATE t1 SET c1= 0;
+   DROP TABLE t1;
+   

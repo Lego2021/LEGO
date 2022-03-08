@@ -1,0 +1,9 @@
+# # only global # select @@global.pid_file;
+ select @@session.pid_file;
+ show global variables like 'pid_file';
+ show session variables like 'pid_file';
+ select * from information_schema.global_variables where variable_name='pid_file';
+ select * from information_schema.session_variables where variable_name='pid_file';
+  # # show that it's read-only # set global pid_file=1;
+ set session pid_file=1;
+ 

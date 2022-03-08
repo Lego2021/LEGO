@@ -1,0 +1,10 @@
+# bool readonly  # # show values;
+ # select @@global.in_transaction;
+ select @@session.in_transaction;
+ show global variables like 'in_transaction';
+ show session variables like 'in_transaction';
+ select * from information_schema.global_variables where variable_name='in_transaction';
+ select * from information_schema.session_variables where variable_name='in_transaction';
+  # # show that it's read-only # set global in_transaction=1;
+ set session in_transaction=1;
+  

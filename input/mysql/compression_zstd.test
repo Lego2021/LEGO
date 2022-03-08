@@ -1,0 +1,4 @@
+ let $no_zstd=`select @@rocksdb_supported_compression_types NOT LIKE '%ZSTD%'`;
+  if ($no_zstd) { }   create table t (id int primary key) engine=rocksdb;
+ drop table t;
+ 

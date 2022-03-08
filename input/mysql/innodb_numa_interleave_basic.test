@@ -1,0 +1,6 @@
+ call mtr.add_suppression("InnoDB: Failed to set NUMA memory policy");
+  SELECT @@GLOBAL.innodb_numa_interleave;
+  SET @@GLOBAL.innodb_numa_interleave=off;
+  SELECT @@GLOBAL.innodb_numa_interleave;
+  SELECT @@SESSION.innodb_numa_interleave;
+  

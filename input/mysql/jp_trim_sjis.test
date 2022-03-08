@@ -1,0 +1,4 @@
+# # Test TRIM() function with Japanese characters sjis encoding #  let $engine = innodb;
+  let $engine = myisam;
+  let $engine = memory;
+ 

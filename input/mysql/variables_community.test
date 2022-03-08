@@ -1,0 +1,4 @@
+ # # Bug#24822: Patch: uptime_since_flush_status # show global status like "Uptime_%";
+ flush status;
+ show global status like "Uptime_%";
+  # Almost certainly zero  

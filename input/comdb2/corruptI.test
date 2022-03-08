@@ -1,0 +1,4 @@
+SELECT rootpage FROM sqlite_master WHERE name = 'r1';
+SELECT sqlite_compileoption_used('ENABLE_OVERSIZE_CELL_CHECK');
+SELECT rootpage FROM sqlite_master;
+  SELECT name FROM sqlite_master;

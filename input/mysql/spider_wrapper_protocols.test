@@ -1,0 +1,2 @@
+ SELECT * FROM information_schema.spider_wrapper_protocols;
+  

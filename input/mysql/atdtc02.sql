@@ -1,0 +1,1 @@
+ALTER TABLE tab4 DROP CONSTRAINT constraintName 

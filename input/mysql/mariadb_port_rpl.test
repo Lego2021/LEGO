@@ -1,0 +1,8 @@
+ select @@log_bin;
+ select @@binlog_format;
+ CREATE OR REPLACE TABLE t1 (i INT) ENGINE=RocksDB;
+ LOCK TABLE t1 WRITE;
+ FLUSH TABLES;
+ UNLOCK TABLES;
+ DROP TABLE t1;
+  

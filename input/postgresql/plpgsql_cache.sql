@@ -1,0 +1,23 @@
+ create table c_mutable(f1 int, f2 text);
+  create function c_sillyaddone(int) returns int language plpgsql as $$ declare r c_mutable;
+ begin r.f1 := $1;
+ return r.f1 + 1;
+ end $$;
+ select c_sillyaddone(42);
+  alter table c_mutable drop column f1;
+ alter table c_mutable add column f1 float8;
+  select c_sillyaddone(42);
+  discard plans;
+ select c_sillyaddone(42);
+  create function show_result_type(text) returns text language plpgsql as $$ declare r record;
+ t text;
+ begin execute $1 into r;
+ select pg_typeof(r.a) into t;
+ return format('type %s value %s', t, r.a::text);
+ end;
+ $$;
+  select show_result_type('select 1 as a');
+ select show_result_type('select 2.0 as a');
+  discard plans;
+ select show_result_type('select 2.0 as a');
+ 

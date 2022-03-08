@@ -1,0 +1,16 @@
+ CREATE TABLE t1 (a VARCHAR(7), b text, FULLTEXT KEY idx (a,b)) ENGINE=InnoDB;
+  BEGIN;
+ let $n=1000;
+ while ($n) { INSERT INTO t1 VALUES('foo bar','boo far');
+ dec $n;
+ } COMMIT;
+  let $id = `SELECT CONNECTION_ID()`;
+ send SELECT COUNT(*) FROM t1 WHERE MATCH (a,b) AGAINST ('foo bar' IN BOOLEAN MODE);
+  connect (con1,localhost,root,,);
+ let $ignore= `SELECT @id := $ID`;
+ KILL QUERY @id;
+ disconnect con1;
+  connection default;
+ # The following would return a result set if the KILL was not fast enough. reap;
+ DROP TABLE t1;
+ 

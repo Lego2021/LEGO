@@ -1,0 +1,10 @@
+#### suite/funcs_1/t/memory_views.test  # Memory tables should be used # # Set $engine_type SET @@session.sql_mode = 'NO_ENGINE_SUBSTITUTION';
+ let $engine_type= memory;
+  # Create some objects needed in many testcases USE test;
+ DROP DATABASE IF EXISTS test1;
+ CREATE DATABASE test1;
+ USE test1;
+ USE test;
+  DROP DATABASE test1;
+ DROP TABLE test.tb2;
+  

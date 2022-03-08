@@ -1,0 +1,8 @@
+ CREATE DATABASE auto_test_local;
+ USE auto_test_local;
+  echo CREATE TEMPORARY TABLE tmp_a ( pkey int NOT NULL, PRIMARY KEY (pkey) ) MASTER_1_ENGINE2;
+ eval CREATE TEMPORARY TABLE tmp_a ( pkey int NOT NULL, PRIMARY KEY (pkey) ) $MASTER_1_ENGINE2;
+  eval $DIRECT_SQL_COMMAND;
+ SELECT pkey FROM tmp_a;
+   DROP DATABASE IF EXISTS auto_test_local;
+  

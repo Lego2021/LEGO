@@ -1,0 +1,9 @@
+  SET @save_innodb_read_only_compressed=@@GLOBAL.innodb_read_only_compressed;
+ SET GLOBAL innodb_read_only_compressed=OFF;
+  CREATE TABLE t1 ( f1 int primary key, f2 blob, f3 blob generated always as (f2)) row_format=compressed, engine=innodb;
+ insert into t1 (f1, f2) values (1, repeat('&', 50000));
+ alter table t1 add index i1 (f3(200)) ;
+ alter table t1 row_format=compact;
+  SET GLOBAL innodb_read_only_compressed=@save_innodb_read_only_compressed;
+  drop table t1;
+ 

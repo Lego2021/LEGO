@@ -1,0 +1,7 @@
+SET sql_mode=ORACLE;
+   CREATE TABLE door (id INT, window VARCHAR(10));
+  SELECT id FROM door as window;
+  SELECT id, window FROM door;
+  SELECT id, window FROM door as window;
+  DROP TABLE door;
+ 

@@ -1,0 +1,4 @@
+     BEGIN;
+      UPDATE t1 SET a = randomblob(99);
+     BEGIN;
+      UPDATE t1 SET a = randomblob(99);

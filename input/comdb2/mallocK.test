@@ -1,0 +1,5 @@
+  ANALYZE;
+  SELECT 'x' > '.';
+  CREATE TABLE x2(x TEXT, y TEXT);
+  ANALYZE;
+  DELETE FROM x2;

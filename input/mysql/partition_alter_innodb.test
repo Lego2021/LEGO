@@ -1,0 +1,4 @@
+SET @save_innodb_read_only_compressed=@@GLOBAL.innodb_read_only_compressed;
+ SET GLOBAL innodb_read_only_compressed=OFF;
+ SET GLOBAL innodb_read_only_compressed=@save_innodb_read_only_compressed;
+ 

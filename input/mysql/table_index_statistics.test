@@ -1,0 +1,4 @@
+ SET @default_storage_engine_old = @@session.default_storage_engine;
+ SET SESSION default_storage_engine = INNODB;
+   SET SESSION default_storage_engine = @default_storage_engine_old;
+ 

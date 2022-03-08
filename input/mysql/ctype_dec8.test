@@ -1,0 +1,3 @@
+  SET NAMES dec8;
+ SET @seq=_dec8 0xD0;
+  

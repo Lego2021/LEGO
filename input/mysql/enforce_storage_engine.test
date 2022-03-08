@@ -1,0 +1,10 @@
+ # enforce_storage_engine should prevent the creation of tables with # non-enforced storage engines on the master node and the command # should also not replicate to other nodes.   SET @@enforce_storage_engine=INNODB;
+ CREATE TABLE t1(i INT) ENGINE=INNODB;
+ CREATE TABLE t2(i INT) ENGINE=MYISAM;
+  INSERT INTO t1 VALUES(1);
+  SHOW TABLES;
+ SELECT COUNT(*)=1 FROM t1;
+  CREATE TABLE t2(i INT) ENGINE=MYISAM;
+  SHOW TABLES;
+  # Cleanup DROP TABLE t1, t2;
+  

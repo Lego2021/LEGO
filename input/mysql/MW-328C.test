@@ -1,0 +1,4 @@
+# # MW-328 Fix unnecessary/silent BF aborts #  # # Make sure that a high value of wsrep_retry_autocommit # masks all deadlock errors #    SET SESSION wsrep_retry_autocommit = 10000;
+   while ($count) { INSERT IGNORE INTO t2 SELECT f2 FROM t1;
+  SELECT 1 FROM DUAL;
+  }   

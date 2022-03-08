@@ -1,0 +1,9 @@
+        create table t1 (k integer primary key);
+        insert into t1 values (1);
+        update t1 set k=4 where k=2;
+        delete from t1 where k=4;
+        create view v as select * from t1;
+        insert into t1 values (13);
+        update t1 set k=14 where k=3;
+        delete from t1 where k=1;
+        drop table t1;

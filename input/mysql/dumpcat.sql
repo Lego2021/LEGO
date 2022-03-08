@@ -1,0 +1,2 @@
+ select `schema`, tablename, columnname colname, objectid, dictobjectid dict, datatype, scale, prec, columnlength collen, columnposition pos, compressiontype ct from syscolumn order by `schema`, tablename, pos;
+ 

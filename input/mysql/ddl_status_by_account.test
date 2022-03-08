@@ -1,0 +1,5 @@
+# Tests for PERFORMANCE_SCHEMA   alter table performance_schema.status_by_account add column foo integer;
+  truncate table performance_schema.status_by_account;
+  ALTER TABLE performance_schema.status_by_account ADD INDEX test_index(VARIABLE_NAME);
+  CREATE UNIQUE INDEX test_index ON performance_schema.status_by_account(VARIABLE_NAME);
+  

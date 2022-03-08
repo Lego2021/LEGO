@@ -1,0 +1,6 @@
+        select * from sqlite_master;
+ select * from sqlite_master;
+      select * from sqlite_master;
+        BEGIN;
+        SELECT * FROM sqlite_master;
+      PRAGMA lock_proxy_file="mine";

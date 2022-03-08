@@ -1,0 +1,6 @@
+ SELECT tbl_name FROM sqlite_master WHERE type = 'table';
+ SELECT tbl_name FROM sqlite_master WHERE type = 'table';
+ SELECT tbl_name FROM sqlite_master WHERE type = 'table';
+    BEGIN;
+    INSERT INTO fts_t1(a, b, c) VALUES('one two three', 'one four', 'one two');
+    ALTER TABLE fts_t1 RENAME to t1;

@@ -1,0 +1,10 @@
+       BEGIN;
+        PRAGMA incremental_vacuum = 100;
+        INSERT INTO t1 SELECT randomblob(400) FROM t1;
+          PRAGMA incremental_vacuum = 100;
+            INSERT INTO t1 SELECT randomblob(400) FROM t1;
+       BEGIN;
+        INSERT INTO t1 SELECT randomblob(400) FROM t1;
+        INSERT INTO t1 SELECT randomblob(400) FROM t1;
+PRAGMA integrity_check;
+ PRAGMA freelist_count;

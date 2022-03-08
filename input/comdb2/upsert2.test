@@ -1,0 +1,13 @@
+  CREATE TABLE record(x TEXT, y TEXT);
+  DELETE FROM record;
+  SELECT * FROM record;
+  DELETE FROM record;
+  SELECT * FROM record;
+  DELETE FROM record;
+  SELECT * FROM record;
+  DELETE FROM record;
+  SELECT * FROM record;
+  DELETE FROM record;
+  SELECT * FROM record;
+  DELETE FROM record;
+  SELECT * FROM record;

@@ -1,0 +1,5 @@
+    BEGIN;
+    ROLLBACK;
+    BEGIN;
+      INSERT INTO t1 VALUES('two', 'II');
+ CREATE VIEW v1 AS SELECT * FROM y1;

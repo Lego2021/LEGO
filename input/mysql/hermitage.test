@@ -1,0 +1,3 @@
+ # Hermitage is an attempt to test transaction isolation levels. # https://github.com/ept/hermitage  let $trx_isolation = READ COMMITTED;
+  let $trx_isolation = REPEATABLE READ;
+ 

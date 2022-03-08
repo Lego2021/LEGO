@@ -1,0 +1,8 @@
+  BEGIN;
+  INSERT INTO t6 VALUES('x x x x x x x x x x x A');
+  INSERT INTO t6 VALUES('x x x x x x x x x x x B');
+  INSERT INTO t6 VALUES('x x x x x x x x x x x A');
+  INSERT INTO t6 VALUES('x x x x x x x x x x x B');
+  BEGIN;
+    INSERT INTO vt0 VALUES (0);
+    INSERT INTO vt0(vt0) VALUES('optimize');

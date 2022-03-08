@@ -1,0 +1,5 @@
+ SET GLOBAL gtid_current_pos= '';
+ SELECT variable_name FROM information_schema.global_variables WHERE variable_name='gtid_current_pos';
+  # The value of the variable depends on the binary log, this is tested extensively # elsewhere in rpl.rpl_gtid*.test SELECT @@gtid_current_pos;
+  SELECT @@session.gtid_current_pos;
+ 

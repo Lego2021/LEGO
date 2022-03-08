@@ -1,0 +1,9 @@
+# hang because of replicated FLUSH TABLE command   CREATE TABLE t (f1 INTEGER PRIMARY KEY) Engine=InnoDB;
+  SET DEBUG_SYNC = 'wsrep_before_certification WAIT_FOR continue';
+  SET SESSION wsrep_sync_wait = 0;
+  FLUSH TABLES;
+   SELECT SLEEP(1);
+  SET DEBUG_SYNC= 'now SIGNAL continue';
+   # Cleanup DROP TABLE t;
+ SET DEBUG_SYNC= 'RESET';
+ 

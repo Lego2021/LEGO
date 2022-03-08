@@ -1,0 +1,8 @@
+  CREATE TABLE t5(a INTEGER, b INTEGER);
+  INSERT INTO t5 VALUES(2, 4), (3, 9);
+  SELECT * FROM t5 WHERE abs(a)=2 or abs(b)=9;
+  SELECT * FROM t5 WHERE abs(a)=2 or abs(b)=9;
+  BEGIN;
+  COMMIT;
+  SELECT sql FROM sqlite_master WHERE tbl_name = 't0';
+  REINDEX;

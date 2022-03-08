@@ -1,0 +1,14 @@
+# # MW-328 Fix unnecessary/silent BF aborts #  # # Test that non-Galera deadlock error still behaves as expected (case #2) #   create table t1 (i int primary key, j int) engine=innodb;
+ create table t2 (i int primary key, j int) engine=innodb;
+  insert into t1 values (1,0);
+ insert into t2 values (2,0);
+  set autocommit=off;
+ start transaction;
+ update t1 set j=1 where i=1;
+  set autocommit=off;
+ start transaction;
+ begin;
+ update t2 set j=1 where i=2;
+  # Hang expected here  insert into t2 select * from t1;
+   DROP TABLE t1, t2;
+ 

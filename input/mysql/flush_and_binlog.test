@@ -1,0 +1,17 @@
+  CREATE TABLE t1 (a INT);
+ FLUSH TABLES WITH READ LOCK;
+ SET lock_wait_timeout= 1;
+ OPTIMIZE TABLE t1;
+ # Cleanup UNLOCK TABLES;
+ DROP TABLE t1;
+ # # Second test case from MDEV_23843 # FLUSH TABLES WITH READ LOCK;
+ SET lock_wait_timeout= 1;
+ FLUSH TABLES;
+ unlock tables;
+   CREATE TABLE t (a INT);
+ FLUSH TABLES WITH READ LOCK;
+ SET lock_wait_timeout= 1;
+ ANALYZE TABLE t;
+ # Cleanup UNLOCK TABLES;
+ DROP TABLE t;
+ 

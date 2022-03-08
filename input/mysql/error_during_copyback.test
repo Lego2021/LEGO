@@ -1,0 +1,19 @@
+CREATE TABLE t(i INT) ENGINE INNODB;
+ INSERT INTO t VALUES(1);
+ echo # xtrabackup backup;
+ let $targetdir=$MYSQLTEST_VARDIR/tmp/backup;
+ exec $XTRABACKUP --defaults-file=$MYSQLTEST_VARDIR/my.cnf --backup --target-dir=$targetdir;
+ echo # xtrabackup prepare;
+ exec $XTRABACKUP  --prepare --target-dir=$targetdir;
+ let $_datadir= `SELECT @@datadir`;
+ rmdir $_datadir;
+ error 1;
+ exec $XTRABACKUP --defaults-file=$MYSQLTEST_VARDIR/my.cnf --copy-back  --datadir=$_datadir --target-dir=$targetdir --dbug=+d,copy_file_error;
+ list_files $_datadir;
+ rmdir $_datadir;
+ exec $XTRABACKUP --defaults-file=$MYSQLTEST_VARDIR/my.cnf --copy-back --datadir=$_datadir --target-dir=$targetdir;
+ echo # restart server;
+ SELECT * FROM t;
+ DROP TABLE t;
+ rmdir $targetdir;
+  

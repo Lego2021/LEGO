@@ -1,0 +1,3 @@
+ if (!$MYPLUGLIB_SO) { } if (!$LIBDAEMON_EXAMPLE_SO) { } if (!$DIALOG_EXAMPLES_SO) { } SELECT @@global.example_enum_var = 'e2';
+  select plugin_name, plugin_status from information_schema.plugins where plugin_name in ('SIMPLE_PARSER', 'EXAMPLE', 'DAEMON_EXAMPLE', 'TWO_QUESTIONS', 'THREE_ATTEMPTS');
+ 

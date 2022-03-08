@@ -1,0 +1,9 @@
+# galera#505 - Change of pc.weight wsrep param will be correctly stored in wsrep_provider_options variable    SET SESSION wsrep_sync_wait=0;
+ source ../../wsrep/include/check_galera_version.inc;
+  SET SESSION wsrep_sync_wait=DEFAULT;
+  # Convert "... pc.weight = N;
+ ..." to "N;
+ ..." # Convert "N;
+ ..." to "N"  SET GLOBAL wsrep_provider_options = 'pc.weight=3';
+  SHOW GLOBAL VARIABLES LIKE 'wsrep_provider_options';
+  

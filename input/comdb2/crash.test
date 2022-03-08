@@ -1,0 +1,8 @@
+ BEGIN;
+ COMMIT;
+         BEGIN;
+         DELETE FROM abc WHERE random()%10!=0;
+         DELETE FROM abc2 WHERE random()%10!=0;
+    BEGIN;
+    DROP TABLE abc;
+    ATTACH 'test2.db' AS aux;

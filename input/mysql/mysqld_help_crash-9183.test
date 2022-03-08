@@ -1,0 +1,4 @@
+# # MDEV-9183 MariaDB 10.1 crash on `mysqld --verbose --help` #  rename table mysql.plugin to test.plugin;
+ flush tables;
+ rename table test.plugin to mysql.plugin;
+  

@@ -1,0 +1,1 @@
+SELECT quote(randomblob(8));

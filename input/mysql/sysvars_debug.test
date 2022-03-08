@@ -1,0 +1,2 @@
+ select * from information_schema.system_variables where variable_name like 'debug%' order by variable_name;
+ 

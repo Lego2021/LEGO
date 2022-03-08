@@ -1,0 +1,8 @@
+ USE test;
+ CREATE TABLE t1(c1 INT PRIMARY KEY) ENGINE=INNODB;
+ INSERT INTO t1 VALUES (1), (2), (3), (4), (5);
+ SELECT * FROM t1;
+  SELECT * FROM test.t1;
+  SELECT * FROM test.t1;
+   # Cleanup DROP TABLE t1;
+  

@@ -1,0 +1,9 @@
+ SET NAMES utf8;
+ call mtr.add_suppression("Invalid .old.. table or database name");
+   set session default_storage_engine=innodb;
+ create database `b`;
+ use `b`;
+ create table `#mysql50#q.q` select 1;
+ create table `#mysql50#q·q` select 1;
+ drop database `b`;
+ 

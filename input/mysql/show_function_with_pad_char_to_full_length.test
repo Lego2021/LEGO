@@ -1,0 +1,13 @@
+# # Test that show function status succeeds with # sql_mode = 'PAD_CHAR_TO_FULL_LENGTH (MDEV-13149)  # show function status  create function f() returns int return 1;
+ show function status where db='test';
+ set sql_mode = 'PAD_CHAR_TO_FULL_LENGTH';
+ show function status where db='test';
+ drop function f;
+ select @@sql_mode;
+  # select ROUTINE_NAME from information_schema.ROUTINES  create function f() returns int return 1;
+ select ROUTINE_NAME from information_schema.ROUTINES where ROUTINE_NAME='f';
+ set sql_mode = 'PAD_CHAR_TO_FULL_LENGTH';
+ select ROUTINE_NAME from information_schema.ROUTINES where ROUTINE_NAME='f';
+ drop function f;
+ select @@sql_mode;
+ 

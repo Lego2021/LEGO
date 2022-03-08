@@ -1,0 +1,4 @@
+# # MDEV-8021 "InnoDB: Tablespace id 4 encrypted but encryption service not available. Can't continue opening tablespace" on server restart when there are encrypted tables #   let $datadir=`select @@datadir`;
+    create table t1 (a int);
+   drop table t1;
+ 

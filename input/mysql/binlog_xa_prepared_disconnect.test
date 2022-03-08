@@ -1,0 +1,1 @@
+############################################################################### # Bug#12161 Xa recovery and client disconnection # Testing new server options and binary logging prepared XA transaction. ###############################################################################  # # MIXED mode is chosen because formats are varied inside the sourced tests. #  

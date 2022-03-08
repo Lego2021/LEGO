@@ -1,0 +1,9 @@
+# # only global # select @@global.skip_networking;
+ select @@session.skip_networking;
+ show global variables like 'skip_networking';
+ show session variables like 'skip_networking';
+ select * from information_schema.global_variables where variable_name='skip_networking';
+ select * from information_schema.session_variables where variable_name='skip_networking';
+  # # show that it's read-only # set global skip_networking=1;
+ set session skip_networking=1;
+ 

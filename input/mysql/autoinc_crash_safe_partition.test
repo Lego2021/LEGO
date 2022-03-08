@@ -1,0 +1,2 @@
+ create table t (i int primary key auto_increment) engine=rocksdb partition by key (i) partitions 3;
+   

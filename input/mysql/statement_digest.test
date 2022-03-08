@@ -1,0 +1,5 @@
+# ----------------------------------------------------------------------- # Tests for the performance schema statement Digests. # -----------------------------------------------------------------------   SET sql_mode='NO_ENGINE_SUBSTITUTION';
+ # Initial Setup for Digest  TRUNCATE TABLE performance_schema.events_statements_summary_by_digest;
+  # Executing queries  SELECT SCHEMA_NAME, DIGEST_TEXT, COUNT_STAR, SUM_ROWS_AFFECTED, SUM_WARNINGS, SUM_ERRORS FROM performance_schema.events_statements_summary_by_digest;
+  # Cleanup for Digest SET sql_mode=default;
+ 

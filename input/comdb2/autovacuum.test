@@ -1,0 +1,9 @@
+    SELECT rootpage FROM sqlite_master ORDER BY rootpage;
+    SELECT rootpage FROM sqlite_master ORDER BY rootpage;
+    SELECT rootpage FROM sqlite_master ORDER BY rootpage;
+    SELECT rootpage FROM sqlite_master ORDER BY rootpage;
+    SELECT rootpage FROM sqlite_master ORDER BY rootpage;
+    BEGIN;
+    DROP TABLE av4;
+    BEGIN;
+    DELETE FROM t4;

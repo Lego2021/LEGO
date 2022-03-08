@@ -1,0 +1,6 @@
+  BEGIN;
+    UPDATE t1 SET a = 3 WHERE a = 1;
+      UPDATE t1 SET a = 4 WHERE a = 2;
+  BEGIN;
+    DROP TABLE t3;
+      PRAGMA incremental_vacuum;

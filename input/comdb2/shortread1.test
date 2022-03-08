@@ -1,0 +1,6 @@
+    CREATE TABLE t1(a TEXT);
+    BEGIN;
+    PRAGMA freelist_count;
+    PRAGMA freelist_count;
+    PRAGMA freelist_count;
+    SELECT count(*) FROM t1;

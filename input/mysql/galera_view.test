@@ -1,0 +1,4 @@
+ CREATE VIEW v AS SELECT 1;
+ RENAME TABLE v TO v2;
+  # Cleanup DROP VIEW v2;
+ 

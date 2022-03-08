@@ -1,0 +1,5 @@
+# Tests for sys schema # Verify the sys.memory_by_thread_by_current_bytes view  # Ensure structure changes don't slip in DESC sys.memory_by_thread_by_current_bytes;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.memory_by_thread_by_current_bytes;
+   # Ensure structure changes don't slip in DESC sys.x$memory_by_thread_by_current_bytes;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$memory_by_thread_by_current_bytes;
+  

@@ -1,0 +1,3 @@
+ CREATE TABLE `t` ( `a` text DEFAULT NULL ) ENGINE=ROCKSDB;
+   while ($loop_cnt) {  }  # Cleanup DROP TABLE t;
+ 

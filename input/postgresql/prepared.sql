@@ -1,0 +1,28 @@
+SET synchronous_commit = on;
+ SELECT 'init' FROM pg_create_logical_replication_slot('regression_slot', 'test_decoding');
+  CREATE TABLE test_prepared1(id int);
+ CREATE TABLE test_prepared2(id int);
+  BEGIN;
+ INSERT INTO test_prepared1 VALUES (1);
+ PREPARE TRANSACTION 'test_prepared#1';
+ COMMIT PREPARED 'test_prepared#1';
+ INSERT INTO test_prepared1 VALUES (2);
+  BEGIN;
+ INSERT INTO test_prepared1 VALUES (3);
+ PREPARE TRANSACTION 'test_prepared#2';
+ ROLLBACK PREPARED 'test_prepared#2';
+  INSERT INTO test_prepared1 VALUES (4);
+  BEGIN;
+ INSERT INTO test_prepared1 VALUES (5);
+ ALTER TABLE test_prepared1 ADD COLUMN data text;
+ INSERT INTO test_prepared1 VALUES (6, 'frakbar');
+ PREPARE TRANSACTION 'test_prepared#3';
+   INSERT INTO test_prepared2 VALUES (7);
+  COMMIT PREPARED 'test_prepared#3';
+  INSERT INTO test_prepared1 VALUES (8);
+ INSERT INTO test_prepared2 VALUES (9);
+  DROP TABLE test_prepared1;
+ DROP TABLE test_prepared2;
+  SELECT data FROM pg_logical_slot_get_changes('regression_slot', NULL, NULL, 'include-xids', '0', 'skip-empty-xacts', '1');
+  SELECT pg_drop_replication_slot('regression_slot');
+ 

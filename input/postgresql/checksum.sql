@@ -1,0 +1,3 @@
+ SHOW block_size;
+  SHOW block_size \gset  SELECT blkno, page_checksum(decode(repeat('01', :block_size), 'hex'), blkno) AS checksum_01, page_checksum(decode(repeat('04', :block_size), 'hex'), blkno) AS checksum_04, page_checksum(decode(repeat('ff', :block_size), 'hex'), blkno) AS checksum_ff, page_checksum(decode(repeat('abcd', :block_size / 2), 'hex'), blkno) AS checksum_abcd, page_checksum(decode(repeat('e6d6', :block_size / 2), 'hex'), blkno) AS checksum_e6d6, page_checksum(decode(repeat('4a5e', :block_size / 2), 'hex'), blkno) AS checksum_4a5e FROM generate_series(0, 100, 50) AS a (blkno);
+ 

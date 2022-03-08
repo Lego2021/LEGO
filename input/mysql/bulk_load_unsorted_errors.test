@@ -1,0 +1,4 @@
+ # Cannot change unsorted input preference during bulk load SET rocksdb_bulk_load=1;
+ SET rocksdb_bulk_load_allow_unsorted=1;
+ SET rocksdb_bulk_load=0;
+ 

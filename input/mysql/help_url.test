@@ -1,0 +1,3 @@
+# # MDEV-4273 MYSQL_VERSION_MAJOR.MYSQL_VERSION_MINOR not replaced #  create table innodb_table_monitor (a int) engine=InnoDB;
+ drop table innodb_table_monitor;
+ 

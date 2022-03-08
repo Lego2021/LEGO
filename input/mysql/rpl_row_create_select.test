@@ -1,0 +1,10 @@
+# Testing table creations for row-based replication.    connection master;
+ SET STATEMENT sql_mode = 'NO_ENGINE_SUBSTITUTION' FOR CREATE TABLE t1 AS SELECT REPEAT('A', 1000) DIV 1 AS a;
+ SHOW CREATE TABLE t1;
+  SET STATEMENT sql_mode = 'NO_ENGINE_SUBSTITUTION' FOR CREATE TABLE t2 AS SELECT CONVERT(REPEAT('A', 255) USING UCS2) DIV 1 AS a;
+ SHOW CREATE TABLE t2;
+  sync_slave_with_master;
+  connection master;
+ DROP TABLE t1;
+ DROP TABLE t2;
+   

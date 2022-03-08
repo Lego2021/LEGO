@@ -1,0 +1,13 @@
+# # Test that Galera works with binary log checksums. # The galera_binlog_checksum-master.opt file is used to enable checksums. #   CREATE TABLE t1 (f1 INT PRIMARY KEY) ENGINE=InnoDB;
+  INSERT INTO t1 VALUES (1);
+  SELECT COUNT(*) = 1 FROM t1;
+  UPDATE t1 SET f1 = 2 WHERE f1 = 1;
+  SELECT COUNT(*) = 1 FROM t1 WHERE f1 = 2;
+  DROP TABLE t1;
+   SET @@global.wsrep_mode = REPLICATE_MYISAM;
+  CREATE TABLE t1 (i INT NOT NULL PRIMARY KEY) ENGINE=MYISAM;
+ INSERT INTO t1 VALUES(1);
+  SELECT * FROM t1;
+  DROP TABLE t1;
+  SET @@global.wsrep_mode=DEFAULT;
+  

@@ -1,0 +1,6 @@
+ connection master;
+ call mtr.add_suppression(".*");
+ sync_slave_with_master;
+ change master to master_auto_position=1;
+   change master to master_auto_position=0;
+  

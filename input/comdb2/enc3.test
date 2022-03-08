@@ -1,0 +1,2 @@
+      SELECT CAST(x'61006200630064006500' AS text);
+SELECT 1 FROM sqlite_master LIMIT 1;

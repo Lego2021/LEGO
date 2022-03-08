@@ -1,0 +1,7 @@
+ SET DEFAULT_STORAGE_ENGINE=InnoDB;
+    SET NAMES big5;
+ let $coll='big5_chinese_nopad_ci';
+ let $coll_pad='big5_chinese_ci';
+  let $coll='big5_nopad_bin';
+ let $coll_pad='big5_bin';
+  

@@ -1,0 +1,11 @@
+# We currently only have named pipe support on windows, so # in order  to optimize things we skip this test on all # other platforms # Named pipe does not support the non-blocking API.  # Only run this test if named pipe is avaliable let $nmp= query_get_value("SHOW VARIABLES LIKE 'named_pipe'", Value, 1);
+ if ($nmp != ON){ skip No named pipe support;
+ }  # Connect using named pipe for testing connect(pipe_con,localhost,root,,,,,PIPE);
+  # Source select test case  connection default;
+ disconnect pipe_con;
+  # MDEV-10383 : check that other server cannot 'bind' on the same pipe let $MYSQLD_DATADIR= `select @@datadir`;
+ let SEARCH_FILE=$MYSQLD_DATADIR/second-mysqld.err;
+ let SEARCH_PATTERN=\[ERROR\] Create named pipe failed;
+ source include/search_pattern_in_file.inc;
+ remove_file $SEARCH_FILE;
+ 

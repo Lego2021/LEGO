@@ -1,0 +1,12 @@
+call mtr.add_suppression("InnoDB: New log files created");
+  let $basedir=$MYSQLTEST_VARDIR/tmp/backup;
+  CREATE TABLE t(a varchar(60)) ENGINE INNODB;
+ start transaction;
+ INSERT INTO t VALUES(1);
+  exec $XTRABACKUP --defaults-file=$MYSQLTEST_VARDIR/my.cnf  --backup --target-dir=$basedir;
+  exec $XTRABACKUP --prepare --target-dir=$basedir ;
+  let SEARCH_FILE=$MYSQLTEST_VARDIR/log/current_test;
+  SELECT count(*) FROM t;
+ DROP TABLE t;
+  # Cleanup rmdir $basedir;
+ 

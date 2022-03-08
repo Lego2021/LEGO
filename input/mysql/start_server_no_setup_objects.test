@@ -1,0 +1,3 @@
+# Tests for PERFORMANCE_SCHEMA    # Expect no setup_objects show global variables like "performance_schema_setup_objects_size";
+  # Expect no setup_objects select count(*) from performance_schema.setup_objects;
+  

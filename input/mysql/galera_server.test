@@ -1,0 +1,7 @@
+# Test for CREATE/ALTER/DROP SERVER in Galera cluster   CREATE SERVER s1 FOREIGN DATA WRAPPER mysql OPTIONS (HOST 'foo');
+  SELECT * FROM mysql.servers;
+ ALTER SERVER s1 OPTIONS (HOST 'bar');
+  SELECT * FROM mysql.servers;
+ DROP SERVER s1;
+  SELECT COUNT(*)=0 FROM mysql.servers;
+   

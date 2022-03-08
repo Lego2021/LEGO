@@ -1,0 +1,10 @@
+# doesn't work with embedded server # Non-windows specific ps tests. # requires dynamic loading if (`SELECT @@have_dynamic_loading != 'YES'`) { }  # # Bug #20665: All commands supported in Stored Procedures should work in # Prepared Statements #  create procedure proc_1() install plugin my_plug soname '/root/some_plugin.so';
+ call proc_1();
+ call proc_1();
+ call proc_1();
+ drop procedure proc_1;
+  prepare abc from "install plugin my_plug soname '/root/some_plugin.so'";
+ execute abc;
+ execute abc;
+ deallocate prepare abc;
+ 

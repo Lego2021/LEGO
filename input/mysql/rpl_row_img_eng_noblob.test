@@ -1,0 +1,1 @@
+#Want to skip this test from daily Valgrind execution # # This file contains tests for WL#5096 and bug fixes. #    # # WL#5096 #  # #  Tests for different storage engines on each server, #  but same index structure on tables. The tests are conducted #  using NOBLOB binlog-row-image on all servers. #      

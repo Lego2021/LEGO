@@ -1,0 +1,6 @@
+# # Basic test coverage for --metadata-locks-cache-size startup # parameter and corresponding read-only global @@metadata_locks_cache_size # variable. #  select @@global.metadata_locks_cache_size = 256;
+  set @@global.metadata_locks_cache_size= 1024;
+ select @@global.metadata_locks_cache_size = 256;
+  select @@session.metadata_locks_cache_size;
+ set @@session.metadata_locks_cache_size= 1024;
+ 

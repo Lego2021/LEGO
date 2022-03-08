@@ -1,0 +1,6 @@
+  INSERT INTO sqlite_stat1 VALUES('t1','t1b','10000 500');
+  INSERT INTO sqlite_stat1 VALUES('t2','t2d','10000 500');
+  INSERT INTO "sqlite_stat1" VALUES('u','uab','40000 400 1');
+  INSERT INTO "sqlite_stat1" VALUES('v','vbde','40000 400 1 1');
+  INSERT INTO "sqlite_stat1" VALUES('v','ve','40000 21');
+  DROP TABLE IF EXISTS sqlite_stat4;

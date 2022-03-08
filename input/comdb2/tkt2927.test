@@ -1,0 +1,1 @@
+    CREATE VIEW consolemap1 as      select * from consolemap1a      union      select * from consolemap1b;

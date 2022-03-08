@@ -1,0 +1,3 @@
+  CREATE TABLE composer(    cid INTEGER PRIMARY KEY,    cname TEXT  );
+  CREATE TABLE album(    aid INTEGER PRIMARY KEY,    aname TEXT  );
+    ANALYZE;

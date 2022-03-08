@@ -1,0 +1,12 @@
+# # Test Session functions # Author: Bharath, bharath.bokka@mariadb.com #  SET default_storage_engine=Columnstore;
+  DROP DATABASE IF EXISTS mcs170_db;
+  CREATE DATABASE mcs170_db;
+ USE mcs170_db;
+  SELECT CONNECTION_ID() > 0;
+ SELECT CURRENT_USER();
+ SELECT USER();
+ SELECT SESSION_USER();
+ SELECT SYSTEM_USER();
+ SELECT DATABASE();
+  # Clean UP DROP DATABASE mcs170_db;
+ 

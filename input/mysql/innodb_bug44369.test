@@ -1,0 +1,4 @@
+# This is the test for bug 44369. We should # block table creation with columns match # some innodb internal reserved key words, # both case sensitively and insensitely.   # This create table operation should fail. create table bug44369 (DB_ROW_ID int) engine=innodb;
+  # This create should fail as well create table bug44369 (db_row_id int) engine=innodb;
+  create table bug44369 (db_TRX_Id int) engine=innodb;
+ 

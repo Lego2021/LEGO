@@ -1,0 +1,11 @@
+  SET @wsrep_gtid_mode_global_saved = @@global.wsrep_gtid_mode;
+  SELECT @@global.wsrep_gtid_mode;
+ SELECT @@session.wsrep_gtid_mode;
+  SET @@global.wsrep_gtid_mode=OFF;
+ SELECT @@global.wsrep_gtid_mode;
+ SET @@global.wsrep_gtid_mode=ON;
+ SELECT @@global.wsrep_gtid_mode;
+  SET @@global.wsrep_gtid_mode=NULL;
+ SET @@global.wsrep_gtid_mode='junk';
+  SET @@global.wsrep_gtid_mode = @wsrep_gtid_mode_global_saved;
+  

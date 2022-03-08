@@ -1,0 +1,1 @@
+# # mysqltest --continue-on-error #   # # with or without --continue-on-error the failing test should return an error # but with --continue-on-error, the failing line does not abort the test #    

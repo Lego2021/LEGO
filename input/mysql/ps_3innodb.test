@@ -1,0 +1,4 @@
+############################################### #                                             # #  Prepared Statements test on InnoDB tables  # #                                             # ###############################################  # # NOTE: PLEASE SEE ps_1general.test (bottom) #       BEFORE ADDING NEW TEST CASES HERE !!!  # See Bug#38999 valgrind warnings for update statement in function # compare_record()  use test;
+   let $type= 'InnoDB' ;
+   drop table t1, t9;
+  # End of 4.1 tests 

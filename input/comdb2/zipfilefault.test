@@ -1,0 +1,4 @@
+ DROP TABLE IF EXISTS aaa;
+     DROP TABLE IF EXISTS setup;
+    BEGIN;
+    INSERT INTO setup(name, data) VALUES('dir', NULL);

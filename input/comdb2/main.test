@@ -1,0 +1,5 @@
+select x'4869';
+select 123--5;
+    create table T1(X REAL);
+    select x*10 from T1 order by x*5;
+SELECT 'VERSION: ' ||                  sqlite_version() || ' ' ||                  sqlite_source_id();

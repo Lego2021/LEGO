@@ -1,0 +1,12 @@
+# SR: two identical transactions have different value for the WSREP_FLAG_PA_UNSAFE flag   SET SESSION wsrep_trx_fragment_size = 1;
+ SET AUTOCOMMIT=OFF;
+ START TRANSACTION;
+ CREATE TABLE t1 (f1 INTEGER) ENGINE=InnoDB;
+ INSERT INTO t1 VALUES (1),(2);
+  SELECT flags FROM mysql.wsrep_streaming_log;
+  ROLLBACK;
+ INSERT INTO t1 VALUES (3),(4);
+  SELECT flags FROM mysql.wsrep_streaming_log;
+  ROLLBACK;
+ DROP TABLE t1;
+ 

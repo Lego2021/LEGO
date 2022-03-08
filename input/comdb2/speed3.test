@@ -1,0 +1,5 @@
+    CREATE TABLE main.t1(a INTEGER, b TEXT, c INTEGER);
+    SELECT name FROM sqlite_master ORDER BY 1;
+    SELECT count(*) FROM main.t1;
+DELETE FROM main.t1 WHERE 1;
+SELECT c FROM main.t1;

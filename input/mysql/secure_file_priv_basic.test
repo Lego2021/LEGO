@@ -1,0 +1,9 @@
+ # # only global # select @@global.secure_file_priv;
+ select @@session.secure_file_priv;
+ show global variables like 'secure_file_priv';
+ show session variables like 'secure_file_priv';
+ select * from information_schema.global_variables where variable_name='secure_file_priv';
+ select * from information_schema.session_variables where variable_name='secure_file_priv';
+  # # show that it's read-only # set global secure_file_priv=1;
+ set session secure_file_priv=1;
+ 

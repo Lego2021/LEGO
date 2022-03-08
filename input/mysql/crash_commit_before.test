@@ -1,0 +1,9 @@
+# Don't test this under valgrind, memory leaks will occur # Avoid CrashReporter popup on Mac  # Binary must be compiled with debug for crash to occur   CREATE TABLE t1(a int) engine=innodb;
+ START TRANSACTION;
+ insert into t1 values(9);
+  # Setup the mysqld to crash at certain point SET GLOBAL debug_dbug="d,crash_commit_before";
+  # Write file to make mysql-test-run.pl expect crash and restart  # Run the crashing query COMMIT;
+  # Turn on reconnect  # Call script that will poll the server waiting for it to be back online again  SHOW CREATE TABLE t1;
+  SELECT * FROM t1;
+   DROP TABLE t1;
+ 

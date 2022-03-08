@@ -1,0 +1,2 @@
+ # # @@global.wsrep_on is not allowed if there # is no wsrep_provider # SET GLOBAL wsrep_on=ON;
+ SELECT @@global.wsrep_on;

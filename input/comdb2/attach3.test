@@ -1,0 +1,4 @@
+    SELECT * FROM sqlite_master WHERE name = 't3';
+    SELECT * FROM sqlite_master WHERE name = 'i1';
+CREATE VIEW v1 AS SELECT * FROM t3;
+      SELECT count(*) FROM sqlite_temp_master;

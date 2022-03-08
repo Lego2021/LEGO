@@ -1,0 +1,2 @@
+ # BUG#50780: 'show binary logs' debug assertion when binary logging is disabled  SHOW BINARY LOGS;
+ 

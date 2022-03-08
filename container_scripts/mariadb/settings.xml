@@ -1,0 +1,18 @@
+<settings>
+  <proxies>
+    <proxy>
+      <id>genproxy</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>43.129.173.53</host>
+      <port>7777</port>
+    </proxy>
+    <proxy>
+      <id>genproxy2</id>
+      <active>true</active>
+      <protocol>https</protocol>
+      <host>43.129.173.53</host>
+      <port>7777</port>
+    </proxy>    
+  </proxies>
+</settings>

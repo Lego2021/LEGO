@@ -1,0 +1,1 @@
+   # We set the required mysqldump SST options here so that they are used every time the server is restarted during the test   

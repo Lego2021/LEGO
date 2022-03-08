@@ -1,0 +1,11 @@
+# # MDEV-375 Server crashes in THD::print_aborted_warning with log_warnings > 3 #  set @save_log_warnings=@@log_warnings, @save_max_connections=@@max_connections;
+ SET GLOBAL log_warnings=4;
+ SET GLOBAL max_connections=10;
+   SELECT 1;
+ SELECT 2;
+  SELECT 0;
+ let $count_sessions=11;
+ show status like "Threads_connected";
+  SET GLOBAL log_warnings=@save_log_warnings;
+ SET GLOBAL max_connections=@save_max_connections;
+ 

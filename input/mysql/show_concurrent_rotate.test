@@ -1,0 +1,11 @@
+# mere to limit it run rate  connect(con1,localhost,root,,);
+ FLUSH LOGS;
+ FLUSH LOGS;
+ FLUSH LOGS;
+  SET DEBUG_SYNC= "at_after_lock_index WAIT_FOR con1_go";
+  connect(con2,localhost,root,,);
+ RESET MASTER;
+ FLUSH LOGS;
+ SET DEBUG_SYNC= "now SIGNAL con1_go";
+   SET debug_sync = 'reset';
+ 

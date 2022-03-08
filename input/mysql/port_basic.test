@@ -1,0 +1,9 @@
+# # only global # select @@global.port;
+ select @@session.port;
+ show global variables like 'port';
+ show session variables like 'port';
+ select * from information_schema.global_variables where variable_name='port';
+ select * from information_schema.session_variables where variable_name='port';
+  # # show that it's read-only # set global port=1;
+ set session port=1;
+ 

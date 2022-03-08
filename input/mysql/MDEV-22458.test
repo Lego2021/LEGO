@@ -1,0 +1,6 @@
+# MDEV-22458 # # When running SHOW command, thread lock `LOCK_thd_data` should not be taken. # Lock will be taken only when we are killing thread #  CREATE TABLE t1 (a INT);
+   INSERT INTO t1 VALUES (1),(2),(3),(4);
+  EVALP SHOW EXPLAIN FOR $con1;
+  INSERT INTO t1 VALUES (5),(6),(7),(8);
+  DROP TABLE t1;
+ 

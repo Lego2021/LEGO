@@ -1,0 +1,20 @@
+# see if --replicate-ignore-db works   drop database if exists mysqltest1;
+ drop database if exists mysqltest2;
+ create database mysqltest1;
+ create database mysqltest2;
+  use mysqltest1;
+ create table t1 (a int);
+ insert into t1 values(1);
+ sync_slave_with_master;
+ select * from mysqltest1.t1;
+  connection master;
+ use mysqltest2;
+ create table t1 (a int);
+ insert into t1 values(1);
+ sync_slave_with_master;
+ select * from mysqltest2.t1;
+  # cleanup connection master;
+ drop database mysqltest1;
+ drop database mysqltest2;
+ sync_slave_with_master;
+ 

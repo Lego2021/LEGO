@@ -1,0 +1,6 @@
+ # Most things with gtid_binlog_state requires binlog enabled, and so is # tested in rpl suite.  SELECT @@GLOBAL.gtid_slave_pos;
+  SET gtid_binlog_state= '';
+ SET SESSION gtid_binlog_state= '';
+  SET GLOBAL gtid_binlog_state= DEFAULT;
+  SELECT @@session.gtid_binlog_state;
+ 

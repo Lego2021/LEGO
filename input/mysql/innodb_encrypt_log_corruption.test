@@ -1,0 +1,2 @@
+ SELECT COUNT(*) `1` FROM INFORMATION_SCHEMA.ENGINES WHERE engine='innodb' AND support IN ('YES', 'DEFAULT', 'ENABLED');
+   

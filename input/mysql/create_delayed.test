@@ -1,0 +1,7 @@
+# # Ensure that INSERT DELAYED works with CREATE TABLE on existing table #   drop table if exists t1;
+     while ($run) { # --echo # $run attempts left... CREATE TABLE t1 ( f1 INTEGER AUTO_INCREMENT, PRIMARY KEY (f1)) ENGINE=MyISAM;
+ INSERT DELAYED t1 VALUES (4);
+ CREATE TABLE t1 AS SELECT 1 AS f1;
+  REPLACE DELAYED t1 VALUES (5);
+ DROP TABLE t1;
+ }   

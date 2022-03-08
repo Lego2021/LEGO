@@ -1,0 +1,9 @@
+ SET sql_mode=ORACLE;
+    SET SESSION debug_dbug="+d,make_item_func_call_native_simulate_not_found";
+ SELECT CONTAINS(POINT(1,1),POINT(1,1));
+ SELECT WITHIN(POINT(1,1),POINT(1,1));
+ SET SESSION debug_dbug="-d,make_item_func_call_native_simulate_not_found";
+   SET SESSION debug_dbug="+d,emulate_geometry_create_typecast_item";
+ SELECT AsText(CAST('POINT(0 0)' AS GEOMETRY));
+ SET SESSION debug_dbug="-d,emulate_geometry_create_typecast_item";
+  

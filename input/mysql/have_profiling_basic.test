@@ -1,0 +1,9 @@
+# # only global # select @@global.have_profiling="1";
+ select @@session.have_profiling;
+ show global variables like 'have_profiling';
+ show session variables like 'have_profiling';
+ select * from information_schema.global_variables where variable_name='have_profiling';
+ select * from information_schema.session_variables where variable_name='have_profiling';
+  # # show that it's read-only # set global have_profiling=1;
+ set session have_profiling=1;
+  

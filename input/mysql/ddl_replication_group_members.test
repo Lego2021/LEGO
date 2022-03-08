@@ -1,0 +1,5 @@
+# Tests for PERFORMANCE_SCHEMA  # This test verifies the correct behaviour in case of invalid # usage of DDLs on the table replication_group_members.   ALTER TABLE performance_schema.replication_group_members ADD COLUMN foo INTEGER;
+  TRUNCATE TABLE performance_schema.replication_group_members;
+  ALTER TABLE performance_schema.replication_group_members ADD INDEX test_index(Member_Id);
+  CREATE UNIQUE INDEX test_index ON performance_schema.replication_group_members(Member_Id);
+ 

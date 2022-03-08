@@ -1,0 +1,17 @@
+    ANALYZE;
+  CREATE TABLE sheep (    Sheep_No char(7) NOT NULL,    Date_of_Birth char(8),    Sort_DoB text,    Flock_Book_Vol char(2),    Breeder_No char(6),    Breeder_Person integer,    Originating_Flock char(6),    Registering_Flock char(6),    Tag_Prefix char(9),    Tag_No char(15),    Sort_Tag_No integer,    Breeders_Temp_Tag char(15),    Sex char(1),    Sheep_Name char(32),    Sire_No char(7),    Dam_No char(7),    Register_Code char(1),    Colour char(48),    Colour_Code char(2),    Pattern_Code char(8),    Horns char(1),    Litter_Size char(1),    Coeff_of_Inbreeding real,    Date_of_Registration text,    Date_Last_Changed text,    UNIQUE(Sheep_No));
+  CREATE INDEX sheep_org_flock_index             ON sheep (originating_flock);
+  CREATE INDEX sheep_reg_flock_index             ON sheep (registering_flock);
+  INSERT INTO sqlite_stat1     VALUES('raw_contacts','raw_contact_sort_key2_index','1600 4');
+  INSERT INTO sqlite_stat1     VALUES('raw_contacts','raw_contact_sort_key1_index','1600 4');
+  INSERT INTO sqlite_stat1     VALUES('raw_contacts','raw_contacts_source_id_account_id_index',            '1600 1600 1600');
+  INSERT INTO sqlite_stat1     VALUES('raw_contacts','raw_contacts_contact_id_index','1600 1');
+  INSERT INTO sqlite_stat1 VALUES('mimetypes','mime_type','12 1');
+  INSERT INTO sqlite_stat1     VALUES('data','data_mimetype_data1_index','9819 2455 3');
+  INSERT INTO sqlite_stat1 VALUES('data','data_raw_contact_id','9819 7');
+  INSERT INTO sqlite_stat1 VALUES('accounts',NULL,'1');
+  DROP TABLE IF EXISTS sqlite_stat3;
+  CREATE TABLE labels (ROWID INTEGER PRIMARY KEY, message_id INTEGER NOT NULL, mailbox_id INTEGER NOT NULL, UNIQUE(message_id, mailbox_id));
+  CREATE INDEX labels_message_id_mailbox_id_index ON labels(message_id, mailbox_id);
+  CREATE INDEX labels_mailbox_id_index ON labels(mailbox_id);
+  CREATE VIEW agg2 AS SELECT a, sum(b) AS m FROM t2 GROUP BY a;

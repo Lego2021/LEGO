@@ -1,0 +1,2 @@
+source include/not_embedded.inc;
+  # MDEV-10728 

@@ -1,0 +1,1 @@
+  # Test using tmp/abc  # Test using tmp/def  # Should fail because it is not a session  # Set back to original value # validate that DEFAULT causes failure in creating checkpoint since # DEFAULT == ''  # clean up 

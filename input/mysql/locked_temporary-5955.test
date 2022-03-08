@@ -1,0 +1,3 @@
+# # MDEV-5955 Server crashes in handler::ha_external_lock or assertion `m_lock_type == 2' fails in handler::ha_close on disconnect with a locked temporary table #  CREATE TEMPORARY TABLE tmp (i INT) ENGINE=InnoDB;
+ LOCK TABLES tmp AS p WRITE;
+  

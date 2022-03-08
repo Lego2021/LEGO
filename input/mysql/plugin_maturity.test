@@ -1,0 +1,4 @@
+ # test for --plugin_maturity eval INSTALL PLUGIN example SONAME '$HA_EXAMPLE_SO';
+  eval INSTALL SONAME '$HA_EXAMPLE_SO';
+ show warnings;
+ 

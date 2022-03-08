@@ -1,0 +1,5 @@
+# # Basic test for innodb_page_size #   # Check the default value SET @orig = @@global.innodb_page_size;
+ SELECT @orig;
+  # Confirm that we can not change the value SET GLOBAL innodb_page_size = 4k;
+ SET GLOBAL innodb_page_size = 8k;
+ 

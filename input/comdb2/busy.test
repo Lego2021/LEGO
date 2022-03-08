@@ -1,0 +1,8 @@
+BEGIN;
+ INSERT INTO t1 VALUES(5);
+    BEGIN;
+    SELECT count(*) FROM sqlite_master;
+ PRAGMA optimize;
+    BEGIN;
+    SELECT count(*) FROM sqlite_master;
+ PRAGMA optimize;

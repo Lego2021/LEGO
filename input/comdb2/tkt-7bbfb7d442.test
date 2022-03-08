@@ -1,0 +1,5 @@
+    CREATE TABLE InventoryItem (    SKU INTEGER NOT NULL,    Variant INTEGER NOT NULL DEFAULT 0,    DeptCode INTEGER NOT NULL,    GroupCode INTEGER NOT NULL,    ItemDescription VARCHAR(120) NOT NULL,    PRIMARY KEY(SKU, Variant)  );
+    INSERT INTO InventoryItem VALUES(220,0,1,170,'Scoth Tampon Recurer');
+  INSERT INTO InventoryItem VALUES(31,0,1,110,'Fromage');
+    CREATE TABLE TransactionDetail (    TransactionId INTEGER NOT NULL,    SKU INTEGER NOT NULL,    Variant INTEGER NOT NULL DEFAULT 0,    PRIMARY KEY(TransactionId, SKU, Variant)  );
+  INSERT INTO TransactionDetail(TransactionId, SKU, Variant) VALUES(44, 31, 0);

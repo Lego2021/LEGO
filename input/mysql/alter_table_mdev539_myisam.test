@@ -1,0 +1,3 @@
+ set @@default_storage_engine= MyISAM;
+   set @@default_storage_engine= default;
+ 

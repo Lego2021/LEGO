@@ -1,0 +1,4 @@
+    BEGIN;
+     CREATE INDEX i1 ON t1(x);
+    PRAGMA main.page_size;
+ CREATE INDEX i1 ON t1(x);

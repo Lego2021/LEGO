@@ -1,0 +1,19 @@
+  connection master;
+  DROP TABLE IF EXISTS tt, nt;
+  CREATE TABLE tt (i INT) ENGINE = InnoDB;
+ CREATE TABLE nt (i INT) ENGINE = MyISAM;
+ FLUSH LOGS;
+ START TRANSACTION;
+ INSERT INTO nt VALUES (1);
+ SAVEPOINT insert_statement;
+ INSERT INTO tt VALUES (1);
+  connection master1;
+  connection master;
+ let $wait_condition= SELECT COUNT(*) = 1 FROM information_schema.processlist WHERE state = "Waiting for table metadata lock" AND info = "DROP TABLE tt";
+ ROLLBACK TO SAVEPOINT insert_statement;
+ COMMIT;
+  connection master1;
+ FLUSH LOGS;
+  connection master;
+ DROP TABLE nt;
+  

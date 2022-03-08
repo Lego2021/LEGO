@@ -1,0 +1,6 @@
+    BEGIN;
+    CREATE TABLE abc(a, b, c);
+    SELECT * FROM sqlite_master;
+      BEGIN;
+      ROLLBACK;
+      SELECT * FROM sqlite_temp_master;

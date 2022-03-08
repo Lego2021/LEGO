@@ -1,0 +1,9 @@
+ # # Test unsupported features in S3 # #  # # MDEV-19463 Altering sequence to S3 leaves unremovable garbage behind #  create sequence s1;
+ alter table s1 engine=s3;
+ drop sequence s1;
+  # #  MDEV-19461 Assertion failure upon altering temporary S3 table #  create temporary table t1 (a int);
+ alter table t1 engine=S3;
+ drop temporary table t1;
+   create or replace table t1 (a int, b int, key (a)) engine=S3;
+ select * from t1;
+  # # clean up # 

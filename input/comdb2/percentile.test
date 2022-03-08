@@ -1,0 +1,6 @@
+    BEGIN;
+    UPDATE t1 SET x='50' WHERE x IS NULL;
+    ROLLBACK;
+    BEGIN;
+    UPDATE t1 SET x=x'3530' WHERE x IS NULL;
+    ROLLBACK;

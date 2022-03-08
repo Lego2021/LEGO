@@ -1,0 +1,4 @@
+    ANALYZE;
+ DELETE FROM sqlite_stat1;
+    ANALYZE;
+ DELETE FROM sqlite_stat1;

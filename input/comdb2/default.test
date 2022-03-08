@@ -1,0 +1,4 @@
+  CREATE TABLE t1(a TEXT, b TEXT DEFAULT(99));
+  INSERT INTO t1(a) VALUES('xyzzy');
+  SELECT a, quote(b) FROM t1;
+  INSERT INTO t1(a) VALUES(1);

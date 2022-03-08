@@ -1,0 +1,5 @@
+ BEGIN;
+ ROLLBACK;
+      BEGIN;
+      CREATE TABLE t1(x INTEGER PRIMARY KEY, y TEXT);
+      ROLLBACK TO one;

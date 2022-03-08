@@ -1,0 +1,11 @@
+# # Check that change user works with Galera #   CREATE USER user1;
+ CREATE TABLE t1 (f1 INT PRIMARY KEY) ENGINE=InnoDB;
+  # Change user in idle connection change_user 'user1';
+ reset_connection;
+  # Change user with transaction open START TRANSACTION;
+ INSERT INTO t1 VALUES (1);
+ change_user 'user1';
+ reset_connection;
+  DROP TABLE t1;
+ DROP USER user1;
+  

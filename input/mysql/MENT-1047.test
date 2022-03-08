@@ -1,0 +1,2 @@
+# # MENT-1047 - Reject XA with Galera replication #  XA START 'trx';
+ 

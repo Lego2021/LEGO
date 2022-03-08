@@ -1,0 +1,2 @@
+ # snappy set global innodb_compression_algorithm = snappy;
+  # All page compression test use the same  

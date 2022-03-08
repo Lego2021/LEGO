@@ -1,0 +1,1 @@
+/* src/test/modules/test_extensions/test_ext5--1.0.sql */ \echo Use "CREATE EXTENSION test_ext5" to load this file. \quit 

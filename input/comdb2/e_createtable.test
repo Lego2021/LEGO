@@ -1,0 +1,17 @@
+  CREATE VIEW  v1 AS SELECT * FROM t1;
+  SELECT name FROM sqlite_master;
+  SELECT name FROM sqlite_master;
+  CREATE TABLE t5(k FLOAT, l INTEGER);
+  CREATE TABLE t7(x INTEGER PRIMARY KEY);
+CREATE TABLE x2(x INT);
+ SELECT * FROM x2;
+  CREATE TABLE t1(x VARCHAR(10), y INTEGER, z DOUBLE);
+  SELECT * FROM t1;
+ DELETE FROM t1;
+  SELECT quote(x), quote(y), quote(z) FROM t1;
+ DELETE FROM t1;
+ DROP TABLE t5;
+  SELECT count(*) FROM sqlite_master WHERE type='index';
+ BEGIN;
+ INSERT INTO t4 VALUES(5, 6);
+   INSERT INTO t4 SELECT a+4, b+4 FROM t4;

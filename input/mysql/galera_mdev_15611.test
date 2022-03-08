@@ -1,0 +1,8 @@
+ CREATE TABLE t1 ( id int primary key );
+  CREATE TABLE t2 ( id int primary key , f_id int DEFAULT NULL, FOREIGN KEY(f_id)  REFERENCES t1 (id) );
+  insert into t1 select 1;
+  while($count) { #Repeatedly execute the following SQL until you generate thousands of data }  select count(*) from t2;
+ delete from t2;
+ delete from t1;
+ drop table t2,t1;
+ 

@@ -1,0 +1,10 @@
+# bool readonly  # # show values;
+ # select @@global.binlog_optimize_thread_scheduling;
+ select @@session.binlog_optimize_thread_scheduling;
+ show global variables like 'binlog_optimize_thread_scheduling';
+ show session variables like 'binlog_optimize_thread_scheduling';
+ select * from information_schema.global_variables where variable_name='binlog_optimize_thread_scheduling';
+ select * from information_schema.session_variables where variable_name='binlog_optimize_thread_scheduling';
+  # # show that it's read-only # set global binlog_optimize_thread_scheduling=1;
+ set session binlog_optimize_thread_scheduling=1;
+  

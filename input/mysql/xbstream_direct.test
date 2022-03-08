@@ -1,0 +1,3 @@
+let SEARCH_FILE= $MYSQL_TMP_DIR/myrocks_hotbackup_copy_log;
+ let SEARCH_PATTERN= Direct I/O: 1;
+  

@@ -1,0 +1,5 @@
+ # Tests for sys schema # Verify the sys.innodb_buffer_stats_by_schema view  # Ensure structure changes don't slip in DESC sys.innodb_buffer_stats_by_schema;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.innodb_buffer_stats_by_schema;
+   # Ensure structure changes don't slip in DESC sys.x$innodb_buffer_stats_by_schema;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$innodb_buffer_stats_by_schema;
+ 

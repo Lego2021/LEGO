@@ -1,0 +1,10 @@
+  ANALYZE;
+  DELETE FROM sqlite_stat1;
+  UPDATE sqlite_stat1 SET stat='12345 2 unordered' WHERE idx='t1a';
+  UPDATE sqlite_stat1 SET stat='12345 2 whatever=5 unordered xyzzy=11'   WHERE idx='t1a';
+  DELETE FROM sqlite_stat1;
+  DELETE FROM sqlite_stat1;
+  DROP TABLE IF EXISTS t44;
+  INSERT INTO sqlite_stat1 VALUES('t44',null,'sz=0');
+  DELETE FROM sqlite_stat1;
+  DELETE FROM sqlite_stat1;

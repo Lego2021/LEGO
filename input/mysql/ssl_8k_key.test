@@ -1,0 +1,1 @@
+# # Bug#29784 YaSSL assertion failure when reading 8k key. #  ##  This test file is for testing encrypted communication only, not other ##  encryption routines that the SSL library happens to provide! 

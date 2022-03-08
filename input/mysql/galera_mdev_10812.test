@@ -1,0 +1,8 @@
+  #  First create a deadlock SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+ CREATE TABLE t1(a INT PRIMARY KEY);
+ INSERT INTO t1 VALUES(1),(2),(3);
+ START TRANSACTION ;
+ UPDATE t1 SET a=a+100;
+  UPDATE t1 SET a=a+100;
+  # here we get deadlock error  DROP TABLE t1;
+ 

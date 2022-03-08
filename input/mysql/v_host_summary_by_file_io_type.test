@@ -1,0 +1,5 @@
+# Tests for sys schema # Verify the sys.host_summary_by_file_io_type view  # Ensure structure changes don't slip in DESC sys.host_summary_by_file_io_type;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.host_summary_by_file_io_type;
+   # Ensure structure changes don't slip in DESC sys.x$host_summary_by_file_io_type;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$host_summary_by_file_io_type;
+  

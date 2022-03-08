@@ -1,0 +1,3 @@
+# # MDL BF-BF lock conflict #   # sync point controlling session SET SESSION wsrep_sync_wait=0;
+  # secondary conflicting DML victim session SET SESSION wsrep_sync_wait=0;
+      # CHECK and ANALYZE are not affected  

@@ -1,0 +1,7 @@
+  CREATE TABLE t1(x TEXT);
+  INSERT INTO t1 VALUES('');
+  CREATE TABLE IF NOT EXISTS "sample" (      "id" INTEGER NOT NULL PRIMARY KEY,       "counter" INTEGER NOT NULL,       "value" REAL NOT NULL  );
+  SELECT "counter", "value", RANK() OVER w AS "rank"   FROM "sample"  WINDOW w AS (PARTITION BY "counter" ORDER BY "value" DESC)   ORDER BY "counter", RANK() OVER w;
+  SELECT "counter", "value", SUM("value") OVER   (ORDER BY "id" ROWS 2 PRECEDING)     FROM "sample"   ORDER BY "id";
+  SELECT SUM("value") OVER   (ORDER BY "id" ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)     FROM "sample"   ORDER BY "id";
+  INSERT INTO t1 VALUES(10),(15),(20),(20),(25),(30),(30),(50);

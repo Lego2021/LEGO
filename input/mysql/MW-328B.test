@@ -1,0 +1,4 @@
+# # MW-328 Fix unnecessary/silent BF aborts #  # # Make sure an unrelated SELECT following a BF-aborted query never # gets the deadlock error #    SET SESSION wsrep_retry_autocommit = 0;
+   while ($count) { INSERT IGNORE INTO t2 SELECT f2 FROM t1;
+  SELECT 1 FROM DUAL;
+  }   

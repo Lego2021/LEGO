@@ -1,0 +1,24 @@
+  create database s_db;
+ create sequence s_db.s1;
+ grant select on s_db.s1 to normal_1@'%' identified by 'pass';
+  connect(m_normal_1, localhost, normal_1, pass, s_db);
+ select * from s1;
+ select nextval(s1);
+ show create sequence s1;
+ alter sequence s1 restart 50;
+ connection default;
+ grant insert on s_db.s1 to normal_1@'%';
+ connection m_normal_1;
+ select nextval(s1);
+ alter sequence s1 restart 50;
+ connection default;
+ grant alter on s_db.s1 to normal_1@'%';
+ connection m_normal_1;
+ alter sequence s1 restart 50;
+ select nextval(s1);
+ drop sequence s1;
+  connection default;
+ disconnect m_normal_1;
+ drop database s_db;
+ drop user normal_1@'%';
+ 

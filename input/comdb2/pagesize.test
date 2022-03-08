@@ -1,0 +1,15 @@
+      BEGIN;
+      INSERT INTO t1 SELECT x||x FROM t1;
+      INSERT INTO t1 SELECT x||x FROM t1;
+      INSERT INTO t1 SELECT x||x FROM t1;
+      INSERT INTO t1 SELECT x||x FROM t1;
+      ROLLBACK;
+      BEGIN;
+      ROLLBACK;
+  BEGIN;
+  SELECT * FROM sqlite_master;
+  PRAGMA page_size=2048;
+  PRAGMA main.page_size;
+  CREATE TABLE t1(x);
+  BEGIN;
+    PRAGMA page_size = 2048;

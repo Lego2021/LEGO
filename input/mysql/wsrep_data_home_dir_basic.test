@@ -1,0 +1,7 @@
+  SELECT @@global.wsrep_data_home_dir;
+  SELECT @@session.wsrep_data_home_dir;
+  SET @@global.wsrep_data_home_dir='/tmp/data';
+ SELECT @@global.wsrep_data_home_dir;
+ SET @@global.wsrep_data_home_dir=default;
+ SELECT @@global.wsrep_data_home_dir;
+  

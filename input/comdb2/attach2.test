@@ -1,0 +1,16 @@
+BEGIN;
+UPDATE t1 SET a = 0 WHERE 0;
+    ATTACH 'test2.db' AS t2;
+    SELECT name FROM main.sqlite_master;
+    BEGIN;
+    INSERT INTO t1 VALUES(8,9);
+rollback;
+BEGIN;
+    BEGIN;
+    COMMIT;
+    BEGIN;
+    ROLLBACK;
+    BEGIN;
+    ATTACH 'test3.db' as aux2;
+    DETACH aux2;
+    DETACH aux;

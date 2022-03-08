@@ -1,0 +1,11 @@
+  SELECT *, '|' FROM generate_series WHERE start=1 AND stop=9 AND step=2;
+  SELECT *, '|' FROM generate_series LIMIT 5;
+  SELECT * FROM generate_series(1,9,2);
+  SELECT * FROM generate_series(1,9);
+  SELECT * FROM generate_series(1,10) WHERE step=3;
+  CREATE VIEW v2(x) AS SELECT value FROM generate_series(1,5);
+  SELECT * FROM v2;
+  SELECT * FROM main.generate_series(1,4);
+  SELECT * FROM aux1.generate_series(1,4);
+  SELECT * FROM (generate_series(1,5,2)) AS x LIMIT 10;
+  CREATE TABLE t600(a INTEGER PRIMARY KEY, b TEXT);

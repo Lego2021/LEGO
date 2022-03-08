@@ -1,0 +1,4 @@
+# Tests for PERFORMANCE_SCHEMA    # Expect no history show global variables like "performance_schema_events_stages_history_size";
+ select count(*) from performance_schema.events_stages_history;
+  # Valid operation, edge case truncate table performance_schema.events_stages_history;
+  

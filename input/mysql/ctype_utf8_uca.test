@@ -1,0 +1,7 @@
+ SET NAMES utf8;
+ let $coll='utf8_unicode_nopad_ci';
+ let $coll_pad='utf8_unicode_ci';
+  let $coll='utf8_unicode_520_nopad_ci';
+ let $coll_pad='utf8_unicode_520_ci';
+  SET NAMES utf8 COLLATE utf8_unicode_nopad_ci;
+   

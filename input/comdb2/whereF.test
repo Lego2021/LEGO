@@ -1,0 +1,13 @@
+    DROP TABLE IF EXISTS t;
+  DROP TABLE IF EXISTS cd;
+  CREATE TABLE cd ( cdid INTEGER PRIMARY KEY NOT NULL, genreid integer );
+  CREATE INDEX cd_idx_genreid ON cd (genreid);
+  INSERT INTO cd  ( cdid, genreid ) VALUES                     ( 1,    1 ),                     ( 2, NULL ),                     ( 3, NULL ),                     ( 4, NULL ),                     ( 5, NULL );
+  DROP TABLE IF EXISTS t1;
+  DROP TABLE IF EXISTS t2;
+  DROP TABLE IF EXISTS t1;
+  DROP TABLE IF EXISTS t2;
+  CREATE TABLE t1(a INTEGER PRIMARY KEY, b TEXT);
+  INSERT INTO t1(a,b) VALUES(1,'abcxyz');
+  CREATE TABLE t2(aa INTEGER PRIMARY KEY, bb TEXT);
+  INSERT INTO t2(aa,bb) VALUES(1,'abc'),(2,'wxyz'),(3,'xyz');

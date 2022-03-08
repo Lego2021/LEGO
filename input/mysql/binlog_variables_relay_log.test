@@ -1,0 +1,2 @@
+ let $relay_log_index=`select substring_index(@@relay_log_index,'/',-1)`;
+ 

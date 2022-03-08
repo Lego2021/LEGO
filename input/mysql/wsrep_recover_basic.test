@@ -1,0 +1,7 @@
+  SELECT @@global.wsrep_recover;
+ SELECT @@session.wsrep_recover;
+  SET @@global.wsrep_recover=OFF;
+ SET @@global.wsrep_recover=ON;
+  SET @@global.wsrep_recover=NULL;
+ SET @@global.wsrep_recover='junk';
+  

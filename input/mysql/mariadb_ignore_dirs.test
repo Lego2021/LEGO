@@ -1,0 +1,3 @@
+   select @@ignore_db_dirs;
+   select @@ignore_db_dirs;
+   

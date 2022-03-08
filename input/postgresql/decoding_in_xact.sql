@@ -1,0 +1,27 @@
+SET synchronous_commit = on;
+  BEGIN;
+ SELECT pg_current_xact_id() = '0';
+ SELECT 'init' FROM pg_create_logical_replication_slot('regression_slot', 'test_decoding');
+ ROLLBACK;
+  BEGIN;
+ SELECT pg_current_xact_id() = '0';
+ SAVEPOINT barf;
+ SELECT 'init' FROM pg_create_logical_replication_slot('regression_slot', 'test_decoding');
+ ROLLBACK TO SAVEPOINT barf;
+ ROLLBACK;
+  SELECT 'init' FROM pg_create_logical_replication_slot('regression_slot', 'test_decoding');
+ SELECT 'stop' FROM pg_drop_replication_slot('regression_slot');
+  BEGIN;
+ SELECT 'init' FROM pg_create_logical_replication_slot('regression_slot', 'test_decoding');
+ COMMIT;
+  CREATE TABLE nobarf(id serial primary key, data text);
+ INSERT INTO nobarf(data) VALUES('1');
+  BEGIN;
+ SELECT pg_current_xact_id() = '0';
+ INSERT INTO nobarf(data) VALUES('2');
+ SELECT data FROM pg_logical_slot_get_changes('regression_slot', NULL, NULL, 'include-xids', '0', 'skip-empty-xacts', '1');
+ COMMIT;
+  INSERT INTO nobarf(data) VALUES('3');
+ SELECT data FROM pg_logical_slot_get_changes('regression_slot', NULL, NULL, 'include-xids', '0', 'skip-empty-xacts', '1');
+  SELECT 'stop' FROM pg_drop_replication_slot('regression_slot');
+ 

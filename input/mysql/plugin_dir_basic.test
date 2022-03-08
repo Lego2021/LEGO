@@ -1,0 +1,9 @@
+# # only global #  # # Don't rely on being able to guess the correct default. # -master.opt file for this test sets plugin_dir to a known directory # select @@global.plugin_dir;
+ select @@session.plugin_dir;
+ show global variables like 'plugin_dir';
+ show session variables like 'plugin_dir';
+ select * from information_schema.global_variables where variable_name='plugin_dir';
+ select * from information_schema.session_variables where variable_name='plugin_dir';
+  # # show that it's read-only # set global plugin_dir=1;
+ set session plugin_dir=1;
+  

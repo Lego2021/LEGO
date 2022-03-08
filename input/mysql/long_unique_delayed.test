@@ -1,0 +1,10 @@
+  create table t1(a blob unique) engine=myisam;
+ insert delayed into t1 values(1),(2),(3),(56),('sachin'),('maria'),(123456789034567891),(null),(null),(123456789034567890),('maria');
+ insert delayed into t1 values(1),(9);
+ flush tables t1;
+ select count(*) from t1;
+ drop table t1;
+   CREATE  TABLE t1 (a BLOB, UNIQUE(a)) ENGINE=MyISAM;
+ INSERT DELAYED t1 () VALUES ();
+ DROP TABLE t1;
+ 

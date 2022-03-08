@@ -1,0 +1,1 @@
+  SELECT 1 WINDOW win AS (PARTITION BY fake_column);

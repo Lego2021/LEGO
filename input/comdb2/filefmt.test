@@ -1,0 +1,9 @@
+    SELECT count(*) FROM sqlite_master;
+    SELECT count(*) FROM sqlite_master;
+     SELECT count(*) FROM sqlite_master;
+     SELECT count(*) FROM sqlite_master;
+       SELECT count(*) FROM sqlite_master;
+  BEGIN;
+    INSERT INTO t2 VALUES(2);
+      INSERT INTO t2 VALUES(3);
+  SELECT * FROM sqlite_master;

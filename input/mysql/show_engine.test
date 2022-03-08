@@ -1,0 +1,4 @@
+# # SHOW ENGINE STATUS command # # The result might be empty, in which case the test will require rdiff, # as it is optimistically expects some output from the command #    eval SHOW ENGINE $storage_engine STATUS;
+  eval SHOW ENGINE $storage_engine MUTEX;
+ SHOW ENGINE ALL MUTEX;
+   

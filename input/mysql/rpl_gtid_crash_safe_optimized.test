@@ -1,0 +1,2 @@
+ if (`select count(*) = 0 from information_schema.global_variables where variable_name = 'slave_gtid_info' and variable_value = 'optimized';
+`) { }  

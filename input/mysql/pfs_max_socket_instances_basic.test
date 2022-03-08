@@ -1,0 +1,9 @@
+ # # Only global #  select @@global.performance_schema_max_socket_instances;
+  select @@session.performance_schema_max_socket_instances;
+  show global variables like 'performance_schema_max_socket_instances';
+  show session variables like 'performance_schema_max_socket_instances';
+  select * from information_schema.global_variables where variable_name='performance_schema_max_socket_instances';
+  select * from information_schema.session_variables where variable_name='performance_schema_max_socket_instances';
+  # # Read-only #  set global performance_schema_max_socket_instances=1;
+  set session performance_schema_max_socket_instances=1;
+  

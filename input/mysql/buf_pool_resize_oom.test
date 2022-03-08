@@ -1,0 +1,7 @@
+  call mtr.add_suppression("InnoDB: failed to allocate the chunk array");
+  SET GLOBAL innodb_disable_resize_buffer_pool_debug=OFF;
+ SET GLOBAL debug_dbug='+d,buf_pool_resize_chunk_null';
+  SET GLOBAL innodb_buffer_pool_size=@@innodb_buffer_pool_size + 1048576;
+  let $wait_timeout = 60;
+ let $wait_condition = SELECT SUBSTR(variable_value, 1, 27) = 'Resizing buffer pool failed' FROM information_schema.global_status WHERE variable_name = 'INNODB_BUFFER_POOL_RESIZE_STATUS';
+  # Restart the server, because the buffer pool would not necessarily be # shrunk afterwards even if we request it. 

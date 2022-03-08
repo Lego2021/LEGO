@@ -1,0 +1,16 @@
+  BEGIN;
+    DROP TABLE pp;
+    DROP TABLE cc;
+  BEGIN;
+    DROP TABLE cc;
+    DROP TABLE pp;
+  BEGIN;
+    DROP TABLE pp;
+    DROP TABLE cc;
+  BEGIN;
+    DROP TABLE cc;
+    DROP TABLE pp;
+  BEGIN;
+    DELETE FROM pp2;
+    DROP TABLE pp1;
+    DROP TABLE cc1;

@@ -1,0 +1,8 @@
+ CREATE TABLE valid_values (value varchar(255)) ENGINE=myisam;
+ INSERT INTO valid_values VALUES(1);
+ INSERT INTO valid_values VALUES(64);
+  CREATE TABLE invalid_values (value varchar(255)) ENGINE=myisam;
+ INSERT INTO invalid_values VALUES('\'abc\'');
+   DROP TABLE valid_values;
+ DROP TABLE invalid_values;
+ 

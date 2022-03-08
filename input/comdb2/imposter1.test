@@ -1,0 +1,3 @@
+SELECT rootpage FROM sqlite_master WHERE name='t1';
+SELECT rootpage FROM sqlite_master WHERE name='t1b';
+SELECT rootpage FROM sqlite_master WHERE name='t1c';

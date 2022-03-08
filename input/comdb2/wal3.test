@@ -1,0 +1,8 @@
+    BEGIN;
+      CREATE TABLE t1(x);
+    PRAGMA cache_size = 10;
+        INSERT INTO t1 SELECT a_string(800) FROM t1 LIMIT 100;
+      BEGIN;
+ BEGIN;
+    BEGIN;
+      BEGIN;

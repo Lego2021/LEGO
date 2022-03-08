@@ -1,0 +1,4 @@
+# # MDEV-7126 replication slave - deadlock in terminate_slave_thread with stop slave and show variables of replication filters and show global status #  call mtr.add_suppression("Master is configured to log replication events");
+    # If everything is okay, the test will end in several seconds;
+ maybe a minute. # If the problem shows up, it will hang until testcase timeout is exceeded.  # All done.  start slave;
+  

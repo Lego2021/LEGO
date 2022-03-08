@@ -1,0 +1,2 @@
+# # Test behavior of various per-account limits (aka quotas) #  # # We will get an error as it was set to 0 at startup # set global max_user_connections=100;
+  

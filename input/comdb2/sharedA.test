@@ -1,0 +1,3 @@
+    BEGIN;
+    INSERT INTO t1 SELECT randomblob(100) FROM t1;
+    BEGIN;

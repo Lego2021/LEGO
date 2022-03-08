@@ -1,0 +1,2 @@
+# # This test checks that if SST SSL is not explicitly donfigured mariabackup SST # uses server SSL configuration if present. # Initial SST happens via mariabackup, so there is not much to do in the body # of the test #   SELECT 1;
+   # Confirm that transfer was SSL-encrypted 

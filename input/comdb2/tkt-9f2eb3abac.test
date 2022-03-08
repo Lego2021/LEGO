@@ -1,0 +1,3 @@
+  CREATE TABLE "a" (      "b" integer NOT NULL,      "c" integer NOT NULL,      PRIMARY KEY ("b", "c")      );
+  INSERT INTO a (b, c) VALUES ( 1, 1 );
+ SELECT 1 FROM sqlite_master;

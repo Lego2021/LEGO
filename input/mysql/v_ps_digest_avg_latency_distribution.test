@@ -1,0 +1,7 @@
+ DESC sys.x$ps_digest_avg_latency_distribution;
+  DESC sys.x$ps_digest_avg_latency_distribution;
+  # Ensure structure changes don't slip in DESC sys.x$ps_digest_avg_latency_distribution;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$ps_digest_avg_latency_distribution;
+   # Ensure structure changes don't slip in DESC sys.x$ps_digest_avg_latency_distribution;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$ps_digest_avg_latency_distribution;
+  

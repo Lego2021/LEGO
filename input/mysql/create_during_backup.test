@@ -1,0 +1,10 @@
+let $targetdir=$MYSQLTEST_VARDIR/tmp/backup;
+ mkdir $targetdir;
+  # this will table and populate it, after backup has list of tables to be copied  echo # xtrabackup backup;
+ exec $XTRABACKUP --defaults-file=$MYSQLTEST_VARDIR/my.cnf  --backup  --target-dir=$targetdir  --dbug=+d,mariabackup_events;
+   echo # xtrabackup prepare;
+ exec $XTRABACKUP  --prepare --target-dir=$targetdir;
+  # Check that new table is there after restore. SELECT COUNT(*) from t1;
+ DROP TABLE t1;
+ rmdir $targetdir;
+   

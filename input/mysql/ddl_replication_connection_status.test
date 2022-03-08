@@ -1,0 +1,5 @@
+# Tests for PERFORMANCE_SCHEMA  # This test verifies the correct behaviour in case of invalid # usage of DDLs on the table replication_connection_status.   ALTER TABLE performance_schema.replication_connection_status ADD COLUMN foo integer;
+  TRUNCATE TABLE performance_schema.replication_connection_status;
+  ALTER TABLE performance_schema.replication_connection_status ADD INDEX test_index(Thread_Id);
+  CREATE UNIQUE INDEX test_index ON performance_schema.replication_connection_status(Thread_Id);
+ 

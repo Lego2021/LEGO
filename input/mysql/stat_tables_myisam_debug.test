@@ -1,0 +1,13 @@
+  create table t1 (a int, b int, c int, key IDX1(a), key IDX2(a,b)) engine=myisam;
+ insert into t1 select seq/10, seq/2, seq from seq_0_to_9;
+   SET DEBUG_SYNC='statistics_collection_start1 SIGNAL analyzing WAIT_FOR written';
+  send analyze table t1 persistent for all;
+ connect (con1, localhost, root,,);
+  SET DEBUG_SYNC= 'now WAIT_FOR analyzing';
+  select count(*) from t1;
+ # insert will work even with MyISAM because it allow to append file insert into t1 values (333,333,333);
+  SET DEBUG_SYNC= 'now SIGNAL written';
+  select count(*) from t1;
+  set debug_sync='RESET';
+ drop table t1;
+ 

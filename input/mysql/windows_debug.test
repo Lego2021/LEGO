@@ -1,0 +1,4 @@
+# Windows-specific tests , debug mode   CREATE TABLE t(i int);
+ SET STATEMENT debug_dbug='+d,rename_sharing_violation' FOR ALTER TABLE t ADD PRIMARY KEY (i);
+ DROP TABLE t;
+  #End of 10.3 tests 

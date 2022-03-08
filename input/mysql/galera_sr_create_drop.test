@@ -1,0 +1,11 @@
+# # Verify that CREATE/DROP DDLs work when streaming replication is on. #   SET SESSION wsrep_trx_fragment_size=1;
+  # # CREATE/DROP TABLE succeeds and the change is propagated to node_2. # CREATE TABLE t1 (f1 INT PRIMARY KEY) ENGINE=InnoDB;
+ SHOW CREATE TABLE t1;
+ DROP TABLE t1;
+ SHOW CREATE TABLE t1;
+  # # CREATE/DROP DATABASE succeeds and the change is propagated to node_2. # CREATE DATABASE mdev_18587;
+ SHOW DATABASES LIKE 'mdev_18587';
+ DROP DATABASE mdev_18587;
+ SHOW DATABASES LIKE 'mdev_18587';
+  SET SESSION wsrep_trx_fragment_size=DEFAULT;
+ 

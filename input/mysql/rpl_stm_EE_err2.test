@@ -1,0 +1,2 @@
+############################# # Author: JBM # Date: 2006-01-11 # Purpose: Engine Wrapper for rpl_stm_EE_err2.test ############################## let $engine_type=myisam;
+ 

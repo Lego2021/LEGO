@@ -1,0 +1,4 @@
+  CREATE VIEW lll AS SELECT    row_number() OVER (PARTITION BY grp_id),     grp_id, id   FROM t1;
+  CREATE VIEW v1 AS SELECT a, c, max(c) OVER (PARTITION BY a) FROM t1;
+  CREATE VIEW v2 AS SELECT a, c,       max(c) OVER (PARTITION BY a),      row_number() OVER ()  FROM t1;
+  CREATE VIEW v3 AS SELECT b, d,       max(d) OVER (PARTITION BY b),      row_number() OVER (PARTITION BY b)  FROM t1;

@@ -1,0 +1,11 @@
+# Tests for PERFORMANCE_SCHEMA   select * from performance_schema.metadata_locks;
+  select * from performance_schema.metadata_locks where object_name='foo';
+  insert into performance_schema.metadata_locks set object_name='FOO', owner_thread_id=1;
+  update performance_schema.metadata_locks set owner_thread_id=12 where object_name='foo';
+  delete from performance_schema.metadata_locks;
+  delete from performance_schema.metadata_locks where timer_name='CYCLE';
+  LOCK TABLES performance_schema.metadata_locks READ;
+ UNLOCK TABLES;
+  LOCK TABLES performance_schema.metadata_locks WRITE;
+ UNLOCK TABLES;
+  

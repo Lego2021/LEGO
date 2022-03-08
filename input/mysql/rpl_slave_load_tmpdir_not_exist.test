@@ -1,0 +1,5 @@
+########################################################################## # This test verifies if the start slave fails gracefuly when an # invalid directory is used to set --slave-load-tmpdir. ##########################################################################   START SLAVE;
+ call mtr.add_suppression("Slave SQL.*Unable to use slave.s temporary directory");
+ # 12 = EE_CANT_MKDIR source include/wait_for_slave_sql_error.inc;
+  RESET SLAVE;
+  

@@ -1,0 +1,11 @@
+# Tests for PERFORMANCE_SCHEMA   select * from performance_schema.socket_instances limit 1;
+  select * from performance_schema.socket_instances where ip='FOO';
+  insert into performance_schema.socket_instances set ip='FOO', event_name='BAR', port=12;
+  update performance_schema.socket_instances set ip='FOO';
+  delete from performance_schema.socket_instances where event_name like "wait/%";
+  delete from performance_schema.socket_instances;
+  LOCK TABLES performance_schema.socket_instances READ;
+ UNLOCK TABLES;
+  LOCK TABLES performance_schema.socket_instances WRITE;
+ UNLOCK TABLES;
+  

@@ -1,0 +1,3 @@
+  SELECT name FROM sqlite_master WHERE sql LIKE '%collate%';
+  SELECT name FROM sqlite_master WHERE sql LIKE '%ASC%';
+  CREATE TABLE t300(id INTEGER PRIMARY KEY);

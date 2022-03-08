@@ -1,0 +1,2 @@
+  # Note: This test is to ensure that server shuts down properly. SELECT @@GLOBAL.thread_handling;
+  

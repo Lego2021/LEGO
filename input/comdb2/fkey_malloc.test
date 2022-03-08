@@ -1,0 +1,11 @@
+  BEGIN;
+    INSERT INTO t2 VALUES('a', 'b');
+    INSERT INTO t1 VALUES('a', 'b');
+    UPDATE t1 SET a = 'c';
+    DELETE FROM t2;
+    INSERT INTO t2 VALUES('d', 'b');
+    UPDATE t2 SET x = 'c';
+  CREATE TABLE t1(x INTEGER PRIMARY KEY);
+  INSERT INTO t1 VALUES(13);
+  UPDATE t1 SET x = 14;
+  UPDATE t1 SET x = 5;

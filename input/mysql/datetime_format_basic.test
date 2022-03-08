@@ -1,0 +1,10 @@
+# # show the global and session values;
+ # select @@global.datetime_format;
+ select @@session.datetime_format;
+ show global variables like 'datetime_format';
+ show session variables like 'datetime_format';
+ select * from information_schema.global_variables where variable_name='datetime_format';
+ select * from information_schema.session_variables where variable_name='datetime_format';
+  # # show that it's read-only # set global datetime_format="foo";
+ set session datetime_format="foo";
+ 

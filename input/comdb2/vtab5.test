@@ -1,0 +1,2 @@
+    CREATE TABLE treal(a VARCHAR(16), b INTEGER, c FLOAT);
+    DROP TABLE treal;

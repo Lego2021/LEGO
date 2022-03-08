@@ -1,0 +1,10 @@
+# # MDEV-15336 Server crashes in handler::print_error / ha_partition::print_error upon query timeout #  CREATE TABLE t1 (i INT) ENGINE=InnoDB PARTITION BY HASH (i) PARTITIONS 2;
+ XA START 'xid';
+ INSERT INTO t1 VALUES (1),(2),(3),(4);
+   SET max_statement_time= 1;
+ DELETE FROM t1 PARTITION (p1) ORDER BY i LIMIT 2;
+  # Cleanup XA END 'xid';
+ XA ROLLBACK 'xid';
+ call mtr.add_suppression('Sort aborted');
+ DROP TABLE IF EXISTS t2, t1;
+ 

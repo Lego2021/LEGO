@@ -1,0 +1,9 @@
+# # only global # select @@global.lc_messages_dir;
+ select @@session.lc_messages_dir;
+ show global variables like 'lc_messages_dir';
+ show session variables like 'lc_messages_dir';
+ select * from information_schema.global_variables where variable_name='lc_messages_dir';
+ select * from information_schema.session_variables where variable_name='lc_messages_dir';
+  # # show that it's read-only # set global lc_messages_dir=1;
+ set session lc_messages_dir=1;
+ 

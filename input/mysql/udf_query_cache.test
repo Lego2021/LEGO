@@ -1,0 +1,17 @@
+# # To run this tests the "sql/udf_example.c" need to be compiled into # udf_example.so and LD_LIBRARY_PATH should be setup to point out where # the library are. #  drop table if exists t1;
+  # # Bug #28921: Queries containing UDF functions are cached #  eval CREATE FUNCTION metaphon RETURNS STRING SONAME "$UDF_EXAMPLE_SO";
+ create table t1 (a char);
+  set @save_query_cache_size=@@query_cache_size;
+ set GLOBAL query_cache_size=1355776;
+ reset query cache;
+ flush status;
+  select metaphon('MySQL') from t1;
+ show status like "Qcache_hits";
+ show status like "Qcache_queries_in_cache";
+  select metaphon('MySQL') from t1;
+ show status like "Qcache_hits";
+ show status like "Qcache_queries_in_cache";
+  drop table t1;
+ drop function metaphon;
+ set GLOBAL query_cache_size=@save_query_cache_size;
+   

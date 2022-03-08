@@ -1,0 +1,4 @@
+  ANALYZE;
+  INSERT INTO sqlite_stat1 VALUES('t1','t1bc','1000000 10 9');
+  INSERT INTO sqlite_stat1 VALUES('t2','t2bc','100 10 5');
+  CREATE TABLE t2(b INTEGER PRIMARY KEY, c INT);

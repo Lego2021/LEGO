@@ -1,0 +1,13 @@
+  BEGIN;
+    INSERT INTO zz(name, mode, mtime, data, method)    VALUES('i.txt', '-rw-r--r--', 1000000006, 'zxcvb', 0);
+  BEGIN;
+    INSERT INTO zz(name, data) VALUES('a.txt', '1');
+    INSERT INTO zz(name, data) VALUES('b.txt', '2');
+    INSERT INTO zz(name, data) VALUES('c.txt', '1');
+    INSERT INTO zz(name, data) VALUES('d.txt', '2');
+  BEGIN;
+    INSERT INTO ok(name, data) VALUES ('sqlite3', 'elf');
+  DROP TABLE IF EXISTS t0;
+  DROP TABLE IF EXISTS t1;
+  DROP TABLE IF EXISTS t1;
+  DROP TABLE IF EXISTS t2;

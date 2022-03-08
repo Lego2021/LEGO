@@ -1,0 +1,3 @@
+    SELECT name, rootpage FROM sqlite_master;
+ SELECT rootpage FROM sqlite_master WHERE name = 'x1';
+ SELECT rootpage FROM sqlite_master WHERE name = 'x2';

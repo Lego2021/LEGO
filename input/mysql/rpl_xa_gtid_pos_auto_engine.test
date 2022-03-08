@@ -1,0 +1,9 @@
+ call mtr.add_suppression("The automatically created table.*name may not be entirely in lowercase");
+  CHANGE MASTER TO master_use_gtid=slave_pos;
+  SET @@global.gtid_pos_auto_engines="innodb";
+  SET @@global.gtid_pos_auto_engines="";
+ SET @@session.sql_log_bin=0;
+ DROP TABLE mysql.gtid_slave_pos_InnoDB;
+ if (`SHOW COUNT(*) WARNINGS`) { show tables in mysql like 'gtid_slave_pos%';
+ } SET @@session.sql_log_bin=1;
+  

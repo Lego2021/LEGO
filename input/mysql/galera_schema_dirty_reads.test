@@ -1,0 +1,8 @@
+# # Dirty reads from INFORMATION_SCHEMA tables. # USE information_schema;
+ SELECT * FROM SESSION_VARIABLES WHERE VARIABLE_NAME LIKE "wsrep_dirty_reads";
+ SET GLOBAL wsrep_reject_queries=ALL;
+ SELECT * FROM SESSION_VARIABLES WHERE VARIABLE_NAME LIKE "wsrep_dirty_reads";
+ SET GLOBAL wsrep_reject_queries=NONE;
+ SET SESSION wsrep_dirty_reads=TRUE;
+ SELECT * FROM SESSION_VARIABLES WHERE VARIABLE_NAME LIKE "wsrep_dirty_reads";
+ 

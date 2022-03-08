@@ -1,0 +1,8 @@
+# Tests for PERFORMANCE_SCHEMA # Make sure mysql_upgrade does not destroy data in a 'performance_schema' # database. #   let $MYSQLD_DATADIR= `SELECT @@datadir`;
+   create view test.user_view as select "Not supposed to be here";
+   # Make sure the view is visible use performance_schema;
+ show tables like "user_view";
+   # Make sure the view is still visible show tables like "user_view";
+  use test;
+  drop view test.user_view;
+ 

@@ -1,0 +1,4 @@
+  BEGIN;
+  CREATE TABLE t2(x);
+  ALTER TABLE t1_content RENAME c0a TO docid;
+  UPDATE t1 SET Col0 = 1;

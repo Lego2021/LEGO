@@ -1,0 +1,3 @@
+##################################### # Wrapper for rpl_auto_increment.test# ##################################### let $engine_type=innodb;
+ let $engine_type2=myisam;
+ 

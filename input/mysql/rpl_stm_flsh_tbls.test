@@ -1,0 +1,2 @@
+# depends on the binlog output  let $rename_event_pos= `select @binlog_start_pos + 578`;
+ 

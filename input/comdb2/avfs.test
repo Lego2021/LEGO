@@ -1,0 +1,16 @@
+    CREATE TABLE t1(a TEXT);
+    INSERT INTO t1 VALUES ('dog'),('cat');
+    SELECT group_concat(a) as pets FROM (SELECT a FROM t1 ORDER BY a);
+    SELECT group_concat(a) as pets FROM (SELECT a FROM t1 ORDER BY a DESC);
+    INSERT INTO t1 VALUES ('dog'),('cat'),('pig');
+    SELECT group_concat(a) as pets FROM (SELECT a FROM t1 ORDER BY a);
+    SELECT group_concat(a) as pets FROM (SELECT a FROM t1 ORDER BY a DESC);
+    DROP TABLE t1;
+    CREATE TABLE ri (i INTEGER);
+    BEGIN;
+    COMMIT;
+    SELECT count(*) as ic FROM ri;
+    DELETE FROM ri WHERE (i % 50) <> 25;
+    SELECT count(*) as ic FROM ri;
+ BEGIN;
+ COMMIT;

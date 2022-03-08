@@ -1,0 +1,18 @@
+  SELECT sql FROM sqlite_master WHERE name LIKE 'c%';
+  SELECT sql FROM sqlite_master WHERE name LIKE 'c%';
+  SELECT sql FROM sqlite_master WHERE name LIKE 'c%';
+    SELECT sql FROM sqlite_master;
+    SELECT sql FROM sqlite_master;
+  SELECT sql FROM sqlite_master WHERE type = 'trigger';
+  SELECT sql FROM sqlite_master WHERE type = 'trigger';
+  SELECT sql FROM sqlite_master WHERE type = 'trigger';
+  SELECT sql FROM sqlite_master WHERE name = 'r2';
+  SELECT sql FROM sqlite_master WHERE name = 'r2';
+  SELECT sql FROM sqlite_master WHERE name = 'r3';
+  SELECT sql FROM sqlite_master WHERE name = 'r3';
+  SELECT sql FROM sqlite_master WHERE name='r1';
+  SELECT sql FROM sqlite_master WHERE name='r1';
+  CREATE VIEW v1 AS SELECT * FROM t1;
+  CREATE VIEW v4 AS SELECT * FROM t4 WHERE (a=1 AND 0) OR b=2;
+  SELECT sql FROM sqlite_master WHERE name = 'v4';
+  SELECT sql FROM sqlite_master WHERE name='i0';

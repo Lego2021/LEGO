@@ -1,0 +1,2 @@
+    SELECT name FROM sqlite_temp_master;
+    CREATE VIEW t1 AS SELECT *;

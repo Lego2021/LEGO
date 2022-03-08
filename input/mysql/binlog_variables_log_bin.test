@@ -1,0 +1,2 @@
+ let $log_bin_index=`select substring_index(@@log_bin_index,'/',-1)`;
+ 

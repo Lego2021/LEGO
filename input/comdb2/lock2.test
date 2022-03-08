@@ -1,0 +1,9 @@
+select * from sqlite_master;
+    BEGIN;
+    CREATE TABLE abc(a, b, c);
+      SELECT * FROM sqlite_master;
+      BEGIN;
+      SELECT * FROM sqlite_master;
+    COMMIT;
+    SELECT * FROM sqlite_master;
+      SELECT * FROM sqlite_master;

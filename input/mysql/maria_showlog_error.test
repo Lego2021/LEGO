@@ -1,0 +1,9 @@
+# can't restart server in embedded # remove_file can't remove opened file under windows. So we can't reproduce # the problem there # # BUG#41127 test suite # connect (admin, localhost, root,,test,,);
+  connection default;
+  # cleunup before this test  connection default;
+  let MYSQLD_DATADIR= `select @@datadir`;
+ remove_file $MYSQLD_DATADIR/$MARIA_LOG/aria_log.00000001;
+ show engine aria logs;
+  # cleunup after this test  disconnect admin;
+ connection default;
+ 

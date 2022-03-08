@@ -1,0 +1,9 @@
+# # only global # select @@global.slave_skip_errors;
+ select @@session.slave_skip_errors;
+ show global variables like 'slave_skip_errors';
+ show session variables like 'slave_skip_errors';
+ select * from information_schema.global_variables where variable_name='slave_skip_errors';
+ select * from information_schema.session_variables where variable_name='slave_skip_errors';
+  # # show that it's read-only # set global slave_skip_errors=1;
+ set session slave_skip_errors=1;
+ 

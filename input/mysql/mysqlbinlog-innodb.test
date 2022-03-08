@@ -1,0 +1,22 @@
+# # MBug#702303: Spurious `use` statements in output from mysqlbinlog --rewrite-db="a->b" # let $MYSQLD_DATADIR= `select @@datadir`;
+ SET TIMESTAMP=1000000000;
+ CREATE TABLE t1 (a INT PRIMARY KEY) ENGINE=innodb;
+ CREATE DATABASE test2;
+  RESET MASTER;
+ USE test2;
+ BEGIN;
+ USE test;
+ INSERT INTO t1 VALUES (1);
+ USE test2;
+ COMMIT;
+ BEGIN;
+ USE test;
+ INSERT INTO t1 VALUES (2);
+ USE test2;
+ COMMIT;
+ USE test;
+ SELECT * FROM t1 ORDER BY a;
+ FLUSH LOGS;
+ DROP DATABASE test2;
+ DROP TABLE t1;
+ 

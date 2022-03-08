@@ -1,0 +1,10 @@
+  set global rocksdb_flush_log_at_trx_commit=1;
+  create table t1 (a int, b int, key(a)) engine=rocksdb;
+ insert into t1 values (1,1),(2,2);
+ select * from t1;
+ flush tables;
+  restart EOF  set @@debug_dbug="+d,crash_after_reset_master";
+  RESET MASTER;
+ select * from t1;
+  drop table t1;
+  

@@ -1,0 +1,5 @@
+# Tests for sys schema # Verify the sys.statements_with_sorting view  # Ensure structure changes don't slip in DESC sys.statements_with_sorting;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.statements_with_sorting;
+   # Ensure structure changes don't slip in DESC sys.x$statements_with_sorting;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$statements_with_sorting;
+  

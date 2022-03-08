@@ -1,0 +1,4 @@
+ let $engine_count=1;
+ let $engines='rocksdb';
+ set global rocksdb_flush_log_at_trx_commit=1;
+ 

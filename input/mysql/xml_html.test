@@ -1,0 +1,9 @@
+ let $MYSQLD_DATADIR= `select @@datadir`;
+  SET NAMES utf8;
+   CREATE TABLE beers ( `Name` CHAR(16) XPATH='brandName', `Origin` CHAR(16) XPATH='origin', `Description` CHAR(32) XPATH='details') ENGINE=CONNECT TABLE_TYPE=XML FILE_NAME='beers.xml' TABNAME='table' OPTION_LIST='xmlsup=domdoc,rownode=tr,colnode=td';
+ SELECT * FROM beers;
+ DROP TABLE beers;
+  CREATE TABLE coffee ( `Name` CHAR(16), `Cups` INT(8), `Type` CHAR(16), `Sugar` CHAR(4)) ENGINE=CONNECT TABLE_TYPE=XML FILE_NAME='coffee.htm' TABNAME='TABLE' HEADER=1 OPTION_LIST='xmlsup=domdoc,Coltype=HTML';
+ SELECT * FROM coffee;
+ DROP TABLE coffee;
+  # # Clean up # 

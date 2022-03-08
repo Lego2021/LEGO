@@ -1,0 +1,2 @@
+################################### # Wrapper for rpl_row_log.test    # # Added wrapper so that MyISAM &  # # Innodb         could all use the# # Same test. ################################### let $engine_type=InnoDB;
+  

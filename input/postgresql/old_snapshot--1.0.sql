@@ -1,0 +1,2 @@
+/* contrib/old_snapshot/old_snapshot--1.0.sql */  \echo Use "CREATE EXTENSION old_snapshot" to load this file. \quit  CREATE FUNCTION pg_old_snapshot_time_mapping(array_offset OUT int4, end_timestamp OUT timestamptz, newest_xmin OUT xid) RETURNS SETOF record AS 'MODULE_PATHNAME', 'pg_old_snapshot_time_mapping' LANGUAGE C STRICT;
+  

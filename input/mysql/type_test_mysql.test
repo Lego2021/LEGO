@@ -1,0 +1,3 @@
+ CREATE TABLE t1 (a TEST_INT8, b TEST_DOUBLE);
+ # # doesn't report the correct type name yet # to be fixed # DROP TABLE t1;
+ 

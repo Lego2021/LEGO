@@ -1,0 +1,5 @@
+ # Check how rocksdb backup works without hardlinks let $backup_extra_param='--dbug=+d,no_hardlinks';
+ let $copy_back_extra_param='--dbug=+d,no_hardlinks';
+  # Pretend that previous backup crashes, and left checkpoint directory let $rocksdb_datadir= `SELECT @@rocksdb_datadir`;
+ mkdir $rocksdb_datadir/mariadb-checkpoint;
+   

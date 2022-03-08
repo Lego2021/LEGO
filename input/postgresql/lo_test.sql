@@ -1,0 +1,23 @@
+/* contrib/lo/lo_test.sql */  SET search_path = public;
+   SELECT count(oid) FROM pg_largeobject_metadata;
+  DROP TABLE a;
+  CREATE TABLE a (fname name,image lo);
+  INSERT INTO a VALUES ('empty');
+  INSERT INTO a VALUES ('/etc/group', lo_import('/etc/group')::lo);
+  SELECT * FROM a;
+  SELECT *,image::oid from a;
+  CREATE TRIGGER t_a BEFORE UPDATE OR DELETE ON a FOR EACH ROW EXECUTE PROCEDURE lo_manage(image);
+  INSERT INTO a VALUES ('aa', lo_import('/etc/hosts'));
+ SELECT * FROM a WHERE fname LIKE 'aa%';
+  UPDATE a SET image=lo_import('/etc/group')::lo WHERE fname='aa';
+ SELECT * FROM a WHERE fname LIKE 'aa%';
+  UPDATE a SET image=lo_import('/etc/hosts') WHERE fname='empty';
+ SELECT * FROM a WHERE fname LIKE 'empty%';
+ UPDATE a SET image=null WHERE fname='empty';
+ SELECT * FROM a WHERE fname LIKE 'empty%';
+  DELETE FROM a WHERE fname='aa';
+ SELECT * FROM a WHERE fname LIKE 'aa%';
+  DELETE FROM a;
+  DROP TABLE a;
+  SELECT count(oid) FROM pg_largeobject_metadata;
+  

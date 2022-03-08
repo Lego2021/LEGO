@@ -1,0 +1,5 @@
+# Tests for sys schema # Verify the sys.statement_analysis view  # Ensure structure changes don't slip in DESC sys.statement_analysis;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.statement_analysis;
+   # Ensure structure changes don't slip in DESC sys.x$statement_analysis;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$statement_analysis;
+  

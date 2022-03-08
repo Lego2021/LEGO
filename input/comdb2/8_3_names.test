@@ -1,0 +1,11 @@
+    BEGIN;
+    DELETE FROM t1;
+    BEGIN;
+    DELETE FROM t1;
+    BEGIN;
+    DELETE FROM t1;
+    BEGIN;
+      INSERT INTO t1 VALUES(3);
+      INSERT INTO t2 VALUES(4);
+    BEGIN;
+    UPDATE t1 SET x=x*2;

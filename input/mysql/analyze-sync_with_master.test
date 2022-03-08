@@ -1,0 +1,1 @@
+# ==== Purpose ==== # # This is an auxiliary file that mysqltest executes when # sync_slave_with_master or sync_with_master fails. The purpose is to # print debug information.  

@@ -1,0 +1,3 @@
+        BEGIN;
+    PRAGMA incremental_vacuum(10);
+    ROLLBACK;

@@ -1,0 +1,5 @@
+# Tests for PERFORMANCE_SCHEMA   alter table performance_schema.threads add column foo integer;
+  truncate table performance_schema.threads;
+  ALTER TABLE performance_schema.threads ADD INDEX test_index(PROCESSLIST_ID);
+  CREATE UNIQUE INDEX test_index ON performance_schema.threads(PROCESSLIST_ID);
+  

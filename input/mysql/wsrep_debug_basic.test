@@ -1,0 +1,18 @@
+  SET @wsrep_debug_global_saved = @@global.wsrep_debug;
+  SELECT @@global.wsrep_debug;
+  SELECT @@session.wsrep_debug;
+ SET @@global.wsrep_debug=0;
+ SELECT @@global.wsrep_debug;
+ SET @@global.wsrep_debug=1;
+ SELECT @@global.wsrep_debug;
+  SET @@global.wsrep_debug=NONE;
+ SELECT @@global.wsrep_debug;
+ SET @@global.wsrep_debug=SERVER;
+ SELECT @@global.wsrep_debug;
+ SET @@global.wsrep_debug=default;
+ SELECT @@global.wsrep_debug;
+  SET @@global.wsrep_debug=NULL;
+ SET @@global.wsrep_debug='junk';
+ SET @@global.wsrep_debug=ON;
+  SET @@global.wsrep_debug = @wsrep_debug_global_saved;
+  

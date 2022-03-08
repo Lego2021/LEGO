@@ -1,0 +1,1 @@
+/* src/test/modules/test_extensions/test_ext_cyclic2--1.0.sql */ \echo Use "CREATE EXTENSION test_ext_cyclic2" to load this file. \quit 

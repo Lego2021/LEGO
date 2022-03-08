@@ -1,0 +1,2 @@
+# Test of partitioning features with replication for InnoDB  # Set the default connection to 'master'  let $engine_type= 'InnoDB';
+   

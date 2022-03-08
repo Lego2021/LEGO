@@ -1,0 +1,13 @@
+ CREATE TABLE t1 (f1 INTEGER, f2 VARCHAR(10)) ENGINE=InnoDB;
+ CREATE TABLE t2 (f1 INTEGER);
+  SET SESSION wsrep_trx_fragment_size = 1;
+ SET AUTOCOMMIT=OFF;
+ START TRANSACTION;
+ INSERT INTO t1 VALUES (1, 'a');
+  DROP TABLE t1;
+  COMMIT;
+  INSERT INTO t1 VALUES (2);
+   SELECT * FROM mysql.wsrep_streaming_log;
+  SELECT * FROM mysql.wsrep_streaming_log;
+  DROP TABLE t2;
+ 

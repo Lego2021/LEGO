@@ -1,0 +1,13 @@
+ CREATE TABLE valid_values (value varchar(255)) ENGINE=myisam;
+ INSERT INTO valid_values VALUES('fatal_level');
+ INSERT INTO valid_values VALUES('error_level');
+ INSERT INTO valid_values VALUES('warn_level');
+ INSERT INTO valid_values VALUES('info_level');
+ INSERT INTO valid_values VALUES('debug_level');
+  CREATE TABLE invalid_values (value varchar(255)) ENGINE=myisam;
+ INSERT INTO invalid_values VALUES(5);
+ INSERT INTO invalid_values VALUES(6);
+ INSERT INTO invalid_values VALUES('foo');
+   DROP TABLE valid_values;
+ DROP TABLE invalid_values;
+ 

@@ -1,0 +1,4 @@
+# # This test verifies that the server can be shut down even if # some of the wsrep transactions are in QUERY_COMMITTING state. # In this case the shutdown sequence may do a BF abort for the # connection. #   # Save original auto_increment_offset values.  CREATE TABLE t1 (f1 INT PRIMARY KEY);
+  SET DEBUG_SYNC = 'wsrep_before_certification WAIT_FOR continue';
+   # Restore original auto_increment_offset values.   DROP TABLE t1;
+ 

@@ -1,0 +1,1 @@
+################################################################################### # This test cases evaluates the mixture of non-transactional and transcational # tables. Specifically when drop temporary tables and create temporary tables # are used. ###################################################################################  

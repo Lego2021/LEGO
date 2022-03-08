@@ -1,0 +1,8 @@
+   SET gtid_seq_no=1000;
+ SET @@session.session_track_system_variables='last_gtid';
+ create table t1 (a int) engine=innodb;
+ select @@last_gtid;
+ insert into t1 values (1);
+ select @@last_gtid;
+ drop table t1;
+  

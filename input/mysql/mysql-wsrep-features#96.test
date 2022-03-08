@@ -1,0 +1,18 @@
+# mysql-wsrep-features#96 - "Sanity check failed" with SR and statement rolled back due to error     CREATE TABLE t1 (f1 INTEGER PRIMARY KEY);
+ CREATE TABLE t2 (f2 VARCHAR(32));
+  SET SESSION wsrep_trx_fragment_size=1;
+ SET AUTOCOMMIT=OFF;
+ START TRANSACTION;
+ INSERT INTO t1 VALUES (1);
+  # This statement causes full transaction rollback # rather than just statement rollback, as it is run under SR  INSERT INTO t1 VALUES (2),(1);
+ INSERT INTO t2 VALUES ('abc');
+  SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+  SELECT COUNT(*) = 0 FROM t1;
+ SELECT COUNT(*) = 1 FROM t2;
+  ROLLBACK;
+  SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+  SELECT COUNT(*) = 0 FROM t1;
+ SELECT COUNT(*) = 0 FROM t2;
+  DROP TABLE t1;
+ DROP TABLE t2;
+     

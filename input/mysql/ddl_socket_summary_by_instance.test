@@ -1,0 +1,5 @@
+# Tests for PERFORMANCE_SCHEMA   alter table performance_schema.socket_summary_by_instance add column foo integer;
+  truncate table performance_schema.socket_summary_by_instance;
+  ALTER TABLE performance_schema.socket_summary_by_instance ADD INDEX test_index(FILE_NAME);
+  CREATE UNIQUE INDEX test_index ON performance_schema.socket_summary_by_instance(FILE_NAME);
+  

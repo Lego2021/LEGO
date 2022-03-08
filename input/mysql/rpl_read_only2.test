@@ -1,0 +1,17 @@
+  connection slave;
+ set global read_only=1;
+  connection master;
+  create table t1(a int) engine=MyISAM;
+ create temporary table tmp1 (a int) engine=MyISAM;
+ insert into t1 values(1);
+ insert into tmp1 values (2);
+ insert into t1 select * from tmp1;
+ insert into t1 values(3);
+ select * from t1;
+ analyze table t1;
+ drop table t1;
+ drop temporary table tmp1;
+  sync_slave_with_master;
+ set global read_only=0;
+ connection master;
+  

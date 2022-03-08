@@ -1,0 +1,10 @@
+ CREATE TABLE t1 (id INT PRIMARY KEY) ENGINE=InnoDB;
+ CREATE TABLE t2 (id INT PRIMARY KEY) ENGINE=InnoDB;
+  # Ensure that the tables have been created on node #2 SELECT 1 FROM DUAL;
+  LOCK TABLE t2 WRITE;
+    SET SESSION wsrep_sync_wait = 0;
+  INSERT INTO t2 VALUES (1);
+  UNLOCK TABLES;
+    DROP TABLE t1;
+ DROP TABLE t2;
+ 

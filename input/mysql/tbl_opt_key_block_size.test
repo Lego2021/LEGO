@@ -1,0 +1,5 @@
+# # Check whether KEY_BLOCK_SIZE option # is supported in CREATE and ALTER TABLE # # Note: the test does not check whether the option #       has any real effect on the table, only #       that it's accepted #   DROP TABLE IF EXISTS t1;
+  SHOW CREATE TABLE t1;
+  if ($mysql_errname) { } SHOW CREATE TABLE t1;
+  DROP TABLE t1;
+   

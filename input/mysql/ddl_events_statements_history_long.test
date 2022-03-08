@@ -1,0 +1,5 @@
+# Tests for PERFORMANCE_SCHEMA   alter table performance_schema.events_statements_history_long add column foo integer;
+  truncate table performance_schema.events_statements_history_long;
+  ALTER TABLE performance_schema.events_statements_history_long ADD INDEX test_index(EVENT_ID);
+  CREATE UNIQUE INDEX test_index ON performance_schema.events_statements_history_long(EVENT_ID);
+  

@@ -1,0 +1,2 @@
+################################# # Wrapper for rpl_row_sp003.test# ################################# ######################################################## # By JBM 2005-02-15 Wrapped to allow reuse of test code# ######################################################## # Slow test, don't run during staging part  let $engine_type=INNODB;
+ 

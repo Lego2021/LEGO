@@ -1,0 +1,4 @@
+# # Check if the variable MY_PERROR is set # disable_query_log;
+ eval select LENGTH("$MY_PERROR") > 0 as "have_perror";
+ enable_query_log;
+   # # Bug#16561 Unknown ERROR msg "ERROR 1186 (HY000): Binlog closed" by perror #  # Test with error code 10000 as it's a common "unknown error" # As there is no error code defined for 10000, expect error  # # Bug#10143 (Perror not showing error description) #  # test reported case  # test errors that contain characters to escape in the text.   

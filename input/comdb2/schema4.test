@@ -1,0 +1,1 @@
+    select sql from sqlite_temp_master WHERE type='table';

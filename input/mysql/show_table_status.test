@@ -1,0 +1,5 @@
+# # SHOW TABLE STATUS statement # # Note: the output might be different if even with such tiny tables #       the number of rows is approximate. In this case rdiff will be needed #   DROP TABLE IF EXISTS t1, t2, t3;
+  INSERT INTO t1 (a,b) VALUES (100,'a'),(2,'foo');
+  INSERT INTO t2 (a,b) VALUES (1,'bar');
+   DROP TABLE t1, t2, t3;
+   

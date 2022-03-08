@@ -1,0 +1,5 @@
+    BEGIN;
+    CREATE TABLE abc(a);
+    BEGIN;
+    DELETE FROM abc;
+    PRAGMA incremental_vacuum;

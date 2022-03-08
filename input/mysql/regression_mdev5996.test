@@ -1,0 +1,2 @@
+# Regression test for https://mariadb.atlassian.net/browse/MDEV-5996 # MidSchipDB_unstable  call mtr.add_suppression("99999999 is open on delete");
+    # Various cases - although actual bug was a broken zero termination # name of backing store shorter, same and longer than table       # Fails:  # 1/9999 # test/99999999 # 1112222233_444444444/999999999 

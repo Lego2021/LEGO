@@ -1,0 +1,13 @@
+ call mtr.add_suppression("Timeout waiting for reply of binlog*");
+ create table t1 (i int);
+  set global rpl_semi_sync_master_enabled = ON;
+  set global rpl_semi_sync_slave_enabled = ON;
+ change master to master_log_file='master-bin.000002', master_log_pos = 320;
+  start slave;
+  insert into t1 values (1);
+ reset master;
+  reset slave;
+  set global rpl_semi_sync_slave_enabled = OFF;
+ drop table t1;
+ set global rpl_semi_sync_master_enabled = OFF;
+ 

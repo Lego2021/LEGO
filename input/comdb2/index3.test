@@ -1,0 +1,3 @@
+    BEGIN;
+    CREATE UNIQUE INDEX i1 ON t1(a);
+  DROP TABLE t1;

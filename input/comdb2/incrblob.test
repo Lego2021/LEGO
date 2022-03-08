@@ -1,0 +1,9 @@
+      BEGIN;
+      DELETE FROM blobs;
+ CREATE VIEW blobs_view AS SELECT k, v, i FROM blobs;
+      BEGIN;
+      INSERT INTO blobs(k, v, i) VALUES('a', 'different', 'connection');
+    BEGIN;
+    DROP TABLE blobs;
+    INSERT INTO t1(a, b, c, d) VALUES(1, 2, 3, 4);
+    SELECT rootpage FROM sqlite_master;

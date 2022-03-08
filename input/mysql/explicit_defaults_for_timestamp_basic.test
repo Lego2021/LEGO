@@ -1,0 +1,10 @@
+# # show the global and session values;
+ # select @@global.explicit_defaults_for_timestamp;
+  # # Test that it's a global-only variable # select @@session.explicit_defaults_for_timestamp;
+  show global variables like 'explicit_defaults_for_timestamp';
+ show session variables like 'explicit_defaults_for_timestamp';
+  select * from information_schema.global_variables where variable_name='explicit_defaults_for_timestamp';
+ select * from information_schema.session_variables where variable_name='explicit_defaults_for_timestamp';
+  # # show that it's read-only # set global explicit_defaults_for_timestamp=true;
+ set session explicit_defaults_for_timestamp=true;
+ 

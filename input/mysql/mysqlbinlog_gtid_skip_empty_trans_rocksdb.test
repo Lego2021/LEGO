@@ -1,0 +1,5 @@
+ ################################################################################ # Test the --skip-empty-trans option for mysqlbinlog with rocksdb ################################################################################  reset master;
+ set timestamp=1000000000;
+ let $storage_engine=rocksdb;
+  # Test row based replication set SESSION binlog_format = 'ROW';
+ 

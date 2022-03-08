@@ -1,0 +1,9 @@
+# # only global # select @@global.slave_load_tmpdir;
+ select @@session.slave_load_tmpdir;
+ show global variables like 'slave_load_tmpdir';
+ show session variables like 'slave_load_tmpdir';
+ select * from information_schema.global_variables where variable_name='slave_load_tmpdir';
+ select * from information_schema.session_variables where variable_name='slave_load_tmpdir';
+  # # show that it's read-only # set global slave_load_tmpdir=1;
+ set session slave_load_tmpdir=1;
+ 

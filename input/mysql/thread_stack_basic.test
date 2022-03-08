@@ -1,0 +1,9 @@
+# # only global # select @@global.thread_stack;
+ select @@session.thread_stack;
+ show global variables like 'thread_stack';
+ show session variables like 'thread_stack';
+ select * from information_schema.global_variables where variable_name='thread_stack';
+ select * from information_schema.session_variables where variable_name='thread_stack';
+  # # show that it's read-only # set global thread_stack=1;
+ set session thread_stack=1;
+ 

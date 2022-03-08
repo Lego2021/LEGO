@@ -1,0 +1,3 @@
+    CREATE TABLE t0(xyz INTEGER);
+    INSERT INTO t0(xyz) VALUES(456);
+    DROP TABLE t0;

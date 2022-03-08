@@ -1,0 +1,2 @@
+ SHOW VARIABLES LIKE 'slave_transaction_retry_errors';
+  

@@ -1,0 +1,3 @@
+#### suite/funcs_1/t/innodb_trig_03e.test  # This test cannot be used for the embedded server because we check here # privileges.  # InnoDB tables should be used # # 1. Check if InnoDB is available # 2. Set $engine_type let $engine_type= innodb;
+  # Create some objects needed in many testcases USE test;
+   

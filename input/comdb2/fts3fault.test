@@ -1,0 +1,12 @@
+    BEGIN;
+      INSERT INTO t1 VALUES('registers the FTS3 module');
+      INSERT INTO t1 VALUES('various support functions');
+ ALTER TABLE t1 RENAME TO t2;
+ CREATE VIRTUAL TABLE t3 USING fts4;
+ INSERT INTO t3(t3) VALUES('nodesize=50');
+     BEGIN;
+      INSERT INTO t5 VALUES('influential in shaping his future outlook');
+      INSERT INTO t5 VALUES('might be acceptable to the British electorate');
+ CREATE VIRTUAL TABLE t6 USING fts4;
+ DROP TABLE t6;
+ CREATE VIRTUAL TABLE t8 USING fts4;

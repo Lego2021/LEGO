@@ -1,0 +1,7 @@
+ DESC sys.x$ps_digest_95th_percentile_by_avg_us;
+  DESC sys.x$ps_digest_95th_percentile_by_avg_us;
+  # Ensure structure changes don't slip in DESC sys.x$ps_digest_95th_percentile_by_avg_us;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$ps_digest_95th_percentile_by_avg_us;
+   # Ensure structure changes don't slip in DESC sys.x$ps_digest_95th_percentile_by_avg_us;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$ps_digest_95th_percentile_by_avg_us;
+  

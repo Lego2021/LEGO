@@ -1,0 +1,3 @@
+    CREATE TABLE debian_bugs          (bug INTEGER NOT NULL,           note INTEGER NOT NULL,           PRIMARY KEY (bug, note));
+      CREATE VIEW debian_cve AS              SELECT DISTINCT debian_bugs.bug, st.bug_name              FROM package_notes, debian_bugs, source_package_status AS st              WHERE package_notes.bug_name = st.bug_name              AND debian_bugs.note = package_notes.id              ORDER BY debian_bugs.bug;
+  CREATE VIEW vvv AS    SELECT * FROM t1    UNION ALL    SELECT 0, 0 WHERE 0;

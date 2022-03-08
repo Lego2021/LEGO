@@ -1,0 +1,17 @@
+# Author: Horst Hunger # Created: 2010-07-13   let $engine_table= MYISAM;
+ let $engine_part= MYISAM;
+ let $engine_subpart= MYISAM;
+  use test;
+   # 13) Exchange with dynamic variables. SET @part= 'p0';
+ SET @part_tab= 'tp';
+ SET @table= 't_10';
+ SET @s= CONCAT('ALTER TABLE ',@part_tab,' EXCHANGE PARTITION ',@part,' WITH TABLE ',@table);
+ PREPARE test_stmt1 FROM @s;
+ EXECUTE test_stmt1;
+ SELECT * FROM t_10;
+ SELECT * FROM tp;
+ DEALLOCATE PREPARE test_stmt1;
+  SET @part_tab= 'tp';
+ SET @s= CONCAT('ALTER TABLE ',@part_tab,' EXCHANGE PARTITION ? WITH TABLE ?');
+ PREPARE test_stmt2 FROM @s;
+   

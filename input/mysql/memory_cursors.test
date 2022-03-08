@@ -1,0 +1,6 @@
+#### suite/funcs_1/t/memory_cursors.test  # Memory tables should be used # # Set $engine_type SET @@session.sql_mode = 'NO_ENGINE_SUBSTITUTION';
+ let $engine_type= memory;
+  let $message= NOT YET IMPLEMENTED: cursor tests;
+ exit;
+  # Create some objects needed in many testcases USE test;
+   

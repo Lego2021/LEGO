@@ -1,0 +1,11 @@
+# Tests for PERFORMANCE_SCHEMA   select * from performance_schema.session_status where variable_name like 'bytes_%' limit 1;
+  select * from performance_schema.session_status where variable_name='FOO';
+  insert into performance_schema.session_status set variable_name='FOO', variable_value='BAR';
+  update performance_schema.session_status set variable_name='FOO', variable_value='BAR';
+  delete from performance_schema.session_status where variable_name <> 'FOO';
+  delete from performance_schema.session_status;
+  LOCK TABLES performance_schema.session_status READ;
+ UNLOCK TABLES;
+  LOCK TABLES performance_schema.session_status WRITE;
+ UNLOCK TABLES;
+  

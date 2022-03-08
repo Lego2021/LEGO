@@ -1,0 +1,3 @@
+      BEGIN;
+        UPDATE t1 SET y = randomblob(500) WHERE (x%10)==0;
+        UPDATE t2 SET y = randomblob(500) WHERE (x%10)==0;

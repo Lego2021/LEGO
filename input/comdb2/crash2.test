@@ -1,0 +1,7 @@
+    BEGIN;
+    CREATE TABLE abc AS SELECT 1 AS a, 2 AS b, 3 AS c;
+    CREATE TABLE def AS SELECT 1 AS d, 2 AS e, 3 AS f;
+SELECT random();
+       BEGIN;
+       INSERT INTO abc SELECT randstr(10,10), 0, 0 FROM abc WHERE random()%2==0;
+       DELETE FROM abc WHERE random()%2!=0;

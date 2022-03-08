@@ -1,0 +1,10 @@
+# ulong readonly  # # show the global and session values;
+ # select @@global.aria_pagecache_file_hash_size;
+ select @@session.aria_pagecache_file_hash_size;
+ show global variables like 'aria_pagecache_file_hash_size';
+ show session variables like 'aria_pagecache_file_hash_size';
+ select * from information_schema.global_variables where variable_name='aria_pagecache_file_hash_size';
+ select * from information_schema.session_variables where variable_name='aria_pagecache_file_hash_size';
+  # # show that it's read-only # set global aria_pagecache_file_hash_size=200;
+ set session aria_pagecache_file_hash_size=200;
+  

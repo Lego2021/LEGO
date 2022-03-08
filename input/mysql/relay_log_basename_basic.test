@@ -1,0 +1,1 @@
+# # WL#5465: System variables: paths to relay log and binary log files # # Test for variable: #  Variable Name: relay_log_basename #  Variable Scope: Global #  Dynamic Variable: No    

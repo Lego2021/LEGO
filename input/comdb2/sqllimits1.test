@@ -1,0 +1,8 @@
+ SELECT zeroblob(-1);
+ CREATE TABLE trig (a INTEGER, b INTEGER);
+    INSERT INTO trig VALUES (1,1);
+    SELECT COUNT(*) FROM trig;
+    INSERT INTO trig VALUES (1,10);
+    SELECT COUNT(*) FROM trig;
+    SELECT count(*) FROM sqlite_master;
+DROP VIEW IF EXISTS v1;

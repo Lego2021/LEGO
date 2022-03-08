@@ -1,0 +1,4 @@
+  BEGIN;
+     BEGIN;
+      INSERT INTO ab VALUES(1, 2);
+      INSERT INTO ab VALUES(3, 4);

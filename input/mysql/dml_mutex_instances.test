@@ -1,0 +1,11 @@
+# Tests for PERFORMANCE_SCHEMA   select * from performance_schema.mutex_instances limit 1;
+  select * from performance_schema.mutex_instances where name='FOO';
+  insert into performance_schema.mutex_instances set name='FOO', object_instance_begin=12;
+  update performance_schema.mutex_instances set name='FOO';
+  delete from performance_schema.mutex_instances where name like "wait/%";
+  delete from performance_schema.mutex_instances;
+  LOCK TABLES performance_schema.mutex_instances READ;
+ UNLOCK TABLES;
+  LOCK TABLES performance_schema.mutex_instances WRITE;
+ UNLOCK TABLES;
+  

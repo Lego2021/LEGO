@@ -1,0 +1,7 @@
+  CREATE TABLE customer (id INT PRIMARY KEY);
+  CREATE TABLE apr (id INT PRIMARY KEY, apr REAL);
+    INSERT INTO customer (id) VALUES (1);
+  INSERT INTO apr (id, apr) VALUES (1, 12);
+  INSERT INTO customer (id) VALUES (2);
+  INSERT INTO apr (id, apr) VALUES (2, 12.01);
+  CREATE VIEW idmap as      SELECT * FROM map_integer      UNION SELECT * FROM map_text;

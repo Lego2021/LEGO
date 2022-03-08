@@ -1,0 +1,3 @@
+# Test to check for the different version of truncating a table. # The statements are "TRUNCATE tbl" and "DELETE FROM tbl". We check # the behaviour of each possible value for BINLOG_FORMAT.   let $trunc_stmt = TRUNCATE TABLE;
+  let $trunc_stmt   = DELETE FROM;
+  

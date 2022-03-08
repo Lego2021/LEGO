@@ -1,0 +1,3 @@
+# # Test the debugging feature "show procedure/function code <name>" #   show procedure code foo;
+  show function code foo;
+  

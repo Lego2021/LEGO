@@ -1,0 +1,13 @@
+SELECT * FROM sqlite_master;
+SELECT * FROM sqlite_master;
+    BEGIN;
+      SELECT * FROM sqlite_master;
+    ATTACH 'test.db2' AS aux;
+    PRAGMA aux.journal_mode = wal;
+    CREATE TABLE aux.t2(x, y);
+    PRAGMA aux.journal_mode = delete;
+  CREATE TABLE t2(x);
+  PRAGMA journal_mode = wal;
+  INSERT INTO t2 VALUES('abc');
+  INSERT INTO t2 VALUES('def');
+  INSERT INTO t2 VALUES('ghi');

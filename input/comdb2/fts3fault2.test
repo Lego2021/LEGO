@@ -1,0 +1,9 @@
+SELECT * FROM sqlite_master;
+SELECT * FROM sqlite_master;
+SELECT * FROM sqlite_master;
+SELECT * FROM sqlite_master;
+SELECT * FROM sqlite_master;
+SELECT * FROM sqlite_master;
+SELECT * FROM sqlite_master;
+SELECT * FROM sqlite_master;
+  SELECT name FROM sqlite_master WHERE name LIKE 't8%';

@@ -1,0 +1,12 @@
+#--source include/innodb_page_size.inc  CREATE TABLE t(c VARCHAR(10)) ENGINE INNODB encrypted=yes;
+ INSERT INTO t VALUES('foobar1');
+ echo # xtrabackup backup;
+ let $targetdir=$MYSQLTEST_VARDIR/tmp/backup;
+ exec $XTRABACKUP --defaults-file=$MYSQLTEST_VARDIR/my.cnf --backup --target-dir=$targetdir;
+   INSERT INTO t VALUES('foobar2');
+ echo # xtrabackup prepare;
+  exec $XTRABACKUP  --prepare --target-dir=$targetdir;
+   SELECT * FROM t;
+ DROP TABLE t;
+ rmdir $targetdir;
+ 

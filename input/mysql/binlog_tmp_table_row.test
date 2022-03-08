@@ -1,0 +1,4 @@
+# ==== Purpose ==== # # Test if statements used temporary tables are not binlogged in the case of # binlog_format=row # # ==== Method ==== # # We will see if binlog file size is increased or not, It should be constant for the # entire period of test. # # ==== Related bugs ==== # # Mdev-9266 # source include/have_log_bin.inc;
+ source include/have_binlog_format_row.inc;
+  RESET MASTER;
+    

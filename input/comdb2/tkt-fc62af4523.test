@@ -1,0 +1,5 @@
+      BEGIN;
+        UPDATE t1 SET b = randomblob(400);
+        UPDATE t1 SET a = randomblob(201);
+ PRAGMA journal_mode = DELETE;
+    PRAGMA integrity_check;

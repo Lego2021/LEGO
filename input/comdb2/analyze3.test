@@ -1,0 +1,17 @@
+    BEGIN;
+    CREATE TABLE t1(x INTEGER, y);
+    CREATE INDEX i1 ON t1(x);
+    ANALYZE;
+ SELECT count(*)>0 FROM sqlite_stat4;
+    BEGIN;
+      CREATE TABLE t2(x TEXT, y);
+      INSERT INTO t2 SELECT * FROM t1;
+      CREATE INDEX i2 ON t2(x);
+    ANALYZE;
+    BEGIN;
+      CREATE TABLE t3(y TEXT, x INTEGER);
+      INSERT INTO t3 SELECT y, x FROM t1;
+      CREATE INDEX i3 ON t3(x);
+    ANALYZE;
+    BEGIN;
+    CREATE INDEX i1 ON t1(b);

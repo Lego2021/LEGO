@@ -1,0 +1,9 @@
+ source suite/rocksdb_hotbackup/include/setup.inc;
+     connection server_2;
+ select count(*) from db1.t1;
+  connection server_1;
+ drop database db1;
+ connection server_2;
+ drop database db1;
+  source suite/rocksdb_hotbackup/include/cleanup.inc;
+  

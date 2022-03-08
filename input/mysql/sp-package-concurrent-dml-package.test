@@ -1,0 +1,3 @@
+ SET @object_type='package_replace_pkg1';
+  SET @object_type='package_body_replace_pkg1';
+  

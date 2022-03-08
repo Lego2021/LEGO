@@ -1,0 +1,20 @@
+# SR transactions are not binlogged #136   SET GLOBAL wsrep_on=OFF;
+ RESET MASTER;
+ SET GLOBAL wsrep_on=ON;
+  SET GLOBAL wsrep_on=OFF;
+ RESET MASTER;
+ SET GLOBAL wsrep_on=ON;
+  SET SESSION wsrep_trx_fragment_size = 1;
+ SET AUTOCOMMIT=OFF;
+ START TRANSACTION;
+ CREATE TABLE t1 (f1 INTEGER) ENGINE=InnoDB;
+ INSERT INTO t1 VALUES (1),(2);
+ COMMIT;
+  SET SESSION wsrep_trx_fragment_size = 0;
+ INSERT INTO t1 VALUES (3),(4);
+ COMMIT;
+  SHOW BINLOG EVENTS IN 'mysqld-bin.000001' FROM 256;
+  # Wait for all updates to arrive before dumping binlog SELECT COUNT(*) = 4 FROM t1;
+  SHOW BINLOG EVENTS IN 'mysqld-bin.000001' FROM 256;
+  DROP TABLE t1;
+ 

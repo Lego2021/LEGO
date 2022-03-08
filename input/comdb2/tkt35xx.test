@@ -1,0 +1,6 @@
+    BEGIN;
+    ROLLBACK;
+    BEGIN;
+    CREATE TABLE t5(e PRIMARY KEY, f);
+    DROP TABLE t5;
+    INSERT INTO t3(a, b) SELECT c, d FROM t4;

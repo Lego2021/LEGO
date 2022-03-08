@@ -1,0 +1,5 @@
+ SELECT @@global.last_gtid;
+  SET GLOBAL last_gtid= 10;
+ SET SESSION last_gtid= 20;
+  SELECT @@session.last_gtid;
+ 

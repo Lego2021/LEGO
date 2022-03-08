@@ -1,0 +1,6 @@
+    ANALYZE;
+    UPDATE sqlite_stat1 SET stat='1000000 500000 500 50';
+  CREATE TABLE t2(e INT UNIQUE, f TEXT);
+  CREATE TABLE t1(a TEXT, b TEXT);
+  INSERT INTO t1 VALUES(null,10),(0,10),(10,10);
+  SELECT quote(a), quote(b), '|' FROM t1 WHERE b in (SELECT a FROM t1) AND a=0;

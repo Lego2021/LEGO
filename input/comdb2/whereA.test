@@ -1,0 +1,3 @@
+  DROP TABLE IF EXISTS t1;
+  ANALYZE;
+  UPDATE sqlite_stat1 SET stat='27 3 3' WHERE idx='t1aa';

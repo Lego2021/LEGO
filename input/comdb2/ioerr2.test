@@ -1,0 +1,8 @@
+  BEGIN;
+  DELETE FROM t1 WHERE (oid%7)==0;
+  INSERT INTO t1 SELECT randstr(400,400), randstr(400,400)     WHERE (random()%7)==0;
+  UPDATE t1 SET a = randstr(400,400), b = randstr(400,400)     WHERE (random()%7)==0;
+  BEGIN;
+  UPDATE ab SET b = randstr(200,200);
+  UPDATE de SET e = randstr(200,200) WHERE d = (SELECT max(d) FROM de);
+  DELETE FROM ab;

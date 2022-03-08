@@ -1,0 +1,9 @@
+  BEGIN;
+    INSERT INTO t1 VALUES('hello');
+    INSERT INTO t1 VALUES('hello');
+    INSERT INTO t1 VALUES('hello');
+    INSERT INTO t1 VALUES('hello');
+    INSERT INTO t1 VALUES('hello');
+  BEGIN;
+    INSERT INTO t1 VALUES('hello');
+    INSERT INTO t1 VALUES('world');

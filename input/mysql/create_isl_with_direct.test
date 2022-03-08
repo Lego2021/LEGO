@@ -1,0 +1,7 @@
+ CALL mtr.add_suppression(".*Failed to set O_DIRECT on file.*");
+  # The below mtr suppression to avoid failure in solaris platform. CALL mtr.add_suppression("\\[ERROR\\] InnoDB: Failed to set DIRECTIO_ON on file.*");
+  SHOW VARIABLES LIKE 'innodb_flush_method';
+  let MYSQLD_DATADIR=`SELECT @@datadir`;
+   #  Create a table with explicit data directory option. EVAL CREATE TABLE t1 (x INT) ENGINE=INNODB, DATA DIRECTORY='$MYSQL_TMP_DIR';
+    DROP TABLE t1;
+ 

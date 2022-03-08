@@ -1,0 +1,10 @@
+# ulong readonly  # # show the global and session values;
+ # select @@global.aria_block_size;
+ select @@session.aria_block_size;
+ show global variables like 'aria_block_size';
+ show session variables like 'aria_block_size';
+ select * from information_schema.global_variables where variable_name='aria_block_size';
+ select * from information_schema.session_variables where variable_name='aria_block_size';
+  # # show that it's read-only # set global aria_block_size=1;
+ set session aria_block_size=1;
+  

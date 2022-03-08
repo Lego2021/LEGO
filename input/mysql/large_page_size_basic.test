@@ -1,0 +1,9 @@
+# # only global # select @@global.large_page_size = 1;
+ select @@session.large_page_size;
+ show global variables like 'large_page_size';
+ show session variables like 'large_page_size';
+ select * from information_schema.global_variables where variable_name='large_page_size';
+ select * from information_schema.session_variables where variable_name='large_page_size';
+  # # show that it's read-only # set global large_page_size=1;
+ set session large_page_size=1;
+  

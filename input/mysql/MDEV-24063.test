@@ -1,0 +1,4 @@
+# # MDEV-24063 # # my_bool wsrep_thd_is_aborting(const THD*): # Assertion `((&(&thd->LOCK_thd_data)->m_mutex)->count > 0 && # pthread_equal(pthread_self(), (&(&thd->LOCK_thd_data)->m_mutex)->thread))' failed. #    CREATE TABLE t1 (f1 INTEGER PRIMARY KEY);
+  SET GLOBAL wsrep_on=OFF;
+  DROP TABLE t1;
+  

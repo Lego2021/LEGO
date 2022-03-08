@@ -1,0 +1,8 @@
+ let $cnt=600;
+ while ($cnt) { let $success=`SELECT COUNT(*) = 0 FROM INFORMATION_SCHEMA.INNODB_TABLESPACES_ENCRYPTION WHERE MIN_KEY_VERSION = 0`;
+ if ($success) { let $cnt=0;
+ } if (!$success) { real_sleep 1;
+ dec $cnt;
+ } } if (!$success) { SELECT * FROM INFORMATION_SCHEMA.INNODB_TABLESPACES_ENCRYPTION;
+ SHOW STATUS LIKE 'innodb_encryption%';
+ }  # # MDEV-11835: InnoDB: Failing assertion: free_slot != NULL on # restarting server with encryption and read-only # 

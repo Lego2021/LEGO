@@ -1,0 +1,4 @@
+ CREATE TABLE t(i INT) ENGINE=INNODB;
+   # Generate enough redo log records to make at least one loop in log group  # mariabackup must exit with error instead of hanging exec $XTRABACKUP --defaults-file=$MYSQLTEST_VARDIR/my.cnf --backup --target-dir=$targetdir --dbug=+d,mariabackup_events;
+  DROP TABLE t;
+  

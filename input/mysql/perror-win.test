@@ -1,0 +1,4 @@
+# Windows-specific tests disable_query_log;
+ eval select LENGTH("$MY_PERROR") > 0 as "have_perror";
+ enable_query_log;
+    

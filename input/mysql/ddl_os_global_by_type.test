@@ -1,0 +1,5 @@
+# Tests for PERFORMANCE_SCHEMA   alter table performance_schema.objects_summary_global_by_type add column foo integer;
+  truncate table performance_schema.objects_summary_global_by_type;
+  ALTER TABLE performance_schema.objects_summary_global_by_type ADD INDEX test_index(OBJECT_NAME);
+  CREATE UNIQUE INDEX test_index ON performance_schema.objects_summary_global_by_type(OBJECT_NAME);
+  

@@ -1,0 +1,16 @@
+   SET @old_debug_dbug=@@debug_dbug;
+ SET @@debug_dbug="+d,frm_data_type_info";
+ CREATE TABLE t1 (a TEST_DOUBLE);
+ SHOW CREATE TABLE t1;
+ DROP TABLE t1;
+ SET @@debug_dbug=@old_debug_dbug;
+    SET @old_debug_dbug=@@debug_dbug;
+ SET @@debug_dbug="+d,frm_data_type_info";
+ CREATE TABLE t1 (a TEST_DOUBLE);
+ FLUSH TABLES;
+ SET @@debug_dbug="+d,emulate_handler_by_name_or_error_failure";
+ SHOW CREATE TABLE t1;
+ SELECT * FROM t1;
+ DROP TABLE t1;
+ SET @@debug_dbug=@old_debug_dbug;
+ 

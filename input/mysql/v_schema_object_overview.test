@@ -1,0 +1,3 @@
+# Tests for sys schema # Verify the sys.schema_object_overview view  # Ensure structure changes don't slip in DESC sys.schema_object_overview;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.schema_object_overview;
+  

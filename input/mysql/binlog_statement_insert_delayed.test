@@ -1,0 +1,6 @@
+# This test is to verify replication with INSERT DELAY through # unrecommended STATEMENT binlog format  reset master;
+ # get rid of previous tests binlog disable_query_log;
+ call mtr.add_suppression("Unsafe statement written to the binary log using statement format since BINLOG_FORMAT = STATEMENT");
+ enable_query_log;
+ reset master;
+ 

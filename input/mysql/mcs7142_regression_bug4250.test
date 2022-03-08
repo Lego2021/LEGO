@@ -1,0 +1,3 @@
+# -------------------------------------------------------------- # # Test case migrated from regression test suite: bug4250.sql # # Author: Daniel Lee, daniel.lee@mariadb.com # -------------------------------------------------------------- # # # USE tpch1;
+ # select count(*)/count(distinct n_regionkey) from nation;
+  #  

@@ -1,0 +1,11 @@
+ DROP TABLE IF EXISTS t1;
+ connection slave;
+  connection master;
+ create table t1 (a int, b int, primary key (a), unique key (b)) engine=rocksdb;
+ while ($aa < 1000) { eval insert into t1 values ($aa, $aa);
+ }  connection slave;
+ show variables like 'rpl_skip_tx_api';
+  while ($stop != 1) { let $count= query_get_value(select count(*) as Value from information_schema.rocksdb_trx, Value, 1);
+ if ($count) { }  if ($it > 1000) { }  }  connection master;
+ DROP TABLE t1;
+ 

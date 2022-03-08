@@ -1,0 +1,9 @@
+# # only global # select @@global.locked_in_memory;
+ select @@session.locked_in_memory;
+ show global variables like 'locked_in_memory';
+ show session variables like 'locked_in_memory';
+ select * from information_schema.global_variables where variable_name='locked_in_memory';
+ select * from information_schema.session_variables where variable_name='locked_in_memory';
+  # # show that it's read-only # set global locked_in_memory=1;
+ set session locked_in_memory=1;
+  

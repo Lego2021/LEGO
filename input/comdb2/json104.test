@@ -1,0 +1,1 @@
+  SELECT json_patch('["a","b"]','["c","d"]');

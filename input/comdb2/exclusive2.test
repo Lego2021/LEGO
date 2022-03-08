@@ -1,0 +1,16 @@
+    BEGIN;
+    CREATE TABLE t1(a, b);
+    INSERT INTO t1(a, b) SELECT randstr(10, 400), 0 FROM t1;
+    INSERT INTO t1(a, b) SELECT randstr(10, 400), 0 FROM t1;
+    INSERT INTO t1(a, b) SELECT randstr(10, 400), 0 FROM t1;
+    INSERT INTO t1(a, b) SELECT randstr(10, 400), 0 FROM t1;
+    INSERT INTO t1(a, b) SELECT randstr(10, 400), 0 FROM t1;
+    BEGIN;
+    DELETE FROM t1;
+    INSERT INTO t1(a) SELECT randstr(10, 400) FROM t1;
+    INSERT INTO t1(a) SELECT randstr(10, 400) FROM t1;
+    INSERT INTO t1(a) SELECT randstr(10, 400) FROM t1;
+    INSERT INTO t1(a) SELECT randstr(10, 400) FROM t1;
+    INSERT INTO t1(a) SELECT randstr(10, 400) FROM t1;
+    BEGIN;
+    CREATE TABLE t1(a UNIQUE);

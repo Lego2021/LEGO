@@ -1,0 +1,28 @@
+  CREATE OR REPLACE FUNCTION bar() RETURNS integer AS $$ #die 'BANG!';
+ # causes server process to exit(2) # alternative - causes server process to exit(255) spi_exec_query("invalid sql statement");
+ $$ language plperl;
+ -- compile plperl code  CREATE OR REPLACE FUNCTION foo() RETURNS integer AS $$ spi_exec_query("SELECT * FROM bar()");
+ return 1;
+ $$ LANGUAGE plperlu;
+ -- compile plperlu code  SELECT * FROM bar();
+ -- throws exception normally (running plperl) SELECT * FROM foo();
+ -- used to cause backend crash (after switching to plperlu)   create or replace function foo(text) returns text language plperl  as 'shift';
+ select foo('hey');
+ create or replace function foo(text) returns text language plperlu as 'shift';
+ select foo('hey');
+ create or replace function foo(text) returns text language plperl  as 'shift';
+ select foo('hey');
+  create or replace function bar(text) returns text language plperlu as 'shift';
+ select bar('hey');
+ create or replace function bar(text) returns text language plperl  as 'shift';
+ select bar('hey');
+ create or replace function bar(text) returns text language plperlu as 'shift';
+ select bar('hey');
+   CREATE OR REPLACE FUNCTION use_plperlu() RETURNS void LANGUAGE plperlu AS $$ use Errno;
+ $$;
+  CREATE OR REPLACE FUNCTION use_plperl() RETURNS void LANGUAGE plperl AS $$ use Errno;
+ $$;
+  select use_plperlu();
+  CREATE OR REPLACE FUNCTION use_plperl() RETURNS void LANGUAGE plperl AS $$ use Errno;
+ $$;
+ 

@@ -1,0 +1,3 @@
+# Partitioning test that require debug features # including crashing tests.    let $engine= 'MyISAM';
+  let $do_crash=1;
+ 

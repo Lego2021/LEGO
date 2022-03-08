@@ -1,0 +1,3 @@
+ set @@default_storage_engine= Aria;
+   set @@default_storage_engine= default;
+ 

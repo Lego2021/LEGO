@@ -1,0 +1,8 @@
+# # MDEV-5170 Assertion `(&(&acl_cache->lock)->m_mutex)->count > 0 && pthread_equal(pthread_self(), (&(&acl_cache->lock)->m_mutex)->thread)' fails after restarting server with a pre-created role grants # create user user1@localhost;
+ create role r1 with admin user1@localhost;
+ grant all on test.* to r1;
+ flush tables;
+  wait EOF restart EOF  select 1;
+  drop role r1;
+ drop user user1@localhost;
+  

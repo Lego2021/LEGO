@@ -1,0 +1,5 @@
+# Tests for sys schema # Verify the sys.memory_global_total view  # Ensure structure changes don't slip in DESC sys.memory_global_total;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.memory_global_total;
+   # Ensure structure changes don't slip in DESC sys.x$memory_global_total;
+  # Make sure view select does not error, but ignore results SELECT * FROM sys.x$memory_global_total;
+  

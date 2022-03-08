@@ -1,0 +1,11 @@
+# # This test checks that the client gets an error for a BF abort, # specifically when it gets detected inside the wsrep_after_statement hook #   CREATE TABLE t1 (id INT PRIMARY KEY, val INT);
+ INSERT INTO t1 VALUES (1, 1);
+  START TRANSACTION;
+ SET DEBUG_SYNC = 'wsrep_after_statement_enter SIGNAL blocked WAIT_FOR continue';
+  SET DEBUG_SYNC = 'now WAIT_FOR blocked';
+  # cause BF abort on other node UPDATE t1 SET val=3 WHERE id=1;
+  SET DEBUG_SYNC = 'now SIGNAL continue';
+  # check we get BF aborted COMMIT;
+ SET DEBUG_SYNC = 'RESET';
+  DROP TABLE t1;
+ 

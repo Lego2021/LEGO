@@ -1,0 +1,5 @@
+# Tests for PERFORMANCE_SCHEMA   alter table performance_schema.events_transactions_current add column foo integer;
+  truncate table performance_schema.events_transactions_current;
+  ALTER TABLE performance_schema.events_transactions_current ADD INDEX test_index(EVENT_ID);
+  CREATE UNIQUE INDEX test_index ON performance_schema.events_transactions_current(EVENT_ID);
+  
