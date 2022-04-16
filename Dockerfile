@@ -9,15 +9,21 @@ RUN apt -y install git
 
 FROM ubuntu_with_git AS aflpp_src
 RUN git clone https://github.com/AFLplusplus/AFLplusplus.git /root/AFLplusplus
+WORKDIR /root/AFLplusplus
+RUN git checkout tags/4.00c
 
 FROM ubuntu_with_git AS mysql_src
 RUN git clone https://github.com/mysql/mysql-server.git      /root/mysql-server
+WORKDIR /root/mysql-server
+RUN git checkout tags/mysql-8.0.25
 
 FROM ubuntu_with_git AS comdb2_src
 RUN git clone https://github.com/bloomberg/comdb2.git        /root/comdb2
 
 FROM ubuntu_with_git AS mariadb_src
 RUN git clone https://github.com/MariaDB/server.git          /root/mariadb
+WORKDIR /root/mariadb
+RUN git checkout tags/mariadb-10.6.5
 
 FROM ubuntu_with_git AS postgres_src
 RUN git clone https://github.com/postgres/postgres.git       /root/postgres
@@ -159,9 +165,9 @@ RUN CC=clang-12 CXX=clang++-12 LLVM_CONFIG=llvm-config-12 LD=lld-12 make
 
 WORKDIR /root/bld_fast
 RUN CC=/root/AFLplusplus/afl-clang-fast CXX=/root/AFLplusplus/afl-clang-fast++ \
-    cmake ../mysql-server -DWITH_BOOST=../boost
-RUN AFL_USE_ASAN=1 make mysqld -j100
-RUN AFL_USE_ASAN=1 make mysqld install DESTDIR=/root/bin_fast -j100
+    cmake ../mysql-server -DWITH_BOOST=../boost -DWITH_ASAN=1
+RUN make mysqld -j100
+RUN make mysqld install DESTDIR=/root/bin_fast -j100
 RUN cp /root/bin_fast/usr/local/mysql/bin/mysqld /usr/local/mysql/bin/mysqld
 
 RUN apt -y install psmisc
@@ -214,8 +220,8 @@ RUN make install -j100
 
 WORKDIR /root/bld_fast
 RUN CC=/root/AFLplusplus/afl-clang-fast CXX=/root/AFLplusplus/afl-clang-fast++ \
-    cmake ../mariadb
-RUN AFL_USE_ASAN=1 make -j100
+    cmake ../mariadb -DWITH_ASAN=1
+RUN make -j100
 RUN make install DESTDIR=/root/bin_fast -j100
 
 RUN cp /root/bin_fast/usr/local/mysql/bin/mysqld /usr/local/mysql/bin/mysqld
